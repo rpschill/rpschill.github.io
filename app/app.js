@@ -44,7 +44,7 @@
 
                 {
                     title: 'projectr',
-                    url: 'https://rpschill.github.io/projectr-app[',
+                    url: 'https://rpschill.github.io/projectr-app',
                     description: 'Feature-rich project and task management software with integrated timers and robust reporting -- all in the cloud.',
                     subtitle: 'Buit in JavaScript with AngularJS, Angular Material, and Firebase.',
                     imgUrl: 'app/assets/projectr.png'
