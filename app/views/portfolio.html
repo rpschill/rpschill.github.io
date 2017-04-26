@@ -30,7 +30,7 @@
                     <a ng-href="{{ project.url }}" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank"
                         ng-repeat="project in dev.projects" style="padding-bottom: 15px;">
                         <div class="d-flex flex-row justify-content-between">
-                            <img src="{{ project.imgUrl }}">
+                            <img src="{{ project.imgUrl }}" ng-if="project.imgUrl">
                             <div class="d-flex flex-column" style="padding-left: 15px;">
                                 <h4>{{ project.title }}</h4>
                                 <p>{{ project.description }}</p>
@@ -57,7 +57,7 @@
             </ul>
         </div>
         <div style="padding-top: 10px;">
-            <p class="footer-text text-center">&copy 2017 Ryan Schill | Designed by Ryan Schill</p>
+            <p class="footer-text text-center">Copyright &copy 2017 Ryan Schill</p>
         </div>
     </div>
 </div>
