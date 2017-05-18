@@ -11,27 +11,26 @@ body, html {
 
 /* Create a Parallax Effect */
 
-.bgimg-1, .bgimg-2, .bgimg-3 {
+
+/*.bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+}*/
 
 
 /* First image (Logo. Full height) */
 
 .bgimg-1 {
     background-image: url('./assets/SpoonGraphics-Topographic-Map-5.png');
-    min-height: 100%;
 }
 
 
 /* Second image (Portfolio) */
 
 .bgimg-2 {
-    background-image: url("./assets/unsplash_528c8f581f45e_1.JPG");
-    min-height: 400px;
+    background-image: url("./assets/SpoonGraphics-Topographic-Map-2.png");
 }
 
 
@@ -39,11 +38,14 @@ body, html {
 
 .bgimg-3 {
     background-image: url("./assets/SpoonGraphics-Topographic-Map-2.png");
-    min-height: 400px;
 }
 
 .w3-wide {
     letter-spacing: 10px;
+}
+
+.w3-less-wide {
+    letter-spacing: 5px;
 }
 
 .w3-hover-opacity {
@@ -65,4 +67,8 @@ a.portfolio-link {
 
 .w3-text-signal-orange {
     color: #d4652f;
+}
+
+.fp-controlArrow {
+    margin: 0 32px 0 32px;
 }

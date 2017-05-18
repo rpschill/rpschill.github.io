@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css" />
     <link rel="stylesheet" href="style.css">
 
     <body>
 
-        <!-- Navbar (sit on top) -->
         <div class="w3-top">
-            <div class="w3-bar" id="myNavbar">
+            <div class="w3-bar w3-white w3-card-2" id="myNavbar">
                 <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()"
                     title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
@@ -35,230 +35,130 @@
             </div>
         </div>
 
-        <!-- First Parallax Image with Logo Text -->
-        <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-            <div class="w3-display-middle" style="white-space: nowrap;">
-                <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">RYAN SCHILL</span>
-                <span class="w3-padding-large w3-xlarge w3-wide w3-animate-opacity w3-hide-medium w3-hide-small">Writing. Code.</span>
-                <p class="w3-padding-large w3-center w3-xlarge w3-animate-opacity w3-hide-large">Writing. Code.</p>
-            </div>
-        </div>
+        <!-- Fullpage wrapper -->
+        <div id="fullpage">
 
-        <!-- Container (About Section) -->
-        <div class="w3-content w3-container w3-padding-64" id="about">
-            <h3 class="w3-center">ABOUT ME</h3>
-            <p class="w3-center"><em>I love code</em></p>
-            <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <div class="w3-row">
-                <div class="w3-col m6 w3-center w3-padding-large">
-                    <p><b><i class="fa fa-user w3-margin-right"></i>Ryan Schill</b></p><br>
-                    <img src="./assets/r_schill_mugshot.jpg" class="w3-round w3-image w3-opacity-min w3-hover-grayscale" alt="Photo of Me" width="500"
-                        height="333">
+            <!-- Section 1 - Home -->
+            <div class="bgimg-1 section w3-padding-64" data-menuanchor="home">
+                <div class="w3-display-middle" style="white-space: nowrap;">
+                    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">RYAN SCHILL</span>
+                    <span class="w3-padding-large w3-xlarge w3-wide w3-animate-opacity w3-hide-medium w3-hide-small">Writing. Code.</span>
+                    <p class="w3-padding-large w3-center w3-xlarge w3-animate-opacity w3-hide-large">Writing. Code.</p>
                 </div>
+            </div> <!-- End Section 1 - Home -->
 
-                <!-- Hide this text on small devices -->
-                <div class="w3-col m6 w3-hide-small w3-padding-large">
-                    <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                        in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-            </div>
-            <p class="w3-large w3-center w3-padding-16">I'm really good at:</p>
-            <p class="w3-wide"><i class="fa fa-coffee"></i>JavaScript</p>
-            <div class="w3-light-grey">
-                <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
-            </div>
-            <p class="w3-wide"><i class="fa fa-google"></i>AngularJS</p>
-            <div class="w3-light-grey">
-                <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
-            </div>
-            <p class="w3-wide"><i class="fa fa-html5"></i>HTML5/CSS3</p>
-            <div class="w3-light-grey">
-                <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:80%">80%</div>
-            </div>
-            <p class="w3-wide"><i class="fa fa-code"></i>Python</p>
-            <div class="w3-light-grey">
-                <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
-            </div>
-        </div>
+            <!-- Section 2 - About -->
+            <div class="section w3-light-gray" data-menuanchor="about">
 
-
-
-        <!-- Second Parallax Image with Portfolio Text -->
-        <div class="bgimg-2 w3-display-container w3-opacity-min">
-            <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
-            </div>
-        </div>
-
-        <!-- Container (Portfolio Section) -->
-        <div class="w3-container w3-padding-64 w3-black w3-opacity" id="portfolio">
-            <div class="w3-content">
-                <h3 class="w3-center">MY WORK</h3>
-                <p class="w3-center"><em>Projects I've built or contributed to<br> Click on the project to learn more</em></p><br>
-
-                <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-                <div class="w3-row-padding w3-center">
-                    <div class="w3-col m4 portfolio">
-                        <h4>
-                            <a href="portfolio/projectr.html" class="portfolio-link">
-                                projectr
-                            </a>
-                        </h4>
-                        <a href="portfolio/projectr.html">
-                            <img src="./assets/projectr.png" style="width:100%" class="w3-hover-opacity" alt="projectr">
-                        </a>
-                    </div>
-
-                    <div class="w3-col m4 portfolio">
-                        <h4>
-                            <a href="portfolio/pomoderp.html" class="portfolio-link">
-                                pomoderp
-                            </a>
-                        </h4>
-                        <a href="portfolio/pomoderp.html">
-                            <img src="./assets/pomoderp.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="pomoderp">
-                        </a>
-                    </div>
-
-                    <div class="w3-col m4 portfolio">
-                        <h4>calculator</h4>
-                        <img src="./assets/calculator.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="calculator">
-                    </div>
-                    <a href="#" class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal for full size images on click-->
-        <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-            <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-                <img id="img01" class="w3-image">
-                <p id="caption" class="w3-opacity w3-large"></p>
-            </div>
-        </div>
-
-        <!-- Third Parallax Image with Portfolio Text -->
-        <div class="bgimg-3 w3-display-container w3-opacity-min">
-            <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-            </div>
-        </div>
-
-        <!-- Container (Contact Section) -->
-        <div class="w3-content w3-container w3-padding-64" id="contact">
-            <h3 class="w3-center">WHERE I WORK</h3>
-            <p class="w3-center"><em>I'd love your feedback!</em></p>
-
-            <div class="w3-row w3-padding-32 w3-section">
-                <div class="w3-col m4 w3-container">
-                    <!-- Add Google Maps -->
-                    <div id="googleMap" class="w3-round-large" style="width:100%;height:400px;"></div>
-                </div>
-                <div class="w3-col m8 w3-panel">
-                    <div class="w3-large w3-margin-bottom">
-                        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Atlanta, US<br>
-                        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 678.480.6231<br>
-                        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: rpschill@gmail.com<br>
-                    </div>
-                    <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-                    <form action="/action_page.php" target="_blank">
-                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                            <div class="w3-half">
-                                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                <!-- Slide 1 -->
+                <div class="slide" data-anchor="slide1">
+                    <div class="w3-container w3-content w3-padding-64">
+                        <p class="w3-xxlarge w3-wide w3-center">ABOUT ME</p>
+                        <div class="w3-row">
+                            <div class="w3-col m4 w3-padding-top">
+                                <img src="./assets/r_schill_mugshot.jpg" class="w3-round w3-image w3-opacity-min w3-hover-grayscale" alt="Photo of Me" width="500"
+                                    height="333">
                             </div>
-                            <div class="w3-half">
-                                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+
+                            <!-- Hide this text on small devices -->
+                            <div class="w3-col m8 w3-padding">
+                                <p><em>I love code</em></p>
+                                <p><em>I love solving problems</em></p>
+                                <p>I am a front-end web developer, JavaScript developer, and web designer; an award-winning multimedia journalist, editor, and
+                                    designer; an award-winning author of short fiction; and a visual artist concentrating
+                                    in digital sequential art. I bring all of these skills together on every development
+                                    project, resulting in web applications and pages that feature strong SEO, beautiful design,
+                                    and rich user experiences built on a foundation of elegant, performant code.</p>
                             </div>
                         </div>
-                        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-                        <button class="w3-button w3-black w3-right w3-section" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-                    </form>
+                    </div>
+                    
+                </div> <!-- End slide 1 -->
+
+                <!-- Slide 2 - Skills -->
+                <div class="slide" data-anchor="slide2">
+                    <div class="w3-content w3-container w3-padding-64" id="skills">
+                        <h3 class="w3-center">SKILLS</h3>
+                        <p class="w3-large w3-center w3-padding-16">Completely arbitrary metrics:</p>
+                        <p class="w3-less-wide"><i class="fa fa-coffee"></i>JavaScript</p>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
+                        </div>
+                        <p class="w3-less-wide"><i class="fa fa-google"></i>AngularJS/Angular(v2+)</p>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
+                        </div>
+                        <p class="w3-less-wide"><i class="fa fa-html5"></i>HTML5/CSS3</p>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:80%">80%</div>
+                        </div>
+                        <p class="w3-less-wide"><i class="fa fa-code"></i>Python/Django</p>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
+                        </div>
+                    </div>
+                </div> <!-- End Slide 2 - Skills -->
+
+            </div> <!-- End Section 2 - About -->
+
+            <!-- Section 3 - Portfolio -->
+            <!-- Second Parallax Image with Portfolio Text -->
+            <div class="bgimg-2 section w3-text-white" data-menuanchor="portfolio">
+
+                <div class="w3-container w3-content w3-padding-64">
+                    <p class="w3-xxlarge w3-text-white w3-wide w3-center">PORTFOLIO</p>
+                    <h3 class="w3-center">MY WORK</h3>
+                    <p class="w3-center"><em>Projects I've built or contributed to<br> Click on the project to learn more</em></p><br>
+
+                    <!-- Responsive Grid. Three columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+                    <div class="w3-row-padding w3-center">
+                        <div class="w3-col m4 portfolio">
+                            <h4>
+                                <a href="portfolio/projectr.html" class="portfolio-link">
+                                    projectr
+                                </a>
+                            </h4>
+                            <a href="portfolio/projectr.html">
+                                <img src="./assets/projectr.png" style="width:100%" class="w3-hover-opacity" alt="projectr">
+                            </a>
+                        </div>
+
+                        <div class="w3-col m4 portfolio">
+                            <h4>
+                                <a href="portfolio/pomoderp.html" class="portfolio-link">
+                                    pomoDerp
+                                </a>
+                            </h4>
+                            <a href="portfolio/pomoderp.html">
+                                <img src="./assets/pomoderp.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="pomoderp">
+                            </a>
+                        </div>
+
+                        <div class="w3-col m4 portfolio">
+                            <h4>
+                                <a href="portfolio/calculator.html" class="portfolio-link">
+                                    Calculator
+                                </a>
+                            </h4>
+                            <a href="portfolio/calculator.html">
+                                <img src="./assets/calculator.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="calculator">
+                            </a>
+                        </div>
+                        <a href="#" class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</a>
+                    </div>
                 </div>
-            </div>
+
+            </div> <!-- End Section 3 - Portfolio -->
+
         </div>
 
-        <!-- Footer -->
-        <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-            <div class="w3-xlarge w3-section">
-                <i class="fa fa-facebook-official w3-hover-opacity"></i>
-                <i class="fa fa-instagram w3-hover-opacity"></i>
-                <i class="fa fa-snapchat w3-hover-opacity"></i>
-                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-                <i class="fa fa-twitter w3-hover-opacity"></i>
-                <i class="fa fa-linkedin w3-hover-opacity"></i>
-            </div>
-            <p>Copyright &copy 2017 by Ryan Schill | Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-        </footer>
+            <!-- Add jQuery -->
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                crossorigin="anonymous"></script>
+            <!-- Add fullpage.js via CDN -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
 
-        
-
-        <!-- Add Google Maps -->
-        <script>
-            function myMap() {
-                    myCenter = new google.maps.LatLng( 33.7490, -84.3880 );
-                    var mapOptions = {
-                        center: myCenter,
-                        zoom: 12, scrollwheel: false, draggable: false,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
-                    var map = new google.maps.Map( document.getElementById( "googleMap" ), mapOptions );
-
-                    var marker = new google.maps.Marker( {
-                        position: myCenter,
-                    } );
-                    marker.setMap( map );
-                }
-
-                // Modal Image Gallery
-                function onClick( element ) {
-                    document.getElementById( "img01" ).src = element.src;
-                    document.getElementById( "modal01" ).style.display = "block";
-                    var captionText = document.getElementById( "caption" );
-                    captionText.innerHTML = element.alt;
-                }
-
-                // Change style of navbar on scroll
-                window.onscroll = function () { myFunction() };
-                function myFunction() {
-                    var navbar = document.getElementById( "myNavbar" );
-                    if ( document.body.scrollTop > 100 || document.documentElement.scrollTop > 100 ) {
-                        navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-white";
-                    } else {
-                        navbar.className = navbar.className.replace( " w3-card-2 w3-animate-top w3-white", "" );
-                    }
-                }
-
-                // Used to toggle the menu on small screens when clicking on the menu button
-                function toggleFunction() {
-                    var x = document.getElementById( "navDemo" );
-                    if ( x.className.indexOf( "w3-show" ) == -1 ) {
-                        x.className += " w3-show";
-                    } else {
-                        x.className = x.className.replace( " w3-show", "" );
-                    }
-                }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAKmo6nUrqq8HWtVOt6gyc6-09q7Oy1K0&callback=myMap"></script>
-        <!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
-
+            <script src="app.js"></script>
     </body>
 
 </html>
