@@ -1,14 +1,13 @@
 $( document ).ready( function () {
-    $( '#fullpage' ).fullpage( {
-        navigation: true,
-        slidesNavigation: true,
-        anchors: [
-            'home',
-            'about',
-            'portfolio'
-        ],
-        menu: '#myNavbar',
-        controlArrows: true,
-        verticalCentered: false
+    
+    /**
+     *
+     * Toggle mobile nav
+     *
+     */
+
+    $( '.menuToggle' ).click( function () {
+        $( '#mobileNav' ).toggleClass( 'w3-show' );
     } );
+
 } );

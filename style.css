@@ -12,18 +12,19 @@ body, html {
 /* Create a Parallax Effect */
 
 
-/*.bgimg-1, .bgimg-2, .bgimg-3 {
+.bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}*/
+}
 
 
 /* First image (Logo. Full height) */
 
 .bgimg-1 {
-    background-image: url('./assets/SpoonGraphics-Topographic-Map-5.png');
+    background-image: url('./assets/feet_up.jpg');
+    min-height: 100%;
 }
 
 
@@ -31,6 +32,7 @@ body, html {
 
 .bgimg-2 {
     background-image: url("./assets/SpoonGraphics-Topographic-Map-2.png");
+    min-height: 400px;
 }
 
 
@@ -38,6 +40,7 @@ body, html {
 
 .bgimg-3 {
     background-image: url("./assets/SpoonGraphics-Topographic-Map-2.png");
+    min-height: 400px;
 }
 
 .w3-wide {
@@ -67,8 +70,4 @@ a.portfolio-link {
 
 .w3-text-signal-orange {
     color: #d4652f;
-}
-
-.fp-controlArrow {
-    margin: 0 32px 0 32px;
 }
