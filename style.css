@@ -11,7 +11,6 @@ body, html {
 
 /* Create a Parallax Effect */
 
-
 .bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: fixed;
     background-position: center;
@@ -31,7 +30,7 @@ body, html {
 /* Second image (Portfolio) */
 
 .bgimg-2 {
-    background-image: url("./assets/SpoonGraphics-Topographic-Map-2.png");
+    background-image: url("./assets/SpoonGraphics-Topographic-Map-5.png");
     min-height: 400px;
 }
 
@@ -70,4 +69,12 @@ a.portfolio-link {
 
 .w3-text-signal-orange {
     color: #d4652f;
+}
+
+.w3-text-highway-green {
+    color: #004d33;
+}
+
+.w3-text-highway-blue {
+    color: #00477e;
 }

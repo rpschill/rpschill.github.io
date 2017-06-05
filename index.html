@@ -12,14 +12,14 @@
     <body>
 
         <div class="w3-top">
-            <div class="w3-bar" id="myNavbar">
-                <a class="w3-bar-item w3-button w3-black w3-hide-medium w3-hide-large w3-right menuToggle" title="Toggle Navigation Menu">
+            <div class="w3-bar w3-white w3-opacity-min" id="myNavbar">
+                <a class="w3-bar-item w3-button w3-black w3-text-white w3-hide-medium w3-hide-large w3-right menuToggle" id="menuToggle" title="Toggle Navigation Menu">
                     <i class="fa fa-bars"></i>
                 </a>
-                <a data-menuanchor="home" class="w3-bar-item w3-hover-white w3-text-white w3-black w3- w3-button w3-hide-small">RYAN SCHILL</a>
-                <a href="#contact" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-white"><i class="fa fa-envelope"></i> CONTACT</a>
-                <a href="#portfolio" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-white"><i class="fa fa-th"></i> PORTFOLIO</a>
-                <a href="#about" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-white"><i class="fa fa-user"></i> ABOUT</a>
+                <a href="#home" class="w3-bar-item w3-hover-white w3-text-white w3-black w3-hide-small w3-button" id="navTitle">RYAN SCHILL</a>
+                <a href="#contact" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-black"><i class="fa fa-envelope"></i> CONTACT</a>
+                <a href="#portfolio" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-black"><i class="fa fa-th"></i> PORTFOLIO</a>
+                <a href="#about" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-black"><i class="fa fa-user"></i> ABOUT</a>
             </div>
 
             <!-- Navbar on small screens -->
@@ -42,65 +42,88 @@
         <!-- End Section 1 - Home -->
 
         <!-- Section 2 - About -->
-        <div class="section w3-light-gray" data-menuanchor="about">
+        <div class="w3-light-gray" style="padding-bottom: 96px;" data-menuanchor="about">
 
-            <!-- Slide 1 -->
-            <div class="slide" data-anchor="slide1">
-                <div class="w3-container w3-content w3-padding-64">
-                    <p class="w3-xxlarge w3-wide w3-center">ABOUT ME</p>
-                    <div class="w3-row">
-                        <div class="w3-col m4 w3-padding-top">
-                            <img src="./assets/r_schill_mugshot.jpg" class="w3-round w3-image w3-opacity-min w3-hover-grayscale" alt="Photo of Me" width="500"
-                                height="333">
-                        </div>
+            <div class="w3-container w3-content w3-padding-64">
+                <p class="w3-xxlarge w3-wide w3-center">ABOUT ME</p>
+                <div class="w3-row">
+                    <div class="w3-col m4 w3-padding-top">
+                        <img src="./assets/r_schill_mugshot.jpg" class="w3-round w3-image w3-opacity-min w3-hover-grayscale" alt="Photo of Me" width="500"
+                            height="333">
+                    </div>
 
-                        <!-- Hide this text on small devices -->
-                        <div class="w3-col m8 w3-padding">
-                            <p><em>I love code</em></p>
-                            <p><em>I love solving problems</em></p>
-                            <p>I am a front-end web developer, JavaScript developer, and web designer; an award-winning multimedia
-                                journalist, editor, and designer; an award-winning author of short fiction; and a visual
-                                artist concentrating in digital sequential art. I bring all of these skills together on every
-                                development project, resulting in web applications and pages that feature strong SEO, beautiful
-                                design, and rich user experiences built on a foundation of elegant, performant code.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- End slide 1 -->
-
-            <!-- Slide 2 - Skills -->
-            <div class="slide" data-anchor="slide2">
-                <div class="w3-content w3-container w3-padding-64" id="skills">
-                    <h3 class="w3-center">SKILLS</h3>
-                    <p class="w3-large w3-center w3-padding-16">Completely arbitrary metrics:</p>
-                    <p class="w3-less-wide"><i class="fa fa-coffee"></i>JavaScript</p>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
-                    </div>
-                    <p class="w3-less-wide"><i class="fa fa-google"></i>AngularJS/Angular(v2+)</p>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
-                    </div>
-                    <p class="w3-less-wide"><i class="fa fa-html5"></i>HTML5/CSS3</p>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:80%">80%</div>
-                    </div>
-                    <p class="w3-less-wide"><i class="fa fa-code"></i>Python/Django</p>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
+                    <!-- Hide this text on small devices -->
+                    <div class="w3-col m8 w3-padding">
+                        <p><em>I <i class="fa fa-heart w3-padding"></i> code</em></p>
+                        <p><em>I <i class="fa fa-heart w3-padding"></i> solving problems</em></p>
+                        <p>I am a front-end web developer, JavaScript developer, and web designer; an award-winning multimedia
+                            journalist, editor, and designer; an award-winning author of short fiction; and a visual
+                            artist concentrating in digital sequential art. I bring all of these skills together on every
+                            development project, resulting in web applications and pages that feature strong SEO, beautiful
+                            design, and rich user experiences built on a foundation of elegant, performant code.</p>
                     </div>
                 </div>
             </div>
-            <!-- End Slide 2 - Skills -->
 
         </div>
         <!-- End Section 2 - About -->
 
-        <!-- Section 3 - Portfolio -->
-        <!-- Second Parallax Image with Portfolio Text -->
-        <div class="bgimg-2 w3-text-white" data-menuanchor="portfolio">
+        <!-- Section 3 - Skills -->
+        <!-- Second Parallax Image -->
+        <div class="bgimg-2 w3-text-black" style="padding-bottom: 96px;" data-anchor="skills">
+            <div class="w3-content w3-container w3-padding-64">
+                <p class="w3-xxxlarge w3-wide w3-center">SKILLS</p>
+                
+                <p class="w3-less-wide"><i class="fa fa-coffee"></i>JavaScript</p>
+                <div class="w3-light-grey">
+                    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
+                </div>
+                <p class="w3-less-wide"><i class="fa fa-google"></i>AngularJS/Angular(v2+)</p>
+                <div class="w3-light-grey">
+                    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
+                </div>
+                <p class="w3-less-wide"><i class="fa fa-html5"></i>HTML5/CSS3</p>
+                <div class="w3-light-grey">
+                    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:80%">80%</div>
+                </div>
+                <p class="w3-less-wide"><i class="fa fa-code"></i>Python/Django</p>
+                <div class="w3-light-grey">
+                    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
+                </div>
+            </div>
+        </div>
+        <!-- End Section 3 - Skills -->
+
+        <!-- Section 4 - Social -->
+        <div class="w3-sand w3-text-black" style="padding: 12px 64px 64px 64px;" data-anchor="social">
+            <div class="w3-container">
+                <p class="w3-xxlarge w3-wide w3-center">CONNECT</p>
+            </div>
+            <div class="w3-container">
+                <div class="w3-bar" style="max-width: 450px; margin: 0 auto 0 auto;">
+                    <a class="w3-bar-item w3-button w3-hover-sand w3-text-highway-blue" href="https://twitter.com/rpschill" target="_blank" style="width: 33.3%"><i class="fa fa-twitter-square fa-5x"></i></a>
+                    <a class="w3-bar-item w3-button w3-hover-sand w3-text-highway-blue" href="https://www.linkedin.com/in/rpschill/" target="_blank" style="width: 33.3%"><i class="fa fa-linkedin-square fa-5x"></i></a>
+                    <a class="w3-bar-item w3-button w3-hover-sand w3-text-highway-blue" href="https://github.com/rpschill" target="_blank" style="width: 33.3%"><i class="fa fa-github-square fa-5x"></i></a>
+                </div>
+
+                <!--<div class="w3-row" style="padding: 0 200px 0 200px;">
+                    <div class="w3-col m4 l4 w3-center">
+                        <a href="https://twitter.com/rpschill" class="w3-button" target="_blank"><i class="fa fa-twitter-square fa-5x"></i></a>
+                    </div>
+                    <div class="w3-col m4 l4 w3-center">
+                        <a href="https://www.linkedin.com/in/rpschill/" class="w3-button" target="_blank"><i class="fa fa-linkedin-square fa-5x"></i></a>
+                    </div>
+                    <div class="w3-col m4 l4 w3-center">
+                        <a href="https://github.com/rpschill" class="w3-button" target="_blank"><i class="fa fa-github-square fa-5x"></i></a>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        <!-- End Section 4 - Social -->
+
+        <!-- Section 5 - Portfolio -->
+        <!-- Third paralax image -->
+        <div class=" bgimg-3 w3-text-white" style="padding-bottom: 96px;" data-menuanchor="portfolio">
 
             <div class="w3-container w3-content w3-padding-64">
                 <p class="w3-xxlarge w3-text-white w3-wide w3-center">PORTFOLIO</p>
@@ -146,22 +169,20 @@
             </div>
 
         </div>
-        <!-- End Section 3 - Portfolio -->
+        <!-- End Section 5 - Portfolio -->
 
         <!-- Footer section -->
         <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
             <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-            <div class="w3-xlarge w3-section">
-                <i class="fa fa-twitter w3-hover-opacity"></i>
-                <i class="fa fa-linkedin w3-hover-opacity"></i>
-            </div>
-            <p>Copyright &copy; 2017 Ryan Schill | Design by Ryan Schill</p>
+            
+            <p style="padding-top: 16px;">Copyright &copy; 2017 Ryan Schill</p>
         </footer>
+        <!-- End Footer section -->
 
-        <!-- Add jQuery -->
+        <!-- Load jQuery -->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
-        <!-- Add fullpage.js via CDN -->
+        <!-- Load fullpage.js via CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
 
         <script src="app.js"></script>
