@@ -9,6 +9,13 @@ body, html {
 }
 
 
+/* Remove blue border on focus */
+
+:focus {
+    outline: none;
+}
+
+
 /* Create a Parallax Effect */
 
 .bgimg-1, .bgimg-2, .bgimg-3 {
@@ -77,4 +84,14 @@ a.portfolio-link {
 
 .w3-text-highway-blue {
     color: #00477e;
+}
+
+
+/* Animate charts when wrapper element enters viewport */
+
+#hGraph95,
+#jsGraph90,
+#ngGraph85,
+#pyGraph80 {
+    transition: all 0.9s ease-in-out;
 }
