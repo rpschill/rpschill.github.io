@@ -29,10 +29,9 @@ $(function() {
                 $( "#menuToggle" ).removeClass("w3-opacity-min").addClass( "w3-black" );
             }
         } else {
-            navbar.className = navbar.className.replace( " w3-card-2 w3-animate-top", " w3-opacity-min" );
             if ( $( window ).width() <= 768 ) {
+                navbar.className = navbar.className.replace( " w3-card-2 w3-animate-top", " w3-opacity-min" );
                 $( "#navTitle" ).addClass( "w3-hide-small" );
-                $( "#menuToggle" ).addClass("w3-opacity-min").removeClass("w3-black")
             }
         }
     }
