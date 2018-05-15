@@ -95,3 +95,25 @@ a.portfolio-link {
 #pyGraph80 {
     transition: all 0.9s ease-in-out;
 }
+
+.portfolio-filter {
+    width: auto;
+}
+
+#portfolio-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.portfolio {
+    width: 500px;
+    height: auto;
+    margin: auto;
+    padding: 6px;
+}
+
+.portfolio img {
+    width: 100%;
+    height: auto;
+}
