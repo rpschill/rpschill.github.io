@@ -147,10 +147,15 @@ $(function () {
      *
      */
 
-    var $portfolioContent = $('.portfolio-content');
+    var $portfolioFilter = $('.portfolio-filter');
+    var $portfolioWrapper = $('#portfolio-wrapper');
+    var $portfolio = $('.portfolio');
 
     $(window).scroll(function () {
-        $portfolioContent.isInViewport().addClass('animated fadeInUp');
+        
+        $portfolioFilter.isInViewport().addClass('animated fadeInDown');
+        $portfolioWrapper.isInViewport().addClass('animated fadeInUp');
+        $portfolio.isInViewport().addClass('animated fadeInUp');
     });
 
     /**
@@ -196,24 +201,35 @@ $(function () {
 
     }
 
+    function removeActiveButton () {
+        return $('.active-button').each(function () {
+            $(this).removeClass('active-button');
+        });
+    }
+
     allButton.click(function () {
+        removeActiveButton();
+        $(this).addClass('active-button');
         return filterPortfolio('portfolio');
     });
 
     webAppsButton.click(function () {
+        removeActiveButton();
+        $(this).addClass('active-button');
         return filterPortfolio('webapps');
     });
 
     websitesButton.click(function () {
+        removeActiveButton();
+        $(this).addClass('active-button');
         return filterPortfolio('websites');
     });
 
     adsButton.click(function () {
+        removeActiveButton();
+        $(this).addClass('active-button');
         return filterPortfolio('advertisements');
     });
-
-
-
 
 
     /**
@@ -224,7 +240,7 @@ $(function () {
 
     var portfolioContent = [
         {
-            'name': 'Dewars Responsive Advertisment',
+            'name': 'Dewars',
             'url': 'http://specless.io/view_623?ad=djl8RX',
             'imgSrc': './assets/dewars.png',
             'type': 'advertisements',
@@ -233,7 +249,7 @@ $(function () {
             'textColor': 'white'
         },
         {
-            'name': "Future Man Responsive Advertisement",
+            'name': "Hulu Future Man",
             'url': 'http://specless.io/view_623?ad=Phsae1',
             'imgSrc': './assets/future_man.gif',
             'type': 'advertisements',
@@ -251,7 +267,7 @@ $(function () {
             'textColor': 'white'
         },
         {
-            'name': 'Altice Interactive Ad',
+            'name': 'Altice Interactive Game',
             'url': 'http://specless.io/view_623?ad=gZex0u&height=415&width=970&tagId=0ZLw1qLG7R',
             'imgSrc': './assets/space_invaders.gif',
             'type': 'advertisements',
@@ -260,7 +276,7 @@ $(function () {
             'textColor': 'white'
         },
         {
-            'name': 'projectr',
+            'name': 'projectr - task management',
             'url': '/projectr/',
             'imgSrc': './assets/projectr.png',
             'type': 'webapps',
@@ -287,7 +303,7 @@ $(function () {
             'textColor': 'black'
         },
         {
-            'name': 'PomoDerp',
+            'name': 'PomoDerp Timer',
             'url': '/pomoderp/',
             'imgSrc': './assets/pomoderp.png',
             'type': 'webapps',
@@ -322,6 +338,8 @@ $(function () {
     }
 
     function buildPortfolioItem (item) {
+        var lower = item.type;
+        var upper = lower.charAt(0).toUpperCase() + lower.substr(1, lower.length - 1);
         var onclick = "";
         var onclickStatus = checkForOnClick(item.type);
 
@@ -329,9 +347,13 @@ $(function () {
             onclick = 'onclick="onClick(this)"';
         }
 
-        return `<div class="portfolio w3-display-container ${item.type}">
+        return `<div class="portfolio w3-animate-zoom ${item.type}">
                 <a href="${item.url}">
-                    <img src="${item.imgSrc}" ${onclick} class="w3-hover-opacity w3-image" alt="${item.name}">
+                    <img src="${item.imgSrc}" ${onclick} class="w3-image w3-opacity" alt="${item.name}">
+                    <div class="w3-container w3-light-gray portfolio-card">
+                        <p class="w3-large">${item.name} | ${item.year}</p>
+                        <p>${upper}</p>
+                    </div>
                 </a>
         </div>`;
     }
@@ -351,5 +373,23 @@ $(function () {
     }
 
     buildPortfolio();
+
+    /**
+     * 
+     * Toggle portfolio item opacity effect on hover
+     * 
+     */
+
+    var portfolioItem = $('.portfolio img.w3-image');
+    portfolioItem.hover(
+        function () {
+            $(this).removeClass('w3-opacity');
+            // $(this, 'div.portfolio-card').addClass('hover');
+        },
+        function () {
+            $(this).addClass('w3-opacity');
+            // $(this, 'div.portfolio-card').removeClass('hover');
+        }
+    );
 
 });
