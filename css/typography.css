@@ -1,0 +1,309 @@
+/* =============================================================
+   typography.css — Type System
+   ryanschill.co
+
+   Fonts:
+     Display:  Playfair Display (serif) — journalism, editorial character
+     Body:     Source Serif 4 (serif)   — readable, warm, long-form
+     Mono:     DM Mono                  — code, labels, eyebrows
+     (All loaded via Google Fonts in <head>)
+
+   Scale: Uses fluid clamp values from tokens.css
+   ============================================================= */
+
+
+/* =============================================================
+   FONT FAMILY TOKENS
+   ============================================================= */
+
+:root {
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'Source Serif 4', Georgia, serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+}
+
+
+/* =============================================================
+   BASE BODY TYPOGRAPHY
+   ============================================================= */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--scale-md);
+  font-weight: 400;
+  line-height: var(--prose-line-height);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  font-optical-sizing: auto;
+}
+
+
+/* =============================================================
+   HEADINGS
+   ============================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--scale-4xl); line-height: 1.05; letter-spacing: -0.03em; }
+h2 { font-size: var(--scale-3xl); line-height: 1.1;  letter-spacing: -0.025em; }
+h3 { font-size: var(--scale-2xl); line-height: 1.2;  letter-spacing: -0.02em; }
+h4 { font-size: var(--scale-xl);  line-height: 1.3;  letter-spacing: -0.01em; }
+h5 { font-size: var(--scale-lg);  line-height: 1.4;  font-weight: 600; }
+h6 { font-size: var(--scale-md);  line-height: 1.5;  font-weight: 600; }
+
+/* Display variant — for hero headlines */
+.type-display {
+  font-family: var(--font-display);
+  font-size: var(--scale-4xl);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+}
+
+/* Eyebrow — small label above headings (uses mono) */
+.type-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hero-eyebrow-color);
+  display: block;
+}
+
+/* Section label — decorative rule+text combo */
+.type-label {
+  font-family: var(--font-mono);
+  font-size: var(--scale-2xs);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.type-label::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Lead / intro text */
+.type-lead {
+  font-family: var(--font-body);
+  font-size: var(--scale-xl);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  letter-spacing: -0.01em;
+}
+
+/* Caption */
+.type-caption {
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Italic emphasis — inherits display font for elegance */
+em {
+  font-style: italic;
+}
+
+/* Strong */
+strong {
+  font-weight: 700;
+}
+
+
+/* =============================================================
+   INLINE TEXT
+   ============================================================= */
+
+/* Code */
+code:not(pre code) {
+  font-family: var(--code-font, var(--font-mono));
+  font-size: 0.875em;
+  background: var(--code-bg);
+  color: var(--code-color);
+  padding: 0.1em 0.35em;
+  border-radius: var(--code-radius);
+  white-space: nowrap;
+}
+
+/* Abbreviations */
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* Mark / highlight */
+mark {
+  background: var(--ember-800);
+  color: var(--ember-200);
+  padding: 0.05em 0.2em;
+  border-radius: 2px;
+}
+
+/* Keyboard shortcut */
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  padding: 0.15em 0.4em;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-subtle);
+}
+
+
+/* =============================================================
+   LINKS
+   ============================================================= */
+
+a {
+  color: var(--link-color);
+  text-underline-offset: 3px;
+  transition:
+    color var(--duration-fast) var(--ease-out-expo),
+    text-decoration-color var(--duration-fast) var(--ease-out-expo);
+}
+
+a:hover {
+  color: var(--link-color-hover);
+}
+
+/* Body text links — underlined */
+p a,
+li a,
+.prose a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--link-color) 40%, transparent);
+}
+
+p a:hover,
+li a:hover,
+.prose a:hover {
+  text-decoration-color: var(--link-color-hover);
+}
+
+
+/* =============================================================
+   PROSE CONTEXT
+   Long-form reading styles applied via .prose wrapper.
+   ============================================================= */
+
+.prose {
+  max-width: var(--prose-max-width);
+  color: var(--prose-color);
+  line-height: var(--prose-line-height);
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-4);
+}
+
+.prose p {
+  margin-bottom: var(--space-6);
+}
+
+.prose p + p {
+  /* Use indent instead of margin for a more editorial feel */
+  text-indent: 1.5em;
+  margin-top: calc(var(--space-6) * -0.5);
+}
+
+/* Prose: first paragraph after heading — no indent */
+.prose h2 + p,
+.prose h3 + p,
+.prose h4 + p,
+.prose .no-indent {
+  text-indent: 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.prose li {
+  margin-bottom: var(--space-2);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-8) 0;
+  background: var(--color-bg-subtle);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  font-size: var(--scale-lg);
+  color: var(--color-text-secondary);
+}
+
+.prose blockquote cite {
+  display: block;
+  margin-top: var(--space-3);
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  color: var(--color-text-muted);
+}
+
+.prose hr {
+  margin: var(--space-12) auto;
+  width: 3rem;
+  border-top: 2px solid var(--color-accent);
+  opacity: 0.4;
+}
+
+.prose figure {
+  margin: var(--space-8) 0;
+}
+
+.prose figcaption {
+  margin-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.prose pre {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  overflow-x: auto;
+  margin: var(--space-8) 0;
+  font-size: var(--scale-sm);
+}
+
+.prose code {
+  font-size: var(--scale-sm);
+}
+
+
+/* =============================================================
+   SELECTION
+   ============================================================= */
+
+::selection {
+  background: var(--ember-400);
+  color: #ffffff;
+}

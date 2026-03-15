@@ -1,0 +1,290 @@
+/* =============================================================
+   tokens.css — Design Token System
+   ryanschill.co
+
+   Architecture:
+     Layer 1 — Primitive values  (raw palette, raw scale)
+     Layer 2 — Semantic tokens   (what a value MEANS)
+     Layer 3 — Component tokens  (what a value does IN CONTEXT)
+
+   Rule: Component CSS references Layer 2/3 only.
+         Never reference a Layer 1 primitive directly in
+         component rules — only in Layer 2/3 definitions.
+   ============================================================= */
+
+
+/* =============================================================
+   LAYER 1: PRIMITIVES
+   ============================================================= */
+
+:root {
+
+  /* --- Neutrals (Ink scale: 100=darkest, 950=lightest) --- */
+  --ink-100: #0F0F0F;
+  --ink-200: #1A1A1A;
+  --ink-300: #2C2C2A;
+  --ink-400: #444441;
+  --ink-500: #5F5E5A;
+  --ink-600: #888780;
+  --ink-700: #B4B2A9;
+  --ink-800: #D3D1C7;
+  --ink-900: #EDEBE4;
+  --ink-950: #FAF8F5;
+
+  /* --- Ember — primary accent (warm orange-red) --- */
+  --ember-100: #4A1B0C;
+  --ember-200: #712B13;
+  --ember-300: #993C1D;
+  --ember-400: #D85A30;
+  --ember-500: #E07050;
+  --ember-600: #F0997B;
+  --ember-700: #F5C4B3;
+  --ember-800: #FAECE7;
+
+  /* --- Vert — secondary accent (technical/code, teal-green) --- */
+  --vert-100: #04342C;
+  --vert-200: #085041;
+  --vert-300: #0F6E56;
+  --vert-400: #1D9E75;
+  --vert-500: #3DB88A;
+  --vert-600: #5DCAA5;
+  --vert-700: #9FE1CB;
+  --vert-800: #E1F5EE;
+
+  /* --- Terracotta — writing/creative accent --- */
+  --terra-100: #3D1A0A;
+  --terra-200: #6B2D13;
+  --terra-300: #A0441E;
+  --terra-400: #C96035;
+  --terra-500: #D97A52;
+  --terra-600: #E89878;
+  --terra-700: #F2BFA8;
+  --terra-800: #FAE8DF;
+
+  /* --- Fluid type scale (clamp: mobile → desktop) --- */
+  --scale-2xs: clamp(0.64rem,  0.60rem + 0.18vw, 0.75rem);
+  --scale-xs:  clamp(0.75rem,  0.70rem + 0.26vw, 0.875rem);
+  --scale-sm:  clamp(0.875rem, 0.83rem + 0.22vw, 1rem);
+  --scale-md:  clamp(1rem,     0.95rem + 0.26vw, 1.125rem);
+  --scale-lg:  clamp(1.125rem, 1.04rem + 0.43vw, 1.375rem);
+  --scale-xl:  clamp(1.375rem, 1.20rem + 0.87vw, 1.875rem);
+  --scale-2xl: clamp(1.875rem, 1.55rem + 1.65vw, 2.75rem);
+  --scale-3xl: clamp(2.5rem,   1.95rem + 2.78vw, 4.25rem);
+  --scale-4xl: clamp(3.5rem,   2.50rem + 5.00vw, 6.5rem);
+
+  /* --- Spacing scale (base-4, rem) --- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Border radius --- */
+  --radius-sm:   3px;
+  --radius-md:   6px;
+  --radius-lg:   12px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  /* --- Z-index layers --- */
+  --z-below:   -1;
+  --z-base:     0;
+  --z-raised:   10;
+  --z-overlay:  100;
+  --z-modal:    200;
+  --z-top:      300;
+
+  /* --- Motion --- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast:   120ms;
+  --duration-base:   220ms;
+  --duration-slow:   400ms;
+  --duration-slower: 700ms;
+}
+
+
+/* =============================================================
+   LAYER 2: SEMANTIC TOKENS — LIGHT MODE (default)
+   Maps primitives to intent/meaning.
+   ============================================================= */
+
+:root {
+
+  /* Text */
+  --color-text-primary:    var(--ink-100);
+  --color-text-secondary:  var(--ink-500);
+  --color-text-tertiary:   var(--ink-600);
+  --color-text-inverse:    var(--ink-950);
+  --color-text-accent:     var(--ember-400);
+  --color-text-accent-alt: var(--vert-300);
+  --color-text-muted:      var(--ink-600);
+  --color-text-disabled:   var(--ink-700);
+
+  /* Background */
+  --color-bg-base:        var(--ink-950);
+  --color-bg-surface:     #FFFFFF;
+  --color-bg-elevated:    #FFFFFF;
+  --color-bg-subtle:      var(--ink-900);
+  --color-bg-inverse:     var(--ink-100);
+  --color-bg-accent:      var(--ember-800);
+  --color-bg-accent-alt:  var(--vert-800);
+  --color-bg-writing:     var(--terra-800);
+
+  /* Border */
+  --color-border-subtle:  var(--ink-900);
+  --color-border-default: var(--ink-800);
+  --color-border-strong:  var(--ink-700);
+  --color-border-accent:  var(--ember-400);
+
+  /* Brand */
+  --color-accent:           var(--ember-400);
+  --color-accent-hover:     var(--ember-300);
+  --color-accent-subtle:    var(--ember-800);
+  --color-accent-text:      var(--ember-300);
+  --color-secondary:        var(--vert-400);
+  --color-secondary-hover:  var(--vert-300);
+  --color-secondary-subtle: var(--vert-800);
+  --color-writing:          var(--terra-400);
+  --color-writing-subtle:   var(--terra-800);
+
+  /* Focus */
+  --focus-ring: 0 0 0 3px var(--ink-950), 0 0 0 5px var(--ember-400);
+}
+
+
+/* =============================================================
+   LAYER 2: SEMANTIC TOKENS — DARK MODE
+   ============================================================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+
+    /* Text */
+    --color-text-primary:    var(--ink-950);
+    --color-text-secondary:  var(--ink-700);
+    --color-text-tertiary:   var(--ink-600);
+    --color-text-inverse:    var(--ink-100);
+    --color-text-accent:     var(--ember-600);
+    --color-text-accent-alt: var(--vert-600);
+    --color-text-muted:      var(--ink-600);
+    --color-text-disabled:   var(--ink-500);
+
+    /* Background */
+    --color-bg-base:        var(--ink-200);
+    --color-bg-surface:     var(--ink-300);
+    --color-bg-elevated:    var(--ink-400);
+    --color-bg-subtle:      var(--ink-300);
+    --color-bg-inverse:     var(--ink-950);
+    --color-bg-accent:      var(--ember-100);
+    --color-bg-accent-alt:  var(--vert-100);
+    --color-bg-writing:     var(--terra-100);
+
+    /* Border */
+    --color-border-subtle:  var(--ink-400);
+    --color-border-default: var(--ink-500);
+    --color-border-strong:  var(--ink-600);
+    --color-border-accent:  var(--ember-500);
+
+    /* Brand */
+    --color-accent:           var(--ember-500);
+    --color-accent-hover:     var(--ember-600);
+    --color-accent-subtle:    var(--ember-100);
+    --color-accent-text:      var(--ember-600);
+    --color-secondary:        var(--vert-500);
+    --color-secondary-hover:  var(--vert-600);
+    --color-secondary-subtle: var(--vert-100);
+    --color-writing:          var(--terra-500);
+    --color-writing-subtle:   var(--terra-100);
+
+    /* Focus */
+    --focus-ring: 0 0 0 3px var(--ink-200), 0 0 0 5px var(--ember-500);
+  }
+}
+
+
+/* =============================================================
+   LAYER 3: COMPONENT TOKENS
+   Context-specific aliases consumed directly by component CSS.
+   ============================================================= */
+
+:root {
+
+  /* Layout */
+  --container-max:   1200px;
+  --container-prose: 680px;
+  --container-wide:  1440px;
+  --gutter:          clamp(1.25rem, 4vw, 2.5rem);
+
+  /* Navigation */
+  --nav-height:       64px;
+  --nav-bg:           var(--color-bg-base);
+  --nav-text:         var(--color-text-secondary);
+  --nav-text-active:  var(--color-text-primary);
+  --nav-border:       var(--color-border-subtle);
+  --nav-logo-color:   var(--color-accent);
+
+  /* Hero */
+  --hero-display-color: var(--color-text-primary);
+  --hero-accent-color:  var(--color-accent);
+  --hero-sub-color:     var(--color-text-secondary);
+  --hero-eyebrow-color: var(--color-accent);
+
+  /* Cards */
+  --card-bg:           var(--color-bg-surface);
+  --card-border:       var(--color-border-subtle);
+  --card-border-hover: var(--color-border-default);
+  --card-radius:       var(--radius-lg);
+  --card-padding:      var(--space-6);
+  --card-shadow:       0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.06);
+
+  /* Buttons */
+  --btn-primary-bg:       var(--color-accent);
+  --btn-primary-bg-hover: var(--color-accent-hover);
+  --btn-primary-text:     #FFFFFF;
+  --btn-outline-border:   var(--color-accent);
+  --btn-outline-text:     var(--color-accent);
+  --btn-outline-bg-hover: var(--color-accent-subtle);
+  --btn-radius:           var(--radius-md);
+  --btn-padding:          0.65em 1.5em;
+  --btn-font-size:        var(--scale-sm);
+
+  /* Links */
+  --link-color:       var(--color-accent);
+  --link-color-hover: var(--color-accent-hover);
+
+  /* Code */
+  --code-bg:     var(--color-bg-accent-alt);
+  --code-color:  var(--color-text-accent-alt);
+  --code-radius: var(--radius-sm);
+
+  /* Tags / Badges */
+  --tag-bg:             var(--color-bg-subtle);
+  --tag-color:          var(--color-text-secondary);
+  --tag-border:         var(--color-border-subtle);
+  --tag-tech-bg:        var(--color-bg-accent-alt);
+  --tag-tech-color:     var(--color-text-accent-alt);
+  --tag-writing-bg:     var(--color-writing-subtle);
+  --tag-writing-color:  var(--color-writing);
+
+  /* Decorative */
+  --mark-color: var(--color-accent);
+  --rule-color: var(--color-border-subtle);
+
+  /* Prose / Reading */
+  --prose-line-height:   1.85;
+  --prose-color:         var(--color-text-primary);
+  --prose-heading-color: var(--color-text-primary);
+  --prose-link-color:    var(--color-accent);
+  --prose-max-width:     var(--container-prose);
+}

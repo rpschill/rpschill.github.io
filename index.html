@@ -1,186 +1,456 @@
 <!DOCTYPE html>
-<html>
-    <title>Ryan Schill | Web Developer</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Raleway|Playfair+Display">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
-    <link rel="stylesheet" href="style.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ryan Schill — Senior front-end engineer, author, and artist. Code, prose, and images — all made with craft.">
+  <meta name="author" content="Ryan Schill">
 
-    <body>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ryan Schill — Crafted code. Crafted prose. Crafted images.">
+  <meta property="og:description" content="Senior front-end engineer specializing in Angular and TypeScript. Award-winning journalist. Author. Visual artist.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ryanschill.co">
 
-        <div class="w3-top">
-            <div class="w3-bar w3-white w3-opacity-min" id="myNavbar">
-                <a class="w3-bar-item w3-button w3-black w3-text-white w3-hide-medium w3-hide-large w3-right menuToggle" id="menuToggle" title="Toggle Navigation Menu">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <a href="#home" class="w3-bar-item w3-hover-white w3-text-white w3-black w3-hide-small w3-button" id="navTitle">RYAN SCHILL</a>
-                <a href="#connect" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-black"><i class="fa fa-envelope"></i> CONNECT</a>
-                <a href="#portfolio" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-black"><i class="fa fa-th"></i> PORTFOLIO</a>
-                <a href="#skills" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-black"><i class="fa fa-check"></i> SKILLS</a>
-                <a href="#about" class="nav-item w3-bar-item w3-button w3-hide-small w3-right w3-hover-black w3-text-black"><i class="fa fa-user"></i> ABOUT</a>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@rpschill">
+  <meta name="twitter:title" content="Ryan Schill — Front-End Engineer">
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="canonical" href="https://ryanschill.co/">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <title>Ryan Schill — Front-End Engineer</title>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- =====================================================
+       SITE HEADER
+       ===================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container nav-inner">
+
+      <a href="/" class="nav-logo" aria-label="Ryan Schill — Home">RS</a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button
+          class="theme-toggle"
+          aria-label="Switch to dark mode"
+          title="Toggle theme"
+          onclick="window.toggleTheme()"
+        >
+          <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+            <!-- Sun icon -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="2.93" y1="2.93" x2="4.34" y2="4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="11.66" y1="11.66" x2="13.07" y2="13.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="2.93" y1="13.07" x2="4.34" y2="11.66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="11.66" y1="4.34" x2="13.07" y2="2.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+            <!-- Moon icon -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.5 10A6 6 0 0 1 6 2.5a6 6 0 1 0 7.5 7.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          aria-label="Open menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
+  <main id="main-content" class="site-main" tabindex="-1">
+
+
+    <!-- ===================================================
+         HERO
+         =================================================== -->
+    <section class="hero section section--lg" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero__inner">
+
+          <div class="hero__content">
+            <span class="type-eyebrow">Front-end engineer · Author · Artist</span>
+
+            <h1 id="hero-heading" class="hero__headline">
+              Crafted
+              <span
+                class="hero__rotator"
+                id="hero-rotator"
+                aria-label="code, prose, and images"
+              >
+                <!-- JS renders the animated words -->
+                <!-- Fallback for no-JS / reduced-motion: static text -->
+                <span class="hero__rotator-fallback">code, prose &amp; images.</span>
+              </span>
+            </h1>
+
+            <p class="hero__sub">
+              Code, writing, and art — all made with the same
+              intention, the same eye, the same standard.
+            </p>
+
+            <div class="hero__actions">
+              <a href="/work/" class="btn btn--primary btn--arrow btn--lg">View my work</a>
+              <a href="/writing/" class="btn btn--outline btn--lg">Read my writing</a>
             </div>
 
-            <!-- Navbar on small screens -->
-            <div id="mobileNav" class="w3-bar-block w3-black w3-text-white w3-hide w3-hide-large w3-hide-medium">
-                <a href="#about" class="w3-bar-item w3-button menuToggle">ABOUT</a>
-                <a href="#skills" class="w3-bar-item w3-button menuToggle">SKILLS</a>
-                <a href="#portfolio" class="w3-bar-item w3-button menuToggle">PORTFOLIO</a>
-                <a href="#connect" class="w3-bar-item w3-button menuToggle">CONNECT</a>
+            <div class="hero__meta">
+              <span class="tag tag--tech">Angular</span>
+              <span class="tag tag--tech">TypeScript</span>
+              <span class="tag tag--tech">AI-assisted dev</span>
+              <span class="tag tag--tech">10+ years</span>
             </div>
+          </div>
+
+          <div class="hero__photo" aria-hidden="true">
+            <div class="hero__photo-frame">
+              <img
+                src="/img/headshot.jpg"
+                alt="Ryan Schill"
+                width="480"
+                height="600"
+                loading="eager"
+                fetchpriority="high"
+              >
+            </div>
+            <div class="hero__photo-deco" aria-hidden="true"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         FEATURED WORK
+         =================================================== -->
+    <section class="section section--tinted" aria-labelledby="work-heading">
+      <div class="container">
+
+        <header class="section-header">
+          <span class="type-label">Selected work</span>
+          <h2 id="work-heading">Things I've built.</h2>
+        </header>
+
+        <div class="grid-portfolio" role="list">
+
+          <!-- Card 1: AI-assisted project (featured / large) -->
+          <article class="card card-project card--featured card--lift reveal-up" role="listitem">
+            <div class="card-project__media">
+              <img
+                src="/img/project-portfolio.jpg"
+                alt="Screenshot of ryanschill.co redesign"
+                width="800"
+                height="450"
+                loading="lazy"
+              >
+              <span class="card-project__ai-badge">AI-assisted build</span>
+            </div>
+            <div class="card-project__body">
+              <p class="card-project__eyebrow">Personal project · 2025</p>
+              <h3 class="card-project__title">This website</h3>
+              <p class="card-project__desc">
+                A complete redesign and rebuild of my personal site — 
+                built in collaboration with Claude. Vanilla HTML, CSS, and JavaScript. 
+                No framework, no build step. The process is documented.
+              </p>
+              <div class="card-project__footer">
+                <div class="tags">
+                  <span class="tag tag--tech">HTML</span>
+                  <span class="tag tag--tech">CSS</span>
+                  <span class="tag tag--tech">JavaScript</span>
+                  <span class="tag tag--tech">Claude</span>
+                </div>
+                <a href="/work/portfolio/" class="btn btn--ghost btn--arrow btn--sm">Case study</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Personal/side project -->
+          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: 100ms">
+            <div class="card-project__media">
+              <img
+                src="/img/project-placeholder.jpg"
+                alt="Project screenshot"
+                width="600"
+                height="338"
+                loading="lazy"
+              >
+            </div>
+            <div class="card-project__body">
+              <p class="card-project__eyebrow">Side project · 2024</p>
+              <h3 class="card-project__title">Coming soon</h3>
+              <p class="card-project__desc">
+                Details for your side project go here. Replace this with 
+                a 2–3 sentence description of what you built, why, and what 
+                it does.
+              </p>
+              <div class="card-project__footer">
+                <div class="tags">
+                  <span class="tag tag--tech">Angular</span>
+                  <span class="tag tag--tech">TypeScript</span>
+                </div>
+                <a href="/work/" class="btn btn--ghost btn--arrow btn--sm">View project</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Journalism / writing-adjacent -->
+          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: 200ms">
+            <div class="card-project__media card-project__media--writing">
+              <div class="card-project__media-text" aria-hidden="true">
+                <span>Juvenile</span>
+                <span>Justice</span>
+                <span>Information</span>
+                <span>Exchange</span>
+              </div>
+            </div>
+            <div class="card-project__body">
+              <p class="card-project__eyebrow">Journalism · 2013–2016</p>
+              <h3 class="card-project__title">Center for Sustainable Journalism</h3>
+              <p class="card-project__desc">
+                Managing Editor of Digital News Operations. Award-winning 
+                coverage of juvenile justice and child welfare. Where I learned 
+                that every story — in code or prose — needs a strong structure.
+              </p>
+              <div class="card-project__footer">
+                <div class="tags">
+                  <span class="tag tag--writing">Journalism</span>
+                  <span class="tag tag--writing">Editing</span>
+                  <span class="tag tag--writing">Digital strategy</span>
+                </div>
+                <a href="/writing/" class="btn btn--ghost btn--arrow btn--sm">Read the work</a>
+              </div>
+            </div>
+          </article>
+
         </div>
 
-            <!-- Section 1 - Home -->
-            <a name="#home"></a>
-            <div class="bgimg-1 w3-padding-64" id="home">
-                <div class="w3-display-middle" style="white-space: nowrap;" id="home-text">
-                    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">RYAN SCHILL</span>
-                    <span class="w3-padding-large w3-xlarge w3-wide w3-text-black w3-animate-opacity w3-hide-medium w3-hide-small">Writing. Code.</span>
-                    <p class="w3-padding-large w3-center w3-xlarge w3-text-black w3-animate-opacity w3-hide-large">Writing. Code.</p>
-                </div>
-            </div>
-            <!-- End Section 1 - Home -->
+        <div class="section-footer">
+          <a href="/work/" class="btn btn--outline btn--arrow">All projects</a>
+        </div>
 
-            <!-- Section 2 - About -->
-            <a name="#about"></a>
-            <div class="w3-light-gray" style="padding-bottom: 96px;" id="about">
+      </div>
+    </section>
 
-                <div class="w3-container w3-content w3-padding-64">
-                    <p class="w3-xxlarge w3-wide w3-center">ABOUT ME</p>
-                    <div class="w3-row" id="about-content">
-                        <div class="w3-col m4 w3-padding-top">
-                            <img src="./assets/r_schill_mugshot.jpg" class="w3-round w3-image w3-opacity-min w3-hover-grayscale" alt="Photo of Me" width="500"
-                                height="333">
-                        </div>
 
-                        <!-- Hide this text on small devices -->
-                        <div class="w3-col m8 w3-padding">
-                            <p><em>I <i class="fa fa-heart w3-padding"></i> code</em></p>
-                            <p><em>I <i class="fa fa-heart w3-padding"></i> solving problems</em></p>
-                            <p>I am a front-end web developer, JavaScript developer, and web designer; an award-winning multimedia
-                                journalist, editor, and designer; an award-winning author of short fiction; and a visual
-                                artist concentrating in digital sequential art. I bring all of these skills together on every
-                                development project, resulting in web applications and pages that feature strong SEO, beautiful
-                                design, and rich user experiences built on a foundation of elegant, performant code.</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- ===================================================
+         WRITING TEASER
+         =================================================== -->
+    <section class="section" aria-labelledby="writing-heading">
+      <div class="container">
 
-            </div>
-            <!-- End Section 2 - About -->
+        <header class="section-header section-header--split">
+          <div>
+            <span class="type-label">From the blog</span>
+            <h2 id="writing-heading">Recent writing.</h2>
+          </div>
+          <a href="/writing/" class="btn btn--ghost btn--arrow">All posts</a>
+        </header>
 
-            <!-- Section 3 - Skills -->
-            <!-- Second Parallax Image -->
-            <a name="#skills"></a>
-            <div class="bgimg-2 w3-text-black" style="padding-bottom: 96px;" id="skills">
-                <div class="w3-content w3-container w3-padding-64">
-                    <p class="w3-xxxlarge w3-wide w3-center">SKILLS</p>
+        <div class="grid-writing">
 
-                    <p class="w3-less-wide"><i class="fa fa-html5"></i>HTML5/CSS3</p>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-padding-small w3-dark-grey w3-center animate-graph" id="hGraph95">95%</div>
-                    </div>
-                    <p class="w3-less-wide"><i class="fa fa-coffee"></i>JavaScript</p>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-padding-small w3-dark-grey w3-center animate-graph" id="jsGraph90">90%</div>
-                    </div>
-                    <p class="w3-less-wide"><i class="fa fa-google"></i>AngularJS/Angular(v2+)</p>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-padding-small w3-dark-grey w3-center animate-graph" id="ngGraph85">85%</div>
-                    </div>
-                    <p class="w3-less-wide"><i class="fa fa-code"></i>Python/Django</p>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-padding-small w3-dark-grey w3-center animate-graph" id="pyGraph80">80%</div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Section 3 - Skills -->
+          <article class="card card-writing card--lift reveal-up">
+            <p class="card-writing__meta">
+              <time datetime="2025-03-01">March 2025</time>
+              <span class="card-writing__cat">AI &amp; Development</span>
+            </p>
+            <h3 class="card-writing__title">
+              <a href="/writing/building-with-claude/">Building a website with Claude: what I learned about AI-assisted development</a>
+            </h3>
+            <p class="card-writing__excerpt">
+              I rebuilt my personal site in collaboration with an AI. Here's what that process actually looked like — where the AI helped, where it fell short, and what it taught me about my own craft.
+            </p>
+            <a href="/writing/building-with-claude/" class="card-writing__link">
+              Read <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-            <!-- Section 4 - Social -->
-            <a name="#connect"></a>
-            <div class="w3-sand w3-text-black" style="padding: 12px 32px 64px 32px;" id="connect">
-                <div class="w3-container">
-                    <p class="w3-xxlarge w3-wide w3-center">CONNECT</p>
-                </div>
-                <div class="w3-container w3-center">
-                    <div class="w3-bar" style="max-width: 450px; margin: 0 auto 0 auto;" id="social-icons">
-                        <a class="w3-bar-item w3-button w3-hover-sand w3-text-highway-blue w3-image" href="https://twitter.com/rpschill" target="_blank" style="padding: 8px 4px;"><i class="fa fa-twitter-square fa-5x"></i></a>
-                        <a class="w3-bar-item w3-button w3-hover-sand w3-text-highway-blue w3-image" href="https://www.linkedin.com/in/rpschill/" target="_blank" style="padding: 8px 4px;"><i class="fa fa-linkedin-square fa-5x"></i></a>
-                        <a class="w3-bar-item w3-button w3-hover-sand w3-text-highway-blue w3-image" href="https://github.com/rpschill" target="_blank" style="padding: 8px 4px;"><i class="fa fa-github-square fa-5x"></i></a>
-                    </div>
+          <article class="card card-writing card--lift reveal-up" style="--reveal-delay: 100ms">
+            <p class="card-writing__meta">
+              <time datetime="2025-01-15">January 2025</time>
+              <span class="card-writing__cat">Front-end</span>
+            </p>
+            <h3 class="card-writing__title">
+              <a href="/writing/">CSS scroll-driven animations: a practical guide</a>
+            </h3>
+            <p class="card-writing__excerpt">
+              The new animation-timeline API lets you tie animations directly to scroll position — no JavaScript required. Here's how I used it on this site, and when it makes sense to reach for it.
+            </p>
+            <a href="/writing/" class="card-writing__link">
+              Read <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-                </div>
-            </div>
-            <!-- End Section 4 - Social -->
+          <article class="card card-writing card--lift reveal-up" style="--reveal-delay: 200ms">
+            <p class="card-writing__meta">
+              <time datetime="2024-11-08">November 2024</time>
+              <span class="card-writing__cat">Craft</span>
+            </p>
+            <h3 class="card-writing__title">
+              <a href="/writing/">What journalism taught me about writing code</a>
+            </h3>
+            <p class="card-writing__excerpt">
+              An inverted pyramid. A story that earns every word. A reader who won't wait. Turns out the principles of good journalism map surprisingly well to the principles of good software.
+            </p>
+            <a href="/writing/" class="card-writing__link">
+              Read <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-            <!-- Section 5 - Portfolio -->
-            <!-- Third paralax image -->
-            <a name="#portfolio"></a>
-            <div class=" bgimg-3 w3-text-white" style="padding-bottom: 96px;" id="portfolio">
+        </div>
 
-                <div class="w3-container w3-padding-64">
-                    <p class="w3-xxlarge w3-text-white w3-wide w3-center">PORTFOLIO</p>
-                    <h3 class="w3-center">MY WORK</h3>
-                    <p class="w3-center"><em>Projects I've built or contributed to<br> Click on the project to learn more</em></p><br>
+      </div>
+    </section>
 
-                    <!-- Responsive Grid. Three columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
 
-                    <div class="w3-bar w3-margin w3-row-padding w3-margin-right portfolio-filter">
-                        <button class="w3-bar-item w3-button active-button"
-                                id="all">All</button>
-                        <button class="w3-bar-item w3-button"
-                                id="webapps">Web Apps</button>
-                        <button class="w3-bar-item w3-button"
-                                id="websites">Websites</button>
-                        <button class="w3-bar-item w3-button" id="advertisements">Advertisements</button>
-                    </div>
+    <!-- ===================================================
+         ABOUT STRIP
+         =================================================== -->
+    <section class="section section--inverse about-strip" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-strip__inner">
 
-                    <div id="portfolio-wrapper">
-                        
-                    </div>
-                </div>
+          <div class="about-strip__photo">
+            <img
+              src="/img/headshot.jpg"
+              alt="Ryan Schill"
+              width="320"
+              height="400"
+              loading="lazy"
+            >
+          </div>
 
-            </div>
-            <!-- End Section 5 - Portfolio -->
+          <div class="about-strip__content">
+            <span class="type-label" style="--mark-color: var(--ember-600)">About</span>
+            <h2 id="about-heading">I'm Ryan.</h2>
+            <p class="type-lead" style="color: var(--ink-700); margin-bottom: var(--space-6);">
+              Senior front-end engineer by day. Author and artist by night. Journalist by training.
+            </p>
+            <p style="color: var(--ink-700); margin-bottom: var(--space-8); line-height: 1.8; font-size: var(--scale-md);">
+              I've spent a decade building front-end applications at companies like IBM, ADP, Vanguard, and NBCUniversal. Before that, I spent a decade writing — covering juvenile justice, editing digital news, publishing fiction, and creating visual art and comics journalism. The two careers look different. The craft is the same.
+            </p>
+            <a href="/about/" class="btn btn--outline" style="--btn-outline-border: var(--ink-600); --btn-outline-text: var(--ink-900); --btn-outline-bg-hover: rgba(255,255,255,0.08);">
+              Full story →
+            </a>
+          </div>
 
-        <!-- Footer section -->
-        <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-            
-            <p id="copyright" style="padding-top: 16px;"></p>
-        </footer>
-        <!-- End Footer section -->
+        </div>
+      </div>
+    </section>
 
-        <!-- Google Analytics Tracking ID -->
-        <script>
-            ( function ( i, s, o, g, r, a, m ) {
-            i[ 'GoogleAnalyticsObject' ] = r; i[ r ] = i[ r ] || function () {
-                ( i[ r ].q = i[ r ].q || [] ).push( arguments )
-            }, i[ r ].l = 1 * new Date(); a = s.createElement( o ),
-                m = s.getElementsByTagName( o )[ 0 ]; a.async = 1; a.src = g; m.parentNode.insertBefore( a, m )
-            } )( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
 
-            ga( 'create', 'UA-100692870-1', 'auto' );
-            ga( 'send', 'pageview' );
+    <!-- ===================================================
+         CONTACT CTA
+         =================================================== -->
+    <section class="section contact-cta" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-cta__inner">
+          <div class="contact-cta__deco" aria-hidden="true">&amp;</div>
+          <div class="contact-cta__content">
+            <span class="type-label">Get in touch</span>
+            <h2 id="contact-heading">Let's make something worth making.</h2>
+            <p style="color: var(--color-text-secondary); max-width: 44ch; margin-bottom: var(--space-8); font-size: var(--scale-md); line-height: 1.7;">
+              Open to full-time roles, freelance projects, and conversations about craft. Whether you need a senior front-end engineer or a developer who can also write your documentation — I'm interested.
+            </p>
+            <a href="/contact/" class="btn btn--primary btn--arrow btn--lg">Start a conversation</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        </script>
 
-        <!-- Load jQuery -->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-        
-        <!-- Load fullpage.js via CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+  </main>
 
-        <!-- Load is-in-viewport via CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/is-in-viewport/3.0.0/isInViewport.min.js"></script>
 
-        <script src="app.js"></script>
-    </body>
+  <!-- =====================================================
+       SITE FOOTER
+       ===================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
 
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">Ryan Schill</a>
+        <p class="footer__tagline">Crafted code. Crafted prose. Crafted images.</p>
+        <p class="footer__credit">
+          Built with AI-assisted development.
+          <a href="/about/#process">See how →</a>
+        </p>
+        <p class="footer__copy">
+          &copy; <span id="footer-year"></span> Ryan Schill
+        </p>
+      </div>
+
+      <nav aria-label="Footer navigation" class="footer__nav">
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Work</p>
+          <ul role="list">
+            <li><a href="/work/">Projects</a></li>
+            <li><a href="/resume/">Résumé</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Writing</p>
+          <ul role="list">
+            <li><a href="/writing/">Blog</a></li>
+            <li><a href="/writing/#journalism">Journalism</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Connect</p>
+          <ul role="list">
+            <li><a href="https://github.com/rpschill" rel="noopener">GitHub</a></li>
+            <li><a href="https://dev.to/rpschill" rel="noopener">DEV</a></li>
+            <li><a href="https://linkedin.com/in/rpschill" rel="noopener">LinkedIn</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+  <script src="/js/main.js" defer></script>
+
+</body>
 </html>
