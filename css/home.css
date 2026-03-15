@@ -364,17 +364,36 @@
   aspect-ratio: 4 / 5;
 }
 
+/* Duotone: grayscale base + ember multiply overlay */
 .about-strip__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 10%;
-  filter: grayscale(100%) contrast(1.1);
+  object-position: center 20%;
+  filter: grayscale(100%) contrast(1.1) brightness(0.85);
+  display: block;
   transition: filter var(--duration-slow) var(--ease-out-expo);
 }
 
+/* Ember color overlay via pseudo-element + multiply blend */
+.about-strip__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ember-600);
+  mix-blend-mode: multiply;
+  border-radius: var(--radius-xl);
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-out-expo);
+}
+
+/* Hover: reveal the original color photo */
 .about-strip__photo:hover img {
-  filter: grayscale(30%) contrast(1.05);
+  filter: grayscale(0%) contrast(1) brightness(1);
+}
+
+.about-strip__photo:hover::after {
+  opacity: 0;
 }
 
 .about-strip__content .type-label {

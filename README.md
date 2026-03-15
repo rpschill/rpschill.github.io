@@ -139,3 +139,16 @@ Deploy: push to `master` branch → GitHub Pages auto-deploys to `ryanschill.co`
 This site was built using Claude as a development collaborator. The process is documented on the [About page](/about/#process).
 
 Tools used: Claude Sonnet 4.6 via claude.ai.
+
+---
+
+## Images
+
+Place these files in `/img/` before deploying:
+
+| File | Source | Usage | CSS treatment |
+|------|--------|-------|---------------|
+| `headshot.jpg` | IMG_4398 (B&W, looking up) | Hero section | `grayscale(15%) contrast(1.05)` — light desaturation |
+| `headshot-color.jpg` | IMG_5616 (color, direct gaze) | About strip | Ember duotone via `grayscale(100%) contrast(1.1) brightness(0.85)` + `::after` pseudo with `mix-blend-mode: multiply` in `--ember-400`. Hover reveals full color. |
+
+Both treatments are pure CSS. Drop the originals in as-is, no image editing needed.

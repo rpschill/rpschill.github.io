@@ -103,12 +103,15 @@ const Headline = (() => {
       s.style.position = 'static';
       s.style.opacity  = '1';
     });
-    const max = Math.max(...spans.map(s => s.offsetWidth));
+    const maxWidth = Math.max(...spans.map(s => s.offsetWidth));
+    const height = spans[0].offsetHeight;
     spans.forEach(s => {
       s.style.position = 'absolute';
       s.style.opacity  = '0';
     });
-    rotator.style.minWidth = max + 'px';
+    rotator.style.minWidth = maxWidth + 'px';
+    rotator.style.height = height + 'px';
+    rotator.style.overflow = 'hidden';
     // Set rotator height to match a single word
     rotator.style.display     = 'inline-block';
     rotator.style.position    = 'relative';
