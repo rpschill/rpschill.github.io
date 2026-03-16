@@ -109,10 +109,6 @@ const Headline = (() => {
       s.style.opacity  = '0';
     });
     rotator.style.minWidth = max + 'px';
-    // Set rotator height to match a single word
-    rotator.style.display     = 'inline-block';
-    rotator.style.position    = 'relative';
-    rotator.style.verticalAlign = 'baseline';
   };
 
   let current  = 0;

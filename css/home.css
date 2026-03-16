@@ -101,6 +101,11 @@
   font-style: italic;
   /* Width set dynamically by JS to widest word */
   min-width: 4ch;
+  /* Explicit height keeps this element in document flow so nothing
+     below it collapses up — 1.05 matches the headline line-height */
+  height: 1.05em;
+  vertical-align: bottom;
+  overflow: visible;
 }
 
 .hero__rotator-word {
