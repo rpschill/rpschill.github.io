@@ -280,38 +280,7 @@
   z-index: var(--z-raised);
 }
 
-/* Writing-adjacent card: typographic media treatment */
-.card-project__media--writing {
-  background: var(--ink-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8);
-}
 
-[data-theme="dark"] .card-project__media--writing,
-@media (prefers-color-scheme: dark) {
-  :not([data-theme="light"]) .card-project__media--writing {
-    background: var(--ink-300);
-  }
-}
-
-.card-project__media-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--ink-950);
-  opacity: 0.18;
-}
-
-.card-project__media-text span {
-  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-}
 
 /* Staggered reveal delays via CSS custom property */
 .reveal-up {
@@ -352,7 +321,7 @@
 
 .about-strip__inner {
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 360px 1fr;
   gap: var(--space-16);
   align-items: center;
 }
@@ -361,16 +330,18 @@
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  /* Square crop preserves the full image including its film borders */
+  aspect-ratio: 1 / 1;
 }
 
 /* Duotone: grayscale base + ember multiply overlay */
 .about-strip__photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  filter: grayscale(100%) contrast(1.1) brightness(0.85);
+  object-fit: contain;
+  /* contain instead of cover — keeps the full image and white border visible */
+  background: var(--ink-300);
+  filter: grayscale(100%) contrast(1.15) brightness(0.8);
   display: block;
   transition: filter var(--duration-slow) var(--ease-out-expo);
 }
@@ -380,16 +351,16 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--ember-600);
+  background: var(--ember-400);
   mix-blend-mode: multiply;
   border-radius: var(--radius-xl);
   pointer-events: none;
   transition: opacity var(--duration-slow) var(--ease-out-expo);
 }
 
-/* Hover: reveal the original color photo */
+/* Hover: fade out the duotone, reveal original grain */
 .about-strip__photo:hover img {
-  filter: grayscale(0%) contrast(1) brightness(1);
+  filter: grayscale(100%) contrast(1.15) brightness(0.95);
 }
 
 .about-strip__photo:hover::after {
