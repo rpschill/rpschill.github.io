@@ -103,22 +103,21 @@ const Headline = (() => {
       s.style.position = 'static';
       s.style.opacity  = '1';
     });
-    const maxWidth = Math.max(...spans.map(s => s.offsetWidth));
-    const height = spans[0].offsetHeight;
+    const max = Math.max(...spans.map(s => s.offsetWidth));
     spans.forEach(s => {
       s.style.position = 'absolute';
       s.style.opacity  = '0';
     });
-    rotator.style.minWidth = maxWidth + 'px';
-    rotator.style.height = height + 'px';
-    rotator.style.overflow = 'hidden';
+    rotator.style.minWidth = max + 'px';
     // Set rotator height to match a single word
     rotator.style.display     = 'inline-block';
     rotator.style.position    = 'relative';
     rotator.style.verticalAlign = 'baseline';
   };
 
-  let current = 0;
+  let current  = 0;
+  let timer    = null;
+  let anims    = []; // track in-flight animations so we can cancel them
 
   const easing     = 'cubic-bezier(0.16, 1, 0.3, 1)';
   const exitFrames  = [
@@ -131,32 +130,67 @@ const Headline = (() => {
   ];
   const opts = { duration: DURATION, easing, fill: 'forwards' };
 
-  const step = () => {
-    const next = (current + 1) % WORDS.length;
-    const curEl  = spans[current];
-    const nextEl = spans[next];
+  // Force all spans to a clean known state — only `index` is visible
+  const reset = (index) => {
+    // Cancel any animations still running
+    anims.forEach(a => { try { a.cancel(); } catch (_) {} });
+    anims = [];
+    spans.forEach((s, i) => {
+      s.style.opacity   = i === index ? '1' : '0';
+      s.style.transform = 'translateY(0)';
+    });
+    current = index;
+  };
 
-    // Exit current word
+  const step = () => {
+    const next    = (current + 1) % WORDS.length;
+    const curEl   = spans[current];
+    const nextEl  = spans[next];
+
+    // Defensively ensure only current word is showing before we animate
+    spans.forEach((s, i) => {
+      if (i !== current) s.style.opacity = '0';
+    });
+
     const exitAnim = curEl.animate(exitFrames, opts);
+    anims.push(exitAnim);
 
     exitAnim.onfinish = () => {
       curEl.style.opacity = '0';
-      // Enter next word
       nextEl.style.opacity = '0';
       const enterAnim = nextEl.animate(enterFrames, opts);
+      anims.push(enterAnim);
       enterAnim.onfinish = () => {
         nextEl.style.opacity = '1';
+        anims = anims.filter(a => a !== enterAnim);
+        // Schedule next step only after this transition fully completes
+        timer = setTimeout(step, HOLD);
       };
+      anims = anims.filter(a => a !== exitAnim);
     };
 
     current = next;
   };
 
+  // Page Visibility API — reset cleanly when tab regains focus
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      // Tab hidden: cancel timer and any running animations immediately
+      clearTimeout(timer);
+      anims.forEach(a => { try { a.cancel(); } catch (_) {} });
+      anims = [];
+    } else {
+      // Tab visible again: snap to a clean state and restart
+      reset(current);
+      timer = setTimeout(step, HOLD);
+    }
+  });
+
   // Kick off
   const init = () => {
     setWidth();
-    spans[0].style.opacity = '1';
-    setInterval(step, HOLD);
+    reset(0);
+    timer = setTimeout(step, HOLD);
   };
 
   // Wait for fonts so width measurement is accurate
