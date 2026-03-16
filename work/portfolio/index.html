@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case study: rebuilding ryanschill.co with AI-assisted development — Ryan Schill">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="canonical" href="https://ryanschill.co/work/portfolio/">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/work.css">
+  <title>This website — Ryan Schill</title>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Ryan Schill — Home">RS</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Switch to dark mode" title="Toggle theme" onclick="window.toggleTheme()">
+          <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4.34" y2="4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="11.66" x2="13.07" y2="13.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="13.07" x2="4.34" y2="11.66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="4.34" x2="13.07" y2="2.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 10A6 6 0 0 1 6 2.5a6 6 0 1 0 7.5 7.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="site-main" tabindex="-1">
+
+    <!-- CASE STUDY HEADER -->
+    <header class="case-header section">
+      <div class="container">
+        <nav class="case-breadcrumb" aria-label="Breadcrumb">
+          <a href="/work/">← Work</a>
+        </nav>
+        <div class="case-header__inner">
+          <div class="case-header__content">
+            <span class="type-eyebrow">Personal project · 2025</span>
+            <h1 class="case-header__title">This website</h1>
+            <p class="case-header__lead">
+              A ten-year-old codebase, a blank page, and an AI. 
+              What happened when I stopped directing and started collaborating.
+            </p>
+          </div>
+          <dl class="case-meta">
+            <div class="case-meta__item">
+              <dt>Role</dt>
+              <dd>Designer, developer</dd>
+            </div>
+            <div class="case-meta__item">
+              <dt>Stack</dt>
+              <dd>HTML, CSS, JavaScript</dd>
+            </div>
+            <div class="case-meta__item">
+              <dt>AI collaborator</dt>
+              <dd>Claude (Anthropic)</dd>
+            </div>
+            <div class="case-meta__item">
+              <dt>Hosted</dt>
+              <dd>GitHub Pages</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="case-hero-image">
+      <div class="container">
+        <img
+          src="/img/project-portfolio.png"
+          alt="Screenshot of ryanschill.co"
+          width="1200"
+          height="675"
+          loading="eager"
+        >
+      </div>
+    </div>
+
+    <!-- CASE STUDY BODY -->
+    <article class="case-body section article-content">
+      <div class="container-prose">
+
+        <section class="case-section">
+          <span class="type-label">The problem</span>
+          <h2>Ten years is a long time in front-end development.</h2>
+          <div class="prose">
+            <p>
+              My original site was built in 2015 with jQuery and vanilla JavaScript. 
+              There was nothing technically wrong with it — it worked, it loaded, it 
+              represented me. But it looked exactly like what it was: a site built 
+              ten years ago by someone who was still learning.
+            </p>
+            <p>
+              I'd spent the intervening decade building complex front-end applications 
+              at IBM, ADP, Vanguard, and NBCUniversal. I knew CSS Grid, custom properties, 
+              fluid type scales, scroll-driven animations, the View Transitions API. 
+              My site showed none of that. It was a résumé that undersold the person 
+              it was supposed to represent.
+            </p>
+            <p>
+              I had two goals going in: build something that actually demonstrated where 
+              my skills are now, and do it entirely with AI-assisted development — from 
+              concept to execution — to see what that process was really like.
+            </p>
+          </div>
+        </section>
+
+        <section class="case-section">
+          <span class="type-label">The process</span>
+          <h2>I expected to direct. Instead, we collaborated.</h2>
+          <div class="prose">
+            <p>
+              Going into it, I assumed the dynamic would be straightforward: I'd explain 
+              what I wanted, the AI would generate code, I'd review and correct it. 
+              I'd be the manager, it would be the executor.
+            </p>
+            <p>
+              That's not what happened. What emerged instead was something closer to a 
+              genuine creative partnership — workshopping headline concepts across three 
+              rounds of iteration, debating color palettes, thinking through information 
+              architecture together. The AI pushed back on ideas that weren't working. 
+              I pushed back on ideas the AI suggested. We arrived at things neither of 
+              us would have landed on alone.
+            </p>
+            <p>
+              The animated headline — "Crafted <em>code.</em>" cycling through 
+              "code," "prose," and "images" — came out of exactly that kind of back-and-forth. 
+              It started as three static lines, became a repetition structure, then became 
+              a single line with the rotating word when I realized the repetition was 
+              cluttered but the concept was right.
+            </p>
+            <p>
+              What the AI couldn't do was supply the content. The personal history, 
+              the career narrative, the specific details that make a portfolio feel like 
+              a person rather than a template — that all had to come from me. But it 
+              turned out to be a surprisingly useful thought partner for the design and 
+              engineering decisions.
+            </p>
+          </div>
+        </section>
+
+        <section class="case-section">
+          <span class="type-label">Technical approach</span>
+          <h2>No framework. No build step. Just the platform.</h2>
+          <div class="prose">
+            <p>
+              The stack is intentionally minimal: vanilla HTML, CSS, and JavaScript, 
+              deployed to GitHub Pages. No React, no bundler, no compilation step. 
+              This was a deliberate choice — I wanted to demonstrate CSS mastery, 
+              and the best way to do that is to let the CSS do the work.
+            </p>
+            <p>
+              The CSS architecture uses a three-layer token system: primitive values 
+              (raw palette, raw scale), semantic tokens (what a value means), and 
+              component tokens (what a value does in context). Components reference 
+              only the semantic and component layers — never a primitive directly. 
+              This means dark mode, theming, and future changes all flow from a single 
+              source of truth.
+            </p>
+            <p>
+              Some specific things worth examining in the source:
+            </p>
+            <ul>
+              <li>Fluid type scale using <code>clamp()</code> — zero media queries for typography</li>
+              <li>Scroll-driven animations via <code>animation-timeline: view()</code>, progressively enhanced</li>
+              <li>View Transitions API for cross-page fades — one line of CSS</li>
+              <li>The animated headline uses the Web Animations API with a Page Visibility reset to handle tab-switching correctly</li>
+              <li>Dark mode via <code>prefers-color-scheme</code> with a user-toggleable override persisted to <code>localStorage</code></li>
+              <li>A custom cursor implemented with <code>requestAnimationFrame</code> lerp — only on fine-pointer devices</li>
+            </ul>
+            <p>
+              The source code is public on GitHub. The README documents the full CSS 
+              architecture and every technique used.
+            </p>
+          </div>
+        </section>
+
+        <div class="case-links">
+          <a href="https://github.com/rpschill/rpschill.github.io" rel="noopener" class="btn btn--primary btn--arrow">
+            View source on GitHub
+          </a>
+          <a href="/work/" class="btn btn--ghost">
+            ← All work
+          </a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- NEXT PROJECT -->
+    <nav class="case-next section section--tinted" aria-label="Next project">
+      <div class="container">
+        <span class="type-label">Next</span>
+        <a href="/work/projectr/" class="case-next__link">
+          <span class="case-next__title"><span style="text-transform:none">projectr</span></span>
+          <span class="case-next__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">Ryan Schill</a>
+        <p class="footer__tagline">Crafted code. Crafted prose. Crafted images.</p>
+        <p class="footer__credit">Built with AI-assisted development. <a href="/about/#process">See how →</a></p>
+        <p class="footer__copy">&copy; <span id="footer-year"></span> Ryan Schill</p>
+      </div>
+      <nav aria-label="Footer navigation" class="footer__nav">
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Work</p>
+          <ul role="list"><li><a href="/work/">Projects</a></li><li><a href="/resume/">Résumé</a></li></ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Writing</p>
+          <ul role="list"><li><a href="/writing/">Blog</a></li><li><a href="/writing/#journalism">Journalism</a></li></ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Connect</p>
+          <ul role="list">
+            <li><a href="https://github.com/rpschill" rel="noopener">GitHub</a></li>
+            <li><a href="https://dev.to/rpschill" rel="noopener">DEV</a></li>
+            <li><a href="https://linkedin.com/in/rpschill" rel="noopener">LinkedIn</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  <script src="/js/main.js" defer></script>
+
+</body>
+</html>
