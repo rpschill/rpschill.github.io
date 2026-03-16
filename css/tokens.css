@@ -167,7 +167,7 @@
    ============================================================= */
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
 
     /* Text */
     --color-text-primary:    var(--ink-950);
@@ -209,6 +209,50 @@
     /* Focus */
     --focus-ring: 0 0 0 3px var(--ink-200), 0 0 0 5px var(--ember-500);
   }
+}
+
+/* Manual dark override — user toggled to dark on a light-OS device */
+:root[data-theme="dark"] {
+
+  /* Text */
+  --color-text-primary:    var(--ink-950);
+  --color-text-secondary:  var(--ink-700);
+  --color-text-tertiary:   var(--ink-600);
+  --color-text-inverse:    var(--ink-100);
+  --color-text-accent:     var(--ember-600);
+  --color-text-accent-alt: var(--vert-600);
+  --color-text-muted:      var(--ink-600);
+  --color-text-disabled:   var(--ink-500);
+
+  /* Background */
+  --color-bg-base:        var(--ink-200);
+  --color-bg-surface:     var(--ink-300);
+  --color-bg-elevated:    var(--ink-400);
+  --color-bg-subtle:      var(--ink-300);
+  --color-bg-inverse:     var(--ink-950);
+  --color-bg-accent:      var(--ember-100);
+  --color-bg-accent-alt:  var(--vert-100);
+  --color-bg-writing:     var(--terra-100);
+
+  /* Border */
+  --color-border-subtle:  var(--ink-400);
+  --color-border-default: var(--ink-500);
+  --color-border-strong:  var(--ink-600);
+  --color-border-accent:  var(--ember-500);
+
+  /* Brand */
+  --color-accent:           var(--ember-500);
+  --color-accent-hover:     var(--ember-600);
+  --color-accent-subtle:    var(--ember-100);
+  --color-accent-text:      var(--ember-600);
+  --color-secondary:        var(--vert-500);
+  --color-secondary-hover:  var(--vert-600);
+  --color-secondary-subtle: var(--vert-100);
+  --color-writing:          var(--terra-500);
+  --color-writing-subtle:   var(--terra-100);
+
+  /* Focus */
+  --focus-ring: 0 0 0 3px var(--ink-200), 0 0 0 5px var(--ember-500);
 }
 
 

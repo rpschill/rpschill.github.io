@@ -62,6 +62,16 @@
 .hero {
   overflow: hidden;
   position: relative;
+  /* Even padding top and bottom — min-height fills the viewport,
+     flexbox centers the inner grid within whatever space remains */
+  padding-block: clamp(var(--space-10), 6vw, var(--space-16));
+  min-height: calc(100svh - var(--nav-height));
+  display: flex;
+  align-items: center;
+}
+
+.hero .container {
+  width: 100%;
 }
 
 .hero__inner {
@@ -69,7 +79,6 @@
   grid-template-columns: 1fr 420px;
   gap: var(--space-16);
   align-items: center;
-  min-height: calc(90svh - var(--nav-height));
 }
 
 .hero__content {

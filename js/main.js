@@ -32,6 +32,12 @@ const Theme = (() => {
         'aria-label',
         theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
       );
+      const iconLight = btn.querySelector('.theme-toggle__icon--light');
+      const iconDark  = btn.querySelector('.theme-toggle__icon--dark');
+      if (iconLight && iconDark) {
+        iconLight.style.display = theme === 'dark' ? 'flex' : 'none';
+        iconDark.style.display  = theme === 'dark' ? 'none' : 'flex';
+      }
     }
   };
 
