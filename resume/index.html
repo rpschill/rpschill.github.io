@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Résumé — Ryan Schill, Senior Front-End Engineer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="canonical" href="https://ryanschill.co/resume/">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/resume.css">
+  <title>Résumé — Ryan Schill</title>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header no-print" role="banner">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Ryan Schill — Home">RS</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Switch to dark mode" title="Toggle theme" onclick="window.toggleTheme()">
+          <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4.34" y2="4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="11.66" x2="13.07" y2="13.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="13.07" x2="4.34" y2="11.66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="4.34" x2="13.07" y2="2.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 10A6 6 0 0 1 6 2.5a6 6 0 1 0 7.5 7.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Print action bar -->
+  <div class="resume-actions no-print">
+    <div class="container">
+      <p class="resume-actions__note">
+        This résumé is printer-friendly — use your browser's print function or
+      </p>
+      <button class="btn btn--primary btn--sm" onclick="window.print()">
+        Save as PDF
+      </button>
+    </div>
+  </div>
+
+  <main id="main-content" class="site-main" tabindex="-1">
+    <div class="resume-wrap">
+      <div class="resume">
+
+        <!-- RESUME HEADER -->
+        <header class="resume__header">
+          <div class="resume__identity">
+            <h1 class="resume__name">Ryan Schill</h1>
+            <p class="resume__title">Senior Front-End Engineer</p>
+          </div>
+          <address class="resume__contact">
+            <a href="mailto:ryan@ryanschill.co">ryan@ryanschill.co</a>
+            <a href="https://ryanschill.co">ryanschill.co</a>
+            <a href="https://github.com/rpschill" rel="noopener">github.com/rpschill</a>
+            <a href="https://linkedin.com/in/rpschill" rel="noopener">linkedin.com/in/rpschill</a>
+            <span>Palmyra, NJ</span>
+          </address>
+        </header>
+
+        <hr class="resume__rule">
+
+        <!-- SUMMARY -->
+        <section class="resume__section" aria-labelledby="resume-summary">
+          <h2 id="resume-summary" class="resume__section-heading">Summary</h2>
+          <p class="resume__summary">
+            Senior front-end engineer with 10+ years of experience building complex 
+            Angular applications, design systems, and component libraries. Background 
+            in award-winning journalism brings an unusually strong eye for information 
+            architecture, user experience, and communication. Experienced with 
+            AI-assisted development workflows. Open to full-time and freelance roles.
+          </p>
+        </section>
+
+        <hr class="resume__rule">
+
+        <!-- SKILLS -->
+        <section class="resume__section" aria-labelledby="resume-skills">
+          <h2 id="resume-skills" class="resume__section-heading">Skills</h2>
+          <dl class="resume__skills">
+            <div class="resume__skill-row">
+              <dt>Front-end</dt>
+              <dd>Angular, TypeScript, JavaScript, HTML5, CSS, RxJS</dd>
+            </div>
+            <div class="resume__skill-row">
+              <dt>Testing</dt>
+              <dd>Jasmine, Cypress</dd>
+            </div>
+            <div class="resume__skill-row">
+              <dt>Back-end &amp; data</dt>
+              <dd>Python, Flask, Django, SQL, NoSQL, Firebase</dd>
+            </div>
+            <div class="resume__skill-row">
+              <dt>Tooling</dt>
+              <dd>Git, GitHub, AI-assisted development (Claude)</dd>
+            </div>
+          </dl>
+        </section>
+
+        <hr class="resume__rule">
+
+        <!-- EXPERIENCE -->
+        <section class="resume__section" aria-labelledby="resume-experience">
+          <h2 id="resume-experience" class="resume__section-heading">Experience</h2>
+
+          <div class="resume__entries">
+
+            <article class="resume__entry">
+              <header class="resume__entry-header">
+                <div class="resume__entry-title-group">
+                  <h3 class="resume__entry-title">Senior Software Engineer</h3>
+                  <span class="resume__entry-org">Railroad19</span>
+                </div>
+                <span class="resume__entry-date">Present</span>
+              </header>
+            </article>
+
+            <article class="resume__entry">
+              <header class="resume__entry-header">
+                <div class="resume__entry-title-group">
+                  <h3 class="resume__entry-title">Senior Software Engineer</h3>
+                  <span class="resume__entry-org">Capgemini</span>
+                </div>
+                <span class="resume__entry-date">Prior</span>
+              </header>
+              <ul class="resume__entry-bullets">
+                <li>Built and maintained large-scale Angular applications for enterprise clients including NBCUniversal and Vanguard</li>
+                <li>Developed reusable component libraries and contributed to internal design systems</li>
+                <li>Collaborated with UX and product teams to translate designs into production-quality front-end code</li>
+              </ul>
+            </article>
+
+            <article class="resume__entry">
+              <header class="resume__entry-header">
+                <div class="resume__entry-title-group">
+                  <h3 class="resume__entry-title">Senior Front-End Engineer</h3>
+                  <span class="resume__entry-org">IBM · ADP</span>
+                </div>
+                <span class="resume__entry-date">Prior</span>
+              </header>
+              <ul class="resume__entry-bullets">
+                <li>Developed complex front-end features for enterprise-scale applications using Angular and TypeScript</li>
+                <li>Wrote unit and integration tests using Jasmine and Cypress</li>
+                <li>Mentored junior developers and contributed to code review processes</li>
+              </ul>
+            </article>
+
+            <article class="resume__entry">
+              <header class="resume__entry-header">
+                <div class="resume__entry-title-group">
+                  <h3 class="resume__entry-title">Managing Editor, Digital News Operations</h3>
+                  <span class="resume__entry-org">Center for Sustainable Journalism / JJIE</span>
+                </div>
+                <span class="resume__entry-date">2010–2016</span>
+              </header>
+              <ul class="resume__entry-bullets">
+                <li>Led day-to-day newsroom operations and editorial direction for a nationally recognized juvenile justice publication</li>
+                <li>Designed and built successive versions of the JJIE website and managed all digital projects across the organization</li>
+                <li>Reported and wrote award-winning longform investigations; won SPJ Green Eyeshade Award</li>
+                <li>Designed and laid out a print publication; managed social media strategy and special digital projects</li>
+              </ul>
+            </article>
+
+          </div>
+        </section>
+
+        <hr class="resume__rule">
+
+        <!-- EDUCATION -->
+        <section class="resume__section" aria-labelledby="resume-education">
+          <h2 id="resume-education" class="resume__section-heading">Education</h2>
+          <div class="resume__entries">
+
+            <article class="resume__entry">
+              <header class="resume__entry-header">
+                <div class="resume__entry-title-group">
+                  <h3 class="resume__entry-title">Graduate work, Professional Writing</h3>
+                  <span class="resume__entry-org">Kennesaw State University</span>
+                </div>
+                <span class="resume__entry-date">30 of 36 credits</span>
+              </header>
+            </article>
+
+            <article class="resume__entry">
+              <header class="resume__entry-header">
+                <div class="resume__entry-title-group">
+                  <h3 class="resume__entry-title">Bachelor of Science, Communication</h3>
+                  <span class="resume__entry-org">Kennesaw State University</span>
+                </div>
+                <span class="resume__entry-date">2011</span>
+              </header>
+            </article>
+
+          </div>
+        </section>
+
+        <hr class="resume__rule">
+
+        <!-- RECOGNITION -->
+        <section class="resume__section" aria-labelledby="resume-recognition">
+          <h2 id="resume-recognition" class="resume__section-heading">Recognition</h2>
+          <div class="resume__entries">
+            <article class="resume__entry">
+              <header class="resume__entry-header">
+                <div class="resume__entry-title-group">
+                  <h3 class="resume__entry-title">Green Eyeshade Award</h3>
+                  <span class="resume__entry-org">Society of Professional Journalists</span>
+                </div>
+                <span class="resume__entry-date">2012</span>
+              </header>
+              <p class="resume__entry-note">
+                For "Fractured Leg, Fractured Family" — an investigation into a 
+                misdiagnosed child abuse case.
+              </p>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer no-print" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">Ryan Schill</a>
+        <p class="footer__tagline">Crafted code. Crafted prose. Crafted images.</p>
+        <p class="footer__credit">Built with AI-assisted development. <a href="/work/portfolio/">See how →</a></p>
+        <p class="footer__copy">&copy; <span id="footer-year"></span> Ryan Schill</p>
+      </div>
+      <nav aria-label="Footer navigation" class="footer__nav">
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Work</p>
+          <ul role="list">
+            <li><a href="/work/">Projects</a></li>
+            <li><a href="/resume/">Résumé</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Writing</p>
+          <ul role="list">
+            <li><a href="/writing/">Blog</a></li>
+            <li><a href="/writing/#journalism">Journalism</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Connect</p>
+          <ul role="list">
+            <li><a href="https://github.com/rpschill" rel="noopener">GitHub</a></li>
+            <li><a href="https://dev.to/rpschill" rel="noopener">DEV</a></li>
+            <li><a href="https://linkedin.com/in/rpschill" rel="noopener">LinkedIn</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  <script src="/js/main.js" defer></script>
+
+</body>
+</html>

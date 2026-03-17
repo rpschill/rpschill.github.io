@@ -1,0 +1,348 @@
+/* =============================================================
+   animations.css — Phase 7 Motion & Polish
+   ryanschill.co
+
+   Contents:
+     1. Hero entrance — staggered load animation
+     2. Nav scroll behavior — border appears on scroll
+     3. Case study parallax — hero images shift on scroll
+     4. Reveal-up extensions — applied to all inner pages
+     5. Section label entrance
+     6. Link underline draw animation
+   ============================================================= */
+
+
+/* =============================================================
+   1. HERO ENTRANCE
+   Staggered reveal on page load. Each child of .hero__content
+   animates in sequence using animation-delay.
+   Respects prefers-reduced-motion throughout.
+   ============================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Set initial hidden state for each hero element */
+  .hero__content > * {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    animation: hero-enter var(--duration-slower) var(--ease-out-expo) forwards;
+  }
+
+  /* Stagger each direct child */
+  .hero__content > *:nth-child(1) { animation-delay: 100ms; }
+  .hero__content > *:nth-child(2) { animation-delay: 220ms; }
+  .hero__content > *:nth-child(3) { animation-delay: 320ms; }
+  .hero__content > *:nth-child(4) { animation-delay: 420ms; }
+  .hero__content > *:nth-child(5) { animation-delay: 500ms; }
+
+  /* Hero photo entrance — slides in from right */
+  .hero__photo {
+    opacity: 0;
+    animation: hero-photo-enter var(--duration-slower) var(--ease-out-expo) 300ms forwards;
+  }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-photo-enter {
+    from {
+      opacity: 0;
+      transform: translateX(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Page header entrance (work, writing, about, contact pages) */
+  .page-header > *,
+  .about-hero__content > *,
+  .contact-content > *,
+  .case-header__content > * {
+    opacity: 0;
+    transform: translateY(1rem);
+    animation: hero-enter var(--duration-slower) var(--ease-out-expo) forwards;
+  }
+
+  .page-header > *:nth-child(1),
+  .about-hero__content > *:nth-child(1),
+  .contact-content > *:nth-child(1),
+  .case-header__content > *:nth-child(1) { animation-delay: 80ms; }
+
+  .page-header > *:nth-child(2),
+  .about-hero__content > *:nth-child(2),
+  .contact-content > *:nth-child(2),
+  .case-header__content > *:nth-child(2) { animation-delay: 180ms; }
+
+  .page-header > *:nth-child(3),
+  .about-hero__content > *:nth-child(3),
+  .contact-content > *:nth-child(3),
+  .case-header__content > *:nth-child(3) { animation-delay: 260ms; }
+
+  .page-header > *:nth-child(4),
+  .about-hero__content > *:nth-child(4),
+  .contact-content > *:nth-child(4) { animation-delay: 340ms; }
+
+  /* Case meta sidebar slides in from right */
+  .case-meta {
+    opacity: 0;
+    animation: hero-photo-enter var(--duration-slower) var(--ease-out-expo) 250ms forwards;
+  }
+
+  /* Contact links stagger in */
+  .contact-link {
+    opacity: 0;
+    transform: translateX(1rem);
+    animation: hero-photo-enter var(--duration-slower) var(--ease-out-expo) forwards;
+  }
+
+  .contact-link:nth-child(1) { animation-delay: 300ms; }
+  .contact-link:nth-child(2) { animation-delay: 400ms; }
+  .contact-link:nth-child(3) { animation-delay: 500ms; }
+
+}
+
+
+/* =============================================================
+   2. NAV SCROLL BEHAVIOR
+   The nav border and background intensify once the user
+   scrolls past the hero. Toggled by JS adding .is-scrolled.
+   ============================================================= */
+
+.site-header {
+  transition:
+    border-color var(--duration-base) var(--ease-out-expo),
+    background var(--duration-base) var(--ease-out-expo);
+}
+
+/* Default: border barely visible */
+.site-header {
+  border-bottom-color: transparent;
+}
+
+/* Scrolled: border appears */
+.site-header.is-scrolled {
+  border-bottom-color: var(--color-border-subtle);
+}
+
+
+/* =============================================================
+   3. CASE STUDY PARALLAX
+   Hero images on case study pages shift upward at 30% the
+   scroll rate, creating depth. CSS-only via scroll-timeline.
+   Progressively enhanced.
+   ============================================================= */
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    .case-hero-image img {
+      animation: parallax-shift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 600px;
+    }
+
+    @keyframes parallax-shift {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-60px); }
+    }
+
+  }
+}
+
+
+/* =============================================================
+   4. REVEAL-UP — INNER PAGES
+   Applied to content blocks across all inner pages.
+   Builds on the existing .reveal-up class in components.css.
+   ============================================================= */
+
+@supports (animation-timeline: scroll()) {
+
+  /* Work page cards */
+  .work-card {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 28%;
+  }
+
+  /* Journalism list items */
+  .journalism-item {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 25%;
+  }
+
+  /* Writing cards on writing page */
+  .writing-card {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 28%;
+  }
+
+  /* Case study sections */
+  .case-section {
+    animation: reveal-fade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 20%;
+  }
+
+  /* About aside blocks */
+  .about-aside__block {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+
+  /* Skills groups */
+  .skills-group {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+
+  /* Resume entries */
+  .resume__entry {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 25%;
+  }
+
+  /* Section headers */
+  .writing-section-header,
+  .section-header {
+    animation: reveal-fade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 20%;
+  }
+
+  /* Reuse keyframes from components.css */
+  @keyframes reveal-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+}
+
+
+/* =============================================================
+   5. SECTION LABEL ENTRANCE
+   The small mono eyebrow labels get a subtle left-slide-in
+   when they enter the viewport.
+   ============================================================= */
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    .type-label {
+      animation: label-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 20%;
+    }
+
+    @keyframes label-enter {
+      from {
+        opacity: 0;
+        transform: translateX(-1rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+  }
+}
+
+
+/* =============================================================
+   6. LINK UNDERLINE DRAW
+   Prose links get an animated underline that draws from left
+   to right on hover. Applied to .prose context only.
+   ============================================================= */
+
+.prose a {
+  text-decoration: none;
+  background-image: linear-gradient(
+    currentColor,
+    currentColor
+  );
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition:
+    color var(--duration-fast) var(--ease-out-expo),
+    background-size var(--duration-base) var(--ease-out-expo);
+}
+
+.prose a:hover {
+  background-size: 100% 1px;
+}
+
+/* Override the typography.css underline for prose links
+   since we're handling it with background-image instead */
+p a,
+li a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition:
+    color var(--duration-fast) var(--ease-out-expo),
+    background-size var(--duration-base) var(--ease-out-expo);
+}
+
+p a:hover,
+li a:hover {
+  background-size: 100% 1px;
+}
+
+/* Journalism item title links */
+.journalism-item__title a,
+.writing-card__title a,
+.work-card__title a,
+.card-writing__title a {
+  text-decoration: none;
+}
+
+
+/* =============================================================
+   GLOBAL: Ensure prefers-reduced-motion kills everything
+   This is belt-and-suspenders on top of reset.css
+   ============================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__content > *,
+  .hero__photo,
+  .page-header > *,
+  .about-hero__content > *,
+  .contact-content > *,
+  .contact-link,
+  .case-header__content > *,
+  .case-meta {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

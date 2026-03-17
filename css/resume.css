@@ -1,0 +1,442 @@
+/* =============================================================
+   resume.css — Résumé Page Styles
+   ryanschill.co
+
+   Two contexts:
+     Screen  — clean, readable, on-brand
+     Print   — one page, black on white, no chrome
+   ============================================================= */
+
+
+/* =============================================================
+   SHARED: THEME TOGGLE + NAV + FOOTER
+   ============================================================= */
+
+.nav-actions { display: flex; align-items: center; gap: var(--space-3); }
+.theme-toggle {
+  width: 36px; height: 36px; border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-default); background: transparent;
+  color: var(--color-text-secondary); display: flex; align-items: center;
+  justify-content: center; cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-fast) var(--ease-out-expo);
+}
+.theme-toggle:hover { color: var(--color-text-primary); border-color: var(--color-border-strong); background: var(--color-bg-subtle); }
+.theme-toggle__icon--light { display: none; }
+.theme-toggle__icon--dark  { display: flex; }
+[data-theme="dark"] .theme-toggle__icon--light { display: flex; }
+[data-theme="dark"] .theme-toggle__icon--dark  { display: none; }
+@media (prefers-color-scheme: dark) {
+  :not([data-theme="light"]) .theme-toggle__icon--light { display: flex; }
+  :not([data-theme="light"]) .theme-toggle__icon--dark  { display: none; }
+}
+.footer__brand { display: flex; flex-direction: column; gap: var(--space-3); }
+.footer__logo { font-family: var(--font-display); font-size: var(--scale-xl); font-weight: 700; color: var(--color-text-primary); transition: color var(--duration-fast) var(--ease-out-expo); }
+.footer__logo:hover { color: var(--color-accent); }
+.footer__tagline { font-family: var(--font-display); font-style: italic; font-size: var(--scale-sm); color: var(--color-text-secondary); }
+.footer__credit { font-family: var(--font-mono); font-size: var(--scale-xs); color: var(--color-text-muted); }
+.footer__credit a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+.footer__copy { font-family: var(--font-mono); font-size: var(--scale-2xs); color: var(--color-text-muted); letter-spacing: 0.05em; }
+.footer__nav { display: flex; gap: var(--space-12); }
+.footer__nav-col { display: flex; flex-direction: column; gap: var(--space-3); }
+.footer__nav-label { font-family: var(--font-mono); font-size: var(--scale-2xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-tertiary); }
+.footer__nav-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.footer__nav-col a { font-size: var(--scale-sm); color: var(--color-text-secondary); transition: color var(--duration-fast) var(--ease-out-expo); }
+.footer__nav-col a:hover { color: var(--color-text-primary); }
+@media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr; } .footer__nav { gap: var(--space-8); flex-wrap: wrap; } }
+
+
+/* =============================================================
+   PRINT ACTION BAR (screen only)
+   ============================================================= */
+
+.resume-actions {
+  background: var(--color-bg-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: var(--space-3) 0;
+}
+
+.resume-actions .container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.resume-actions__note {
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+
+/* =============================================================
+   RESUME WRAPPER (screen)
+   ============================================================= */
+
+.resume-wrap {
+  padding: var(--space-12) var(--gutter);
+  display: flex;
+  justify-content: center;
+}
+
+.resume {
+  width: 100%;
+  max-width: 780px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12) var(--space-12);
+}
+
+@media (max-width: 640px) {
+  .resume {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+
+
+/* =============================================================
+   RESUME HEADER
+   ============================================================= */
+
+.resume__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+
+.resume__name {
+  font-family: var(--font-display);
+  font-size: var(--scale-3xl);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.resume__title {
+  font-family: var(--font-mono);
+  font-size: var(--scale-sm);
+  color: var(--color-accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.resume__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: right;
+  font-style: normal;
+}
+
+.resume__contact a,
+.resume__contact span {
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.resume__contact a:hover {
+  color: var(--color-accent);
+}
+
+
+/* =============================================================
+   RESUME RULE
+   ============================================================= */
+
+.resume__rule {
+  border: none;
+  border-top: 1px solid var(--color-border-subtle);
+  margin: var(--space-6) 0;
+}
+
+
+/* =============================================================
+   RESUME SECTIONS
+   ============================================================= */
+
+.resume__section {
+  margin-bottom: var(--space-2);
+}
+
+.resume__section-heading {
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.resume__summary {
+  font-size: var(--scale-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  max-width: 68ch;
+  margin: 0;
+}
+
+
+/* =============================================================
+   SKILLS
+   ============================================================= */
+
+.resume__skills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.resume__skill-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--space-4);
+  font-size: var(--scale-sm);
+}
+
+.resume__skill-row dt {
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  padding-top: 0.1em;
+}
+
+.resume__skill-row dd {
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .resume__skill-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}
+
+
+/* =============================================================
+   EXPERIENCE ENTRIES
+   ============================================================= */
+
+.resume__entries {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.resume__entry-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2);
+}
+
+.resume__entry-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.resume__entry-title {
+  font-family: var(--font-display);
+  font-size: var(--scale-md);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.resume__entry-org {
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+}
+
+.resume__entry-date {
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.resume__entry-bullets {
+  padding-left: var(--space-5);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.resume__entry-bullets li {
+  font-size: var(--scale-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+.resume__entry-note {
+  font-size: var(--scale-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  font-style: italic;
+  margin: var(--space-1) 0 0;
+}
+
+
+/* =============================================================
+   PRINT STYLESHEET
+   Everything below this point is for @media print only.
+   Goal: clean one-page PDF, black on white, no decorative chrome.
+   ============================================================= */
+
+@media print {
+
+  /* Page setup */
+  @page {
+    size: letter portrait;
+    margin: 0.65in 0.75in;
+  }
+
+  /* Hide all site chrome */
+  .no-print,
+  .site-header,
+  .site-footer,
+  .resume-actions,
+  .skip-link {
+    display: none !important;
+  }
+
+  /* Reset backgrounds and colors to black on white */
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-color: #ccc !important;
+  }
+
+  /* Remove page wrapper chrome */
+  body {
+    font-size: 10pt;
+    line-height: 1.5;
+    font-family: Georgia, serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .resume-wrap {
+    padding: 0;
+    display: block;
+  }
+
+  .resume {
+    max-width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background: white !important;
+  }
+
+  /* Header */
+  .resume__name {
+    font-size: 22pt;
+  }
+
+  .resume__title {
+    font-size: 9pt;
+    color: #555 !important;
+  }
+
+  .resume__contact a,
+  .resume__contact span {
+    font-size: 8pt;
+    color: #444 !important;
+  }
+
+  /* Links: show URL inline for print */
+  .resume__contact a::after {
+    content: none;
+  }
+
+  /* Section headings */
+  .resume__section-heading {
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    color: #666 !important;
+    border-bottom: 0.5pt solid #ccc;
+    padding-bottom: 2pt;
+    margin-bottom: 6pt;
+  }
+
+  /* Rules */
+  .resume__rule {
+    border-top-color: #ddd !important;
+    margin: 8pt 0;
+  }
+
+  /* Entry titles */
+  .resume__entry-title {
+    font-size: 11pt;
+  }
+
+  .resume__entry-org {
+    font-size: 8pt;
+    color: #555 !important;
+  }
+
+  .resume__entry-date {
+    font-size: 8pt;
+    color: #666 !important;
+  }
+
+  .resume__entry-bullets li,
+  .resume__summary,
+  .resume__entry-note {
+    font-size: 9.5pt;
+    color: #222 !important;
+  }
+
+  /* Skills */
+  .resume__skill-row {
+    font-size: 9.5pt;
+  }
+
+  .resume__skill-row dt {
+    font-size: 8pt;
+    color: #555 !important;
+  }
+
+  /* Avoid page breaks inside entries */
+  .resume__entry,
+  .resume__section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Force color accent to dark gray for print */
+  .resume__title,
+  .resume__entry-org {
+    color: #333 !important;
+  }
+}

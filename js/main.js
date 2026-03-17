@@ -32,12 +32,6 @@ const Theme = (() => {
         'aria-label',
         theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
       );
-      const iconLight = btn.querySelector('.theme-toggle__icon--light');
-      const iconDark  = btn.querySelector('.theme-toggle__icon--dark');
-      if (iconLight && iconDark) {
-        iconLight.style.display = theme === 'dark' ? 'flex' : 'none';
-        iconDark.style.display  = theme === 'dark' ? 'none' : 'flex';
-      }
     }
   };
 
@@ -297,7 +291,37 @@ const Cursor = (() => {
 
 
 /* =============================================================
-   READING PROGRESS
+   NAV SCROLL BEHAVIOR
+   Adds .is-scrolled to site-header once user scrolls past
+   the hero, revealing the nav border and deepening the bg.
+   Uses IntersectionObserver — no scroll event needed.
+   ============================================================= */
+
+const NavScroll = (() => {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  // Observe the hero section if present, otherwise
+  // fall back to a small sentinel div at the top of main
+  const hero = document.querySelector('.hero');
+  const target = hero || document.querySelector('.site-main');
+  if (!target) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      header.classList.toggle('is-scrolled', !entry.isIntersecting);
+    },
+    {
+      // Trigger when hero is 10% out of view
+      threshold: 0.1,
+      rootMargin: `-${getComputedStyle(document.documentElement)
+        .getPropertyValue('--nav-height')
+        .trim()} 0px 0px 0px`,
+    }
+  );
+
+  observer.observe(target);
+})();
    Thin ember bar at top of viewport, only on article pages.
    ============================================================= */
 
