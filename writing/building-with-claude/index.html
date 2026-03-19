@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="I rebuilt my personal site in collaboration with an AI. Here's what that process actually looked like — and what it taught me about what being a developer actually means.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="canonical" href="https://ryanschill.co/writing/building-with-claude/">
+  <link rel="preload" href="/css/main.css" as="style">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/post.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <title>Building a website with Claude: what I learned about AI-assisted development — Ryan Schill</title>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Ryan Schill — Home">RS</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Switch to dark mode" title="Toggle theme" onclick="window.toggleTheme()">
+          <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4.34" y2="4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="11.66" x2="13.07" y2="13.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="13.07" x2="4.34" y2="11.66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="4.34" x2="13.07" y2="2.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 10A6 6 0 0 1 6 2.5a6 6 0 1 0 7.5 7.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="site-main" tabindex="-1">
+
+    <article class="post article-content">
+
+      <!-- POST HEADER -->
+      <header class="post-header">
+        <div class="container-prose">
+          <nav class="post-breadcrumb" aria-label="Breadcrumb">
+            <a href="/writing/">← Writing</a>
+          </nav>
+          <div class="post-meta">
+            <time datetime="2025-03-01" class="post-date">March 2025</time>
+            <span class="post-cat tag tag--tech">AI &amp; Development</span>
+          </div>
+          <h1 class="post-title">
+            Building a website with Claude: what I learned about AI-assisted development
+          </h1>
+          <p class="post-lead">
+            I rebuilt my personal site in collaboration with an AI — from design system 
+            to deployed code. Here's what that process actually looked like, what 
+            surprised me, what frustrated me, and what it changed about how I think 
+            about being a developer.
+          </p>
+        </div>
+      </header>
+
+      <!-- POST BODY -->
+      <div class="post-body">
+        <div class="container-prose">
+          <div class="prose">
+
+            <p>
+              My original personal website was built in 2015. It used jQuery. It worked 
+              fine, loaded quickly, represented me accurately — for 2015. But I'd spent 
+              the decade since building complex Angular applications at IBM, ADP, Vanguard, 
+              and NBCUniversal. I knew CSS Grid, custom properties, fluid type scales, 
+              the View Transitions API, scroll-driven animations. My site showed none of 
+              that. It was a résumé that undersold the person it was supposed to represent.
+            </p>
+
+            <p>
+              So I decided to rebuild it. And I decided to do it entirely with AI-assisted 
+              development — from the first concept conversation to the last deployed file — 
+              partly because I wanted to see what the process was actually like, and partly 
+              because if I was going to put a portfolio in front of potential employers, 
+              I wanted it to demonstrate that I could work this way.
+            </p>
+
+            <p>
+              What followed was one of the more interesting experiences I've had as a 
+              developer. Not because the AI wrote the code — it did, mostly — but because 
+              of what the process taught me about my own assumptions.
+            </p>
+
+            <h2>I expected to be the manager. I ended up being the collaborator.</h2>
+
+            <p>
+              Going in, I had a clear mental model of how this would work: I'd explain 
+              what I wanted, Claude would generate code, I'd review it, correct it, and 
+              direct the next step. I'd be the director. The AI would be the executor.
+            </p>
+
+            <p>
+              That's not what happened.
+            </p>
+
+            <p>
+              What emerged instead was something closer to a genuine creative partnership. 
+              We workshopped the headline concept across three rounds of iteration — I'd 
+              push back on directions that felt wrong, Claude would push back on mine, 
+              and we'd arrive somewhere neither of us would have landed alone. The animated 
+              hero headline — "Crafted <em>code.</em>" cycling through "code," "prose," 
+              and "images" — came out of exactly that kind of back-and-forth. It started 
+              as three static lines, became a repetition structure, then collapsed into a 
+              single line with a rotating word when I realized the repetition was visually 
+              cluttered but the concept was right.
+            </p>
+
+            <p>
+              I genuinely did not expect to enjoy the process as much as I did. The 
+              brainstorming phase in particular felt energizing in a way that solo work 
+              often doesn't. There's something about having another perspective — even an 
+              artificial one — that makes you sharper about your own preferences. You 
+              figure out what you actually want faster when you have something to react to.
+            </p>
+
+            <h2>The friction was real — and specific.</h2>
+
+            <p>
+              I should be honest about what didn't work.
+            </p>
+
+            <p>
+              The most frustrating part of the process was the separation between 
+              Claude Chat and Claude Code in the Claude app. Using Chat for planning, 
+              brainstorming, and design decisions is genuinely intuitive — it's a great 
+              thought partner, it holds context well, it can workshop ideas across 
+              multiple rounds without losing the thread. But Chat isn't agentic. It 
+              can't reach into your codebase and make changes directly. At some point 
+              you realize you've been having a great conversation about a design decision 
+              and now you have to manually copy the output, find the right file, make 
+              the edit, and come back.
+            </p>
+
+            <p>
+              Claude Code solves the agentic problem — it can actually manipulate files — 
+              but the transition between the two modes isn't seamless. You lose the 
+              conversational context, the workshopping flow, the sense of continuity. 
+              It felt like having a great creative session with someone and then having 
+              to fax them the results before they could act on it.
+            </p>
+
+            <p>
+              I suspect this is a tooling problem that will get solved. But right now, 
+              in 2025, it's a real friction point in the workflow — and I say that as 
+              someone who found the overall experience positive enough to write about it.
+            </p>
+
+            <h2>The thing I had to unlearn.</h2>
+
+            <p>
+              Here's the part I've been thinking about the most since finishing the project.
+            </p>
+
+            <p>
+              I had to very intentionally shift how I thought about my role as an engineer. 
+              Before this project, I'd never examined it — my default assumption was that 
+              my job was to identify a problem and then write the code to solve it. Those 
+              two things were inseparable in my mind. The problem-solving and the 
+              code-writing were the same activity.
+            </p>
+
+            <p>
+              They aren't. Solving the problem doesn't require writing the code yourself. 
+              Code has to be written, but that doesn't mean you have to write it — or 
+              write every line of it by hand. I had to start thinking of myself differently: 
+              not as an engineer who writes code, but as someone who builds software. 
+              Someone who solves problems with software as a medium.
+            </p>
+
+            <p>
+              The part of the job I was holding onto hardest — the part I think most 
+              developers build a significant part of their professional identity around — 
+              was writing code. And working through this project made me realize that in 
+              many ways, that was the least important part. The architecture decisions, 
+              the design system, the accessibility considerations, the CSS token hierarchy, 
+              the content strategy, the ability to recognize when something isn't working 
+              and articulate <em>why</em> — that's where the real work lives. The code 
+              is how you express it.
+            </p>
+
+            <p>
+              This isn't an argument that code doesn't matter or that craft is dead. 
+              It's the opposite. The craft moves up the stack. You still need to know 
+              what good code looks like. You still need to be able to review it, catch 
+              its mistakes, understand its tradeoffs, and push back when it goes wrong. 
+              The technical knowledge doesn't become less important — it becomes more 
+              important, because now it's applied at the level of judgment rather than 
+              execution.
+            </p>
+
+            <h2>What I'd tell a skeptic.</h2>
+
+            <p>
+              I know some developers reading this will find it threatening. The instinct 
+              to dismiss AI-assisted development as shortcut-taking that produces mediocre 
+              work — I understand it. I felt versions of it going in.
+            </p>
+
+            <p>
+              But the site you're reading right now has a three-layer CSS token 
+              architecture, a fluid type scale built entirely with <code>clamp()</code>, 
+              scroll-driven animations using <code>animation-timeline: view()</code>, 
+              View Transitions API for cross-page fades, a Web Animations API headline 
+              rotator with a Page Visibility reset, and a custom cursor with 
+              <code>requestAnimationFrame</code> lerp smoothing. None of that happened 
+              because I typed less. It happened because I could think at a higher level 
+              of abstraction about what I was building and why — and execute more 
+              ambitiously than I would have if I'd been working alone.
+            </p>
+
+            <p>
+              The work is still crafted. It just took a different kind of craft to get here.
+            </p>
+
+            <p>
+              The source is public on GitHub if you want to look at what we actually built.
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- POST FOOTER -->
+      <footer class="post-footer">
+        <div class="container-prose">
+          <div class="post-footer__inner">
+            <a href="/writing/" class="btn btn--ghost">← All posts</a>
+            <a href="/work/portfolio/" class="btn btn--outline btn--arrow">See the case study</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">Ryan Schill</a>
+        <p class="footer__tagline">Crafted code. Crafted prose. Crafted images.</p>
+        <p class="footer__credit">Built with AI-assisted development. <a href="/work/portfolio/">See how →</a></p>
+        <p class="footer__copy">&copy; <span id="footer-year"></span> Ryan Schill</p>
+      </div>
+      <nav aria-label="Footer navigation" class="footer__nav">
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Work</p>
+          <ul role="list">
+            <li><a href="/work/">Projects</a></li>
+            <li><a href="/resume/">Résumé</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Writing</p>
+          <ul role="list">
+            <li><a href="/writing/">Blog</a></li>
+            <li><a href="/writing/#journalism">Journalism</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Connect</p>
+          <ul role="list">
+            <li><a href="https://github.com/rpschill" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/rpschill" rel="noopener">LinkedIn</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  <script src="/js/main.js" defer></script>
+
+</body>
+</html>

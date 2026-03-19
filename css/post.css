@@ -1,0 +1,198 @@
+/* =============================================================
+   post.css — Blog Post Styles
+   ryanschill.co
+   ============================================================= */
+
+
+/* =============================================================
+   SHARED: THEME TOGGLE + NAV + FOOTER
+   ============================================================= */
+
+.nav-actions { display: flex; align-items: center; gap: var(--space-3); }
+.theme-toggle {
+  width: 36px; height: 36px; border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-default); background: transparent;
+  color: var(--color-text-secondary); display: flex; align-items: center;
+  justify-content: center; cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-fast) var(--ease-out-expo);
+}
+.theme-toggle:hover { color: var(--color-text-primary); border-color: var(--color-border-strong); background: var(--color-bg-subtle); }
+.theme-toggle__icon--light { display: none; }
+.theme-toggle__icon--dark  { display: flex; }
+[data-theme="dark"] .theme-toggle__icon--light { display: flex; }
+[data-theme="dark"] .theme-toggle__icon--dark  { display: none; }
+@media (prefers-color-scheme: dark) {
+  :not([data-theme="light"]) .theme-toggle__icon--light { display: flex; }
+  :not([data-theme="light"]) .theme-toggle__icon--dark  { display: none; }
+}
+.footer__brand { display: flex; flex-direction: column; gap: var(--space-3); }
+.footer__logo { font-family: var(--font-display); font-size: var(--scale-xl); font-weight: 700; color: var(--color-text-primary); transition: color var(--duration-fast) var(--ease-out-expo); }
+.footer__logo:hover { color: var(--color-accent); }
+.footer__tagline { font-family: var(--font-display); font-style: italic; font-size: var(--scale-sm); color: var(--color-text-secondary); }
+.footer__credit { font-family: var(--font-mono); font-size: var(--scale-xs); color: var(--color-text-muted); }
+.footer__credit a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+.footer__copy { font-family: var(--font-mono); font-size: var(--scale-2xs); color: var(--color-text-muted); letter-spacing: 0.05em; }
+.footer__nav { display: flex; gap: var(--space-12); }
+.footer__nav-col { display: flex; flex-direction: column; gap: var(--space-3); }
+.footer__nav-label { font-family: var(--font-mono); font-size: var(--scale-2xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-tertiary); }
+.footer__nav-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.footer__nav-col a { font-size: var(--scale-sm); color: var(--color-text-secondary); transition: color var(--duration-fast) var(--ease-out-expo); }
+.footer__nav-col a:hover { color: var(--color-text-primary); }
+@media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr; } .footer__nav { gap: var(--space-8); flex-wrap: wrap; } }
+
+
+/* =============================================================
+   POST LAYOUT
+   ============================================================= */
+
+.post {
+  padding-bottom: var(--space-16);
+}
+
+
+/* =============================================================
+   POST HEADER
+   ============================================================= */
+
+.post-header {
+  padding: var(--space-12) 0 var(--space-10);
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: var(--space-12);
+}
+
+.post-breadcrumb {
+  margin-bottom: var(--space-6);
+}
+
+.post-breadcrumb a {
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.post-breadcrumb a:hover {
+  color: var(--color-accent);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.post-date {
+  font-family: var(--font-mono);
+  font-size: var(--scale-2xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.post-title {
+  font-family: var(--font-display);
+  font-size: var(--scale-3xl);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-6);
+}
+
+.post-lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--scale-xl);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  max-width: 48ch;
+  margin: 0;
+}
+
+
+/* =============================================================
+   POST BODY
+   ============================================================= */
+
+.post-body {
+  margin-bottom: var(--space-16);
+}
+
+/* Override prose defaults for editorial paragraph style */
+.post-body .prose p + p {
+  text-indent: 0;
+  margin-top: 0;
+}
+
+.post-body .prose p {
+  margin-bottom: var(--space-6);
+  font-size: var(--scale-md);
+  line-height: 1.85;
+}
+
+.post-body .prose h2 {
+  font-size: var(--scale-2xl);
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-5);
+  letter-spacing: -0.025em;
+}
+
+/* Accent rule before each h2 */
+.post-body .prose h2::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-5);
+}
+
+.post-body .prose h3 {
+  font-size: var(--scale-xl);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-4);
+}
+
+.post-body .prose ul,
+.post-body .prose ol {
+  margin-bottom: var(--space-6);
+}
+
+.post-body .prose li {
+  margin-bottom: var(--space-3);
+  font-size: var(--scale-md);
+  line-height: 1.75;
+}
+
+.post-body .prose blockquote {
+  font-size: var(--scale-xl);
+  line-height: 1.5;
+}
+
+/* Inline code */
+.post-body .prose code {
+  font-size: 0.875em;
+}
+
+
+/* =============================================================
+   POST FOOTER
+   ============================================================= */
+
+.post-footer {
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.post-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An inverted pyramid. A story that earns every word. A reader who won't wait. The principles of good journalism turn out to map surprisingly well to the principles of good software.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="canonical" href="https://ryanschill.co/writing/journalism-and-code/">
+  <link rel="preload" href="/css/main.css" as="style">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/post.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <title>What journalism taught me about writing code — Ryan Schill</title>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Ryan Schill — Home">RS</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Switch to dark mode" title="Toggle theme" onclick="window.toggleTheme()">
+          <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4.34" y2="4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="11.66" x2="13.07" y2="13.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="13.07" x2="4.34" y2="11.66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="4.34" x2="13.07" y2="2.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 10A6 6 0 0 1 6 2.5a6 6 0 1 0 7.5 7.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="site-main" tabindex="-1">
+
+    <article class="post article-content">
+
+      <header class="post-header">
+        <div class="container-prose">
+          <nav class="post-breadcrumb" aria-label="Breadcrumb">
+            <a href="/writing/">← Writing</a>
+          </nav>
+          <div class="post-meta">
+            <time datetime="2024-11-08" class="post-date">November 2024</time>
+            <span class="post-cat tag tag--writing">Craft</span>
+          </div>
+          <h1 class="post-title">
+            What journalism taught me about writing code
+          </h1>
+          <p class="post-lead">
+            An inverted pyramid. A story that earns every word. A reader who won't 
+            wait. The principles of good journalism turn out to map surprisingly well 
+            to the principles of good software.
+          </p>
+        </div>
+      </header>
+
+      <div class="post-body">
+        <div class="container-prose">
+          <div class="prose">
+
+            <p>
+              I spent six years as a journalist before I became a software engineer. 
+              For most of that time, I thought of those as two separate chapters of 
+              my life — the writing chapter and the coding chapter. I was wrong. 
+              The longer I've worked as a developer, the more I've come to understand 
+              that everything I learned in a newsroom applies directly to what I do now. 
+              Just in a different language.
+            </p>
+
+            <p>
+              These are the journalism principles that changed how I write code.
+            </p>
+
+            <h2>Lead with what matters</h2>
+
+            <p>
+              The first rule of newspaper writing is the inverted pyramid: put the 
+              most important information first. The story should be structured so that 
+              if an editor cuts it from the bottom — which they will — nothing essential 
+              is lost. The reader gets the point immediately, and every subsequent 
+              paragraph earns its place by adding something the reader still needs.
+            </p>
+
+            <p>
+              I think about this constantly when I'm writing a component or a function. 
+              What does the person reading this code need to know first? What's the 
+              most important thing this does? If someone reads only the first ten lines, 
+              do they understand the contract?
+            </p>
+
+            <p>
+              A well-structured function leads with its purpose. Its parameters make 
+              the inputs obvious. Its return value or side effects are clear. The details 
+              — the edge cases, the implementation — come after. You should be able to 
+              read the signature and the first few lines and know what you're working with, 
+              without having to read to the bottom to discover a crucial piece of behavior 
+              buried in an else clause.
+            </p>
+
+            <h2>Every word has to earn its place</h2>
+
+            <p>
+              Good editors are ruthless. The question they ask about every sentence — 
+              every word — is: does this earn its place? If you remove it, does something 
+              important disappear? If the answer is no, it goes.
+            </p>
+
+            <p>
+              I apply the same standard to code. A line that doesn't do anything — a 
+              variable that's set but never read, a comment that describes what the code 
+              obviously does rather than why it does it, an abstraction layer that exists 
+              because it seemed like a good idea at the time — is noise. It makes the 
+              signal harder to find. It forces the next person to read more to understand 
+              less.
+            </p>
+
+            <p>
+              This isn't an argument for code golf or for stripping out clarity in 
+              pursuit of brevity. It's an argument for intention. Write what needs to be 
+              there. Remove what doesn't. The discipline is the same whether you're 
+              cutting a 2,000-word draft to 800 or refactoring a service that's grown 
+              three times larger than its actual responsibilities require.
+            </p>
+
+            <h2>Your reader won't wait</h2>
+
+            <p>
+              Journalism operates under a fundamental assumption: the reader owes you 
+              nothing. They didn't sign a contract. They're not obligated to stay. If 
+              you lose them in the second paragraph, they're gone. Every sentence has to 
+              keep them reading the next one.
+            </p>
+
+            <p>
+              Users of software have the same relationship to what you've built. They'll 
+              leave. They'll click away. They'll give up on a form that loads slowly or 
+              a UI that requires them to think too hard about what to do next. The burden 
+              is entirely on you — the person who built it — to make the experience clear 
+              enough and fast enough and considerate enough that they stay.
+            </p>
+
+            <p>
+              This reframe changed how I think about performance and UX. It's not a 
+              technical problem — it's an editorial one. Every millisecond of load time, 
+              every confusing label, every interaction that requires the user to pause 
+              and figure out what's happening is a sentence that made the reader put 
+              down the paper. The question isn't "does this work?" It's "does this 
+              keep people reading?"
+            </p>
+
+            <h2>Structure is not a constraint — it's a gift</h2>
+
+            <p>
+              New journalists often chafe against structure. The inverted pyramid feels 
+              like a cage. The nut graf feels formulaic. The word count feels arbitrary. 
+              The argument against all of it is usually some version of: great writing 
+              breaks the rules.
+            </p>
+
+            <p>
+              Which is true. But what those writers mean is that great writing 
+              internalizes the rules so deeply that it can bend them intentionally 
+              and usefully — not that the rules don't exist. The structure is what 
+              makes the bending meaningful. Without it, there's nothing to push against.
+            </p>
+
+            <p>
+              I think about component architecture the same way. A well-designed system 
+              has structure: clear separation of concerns, predictable patterns, 
+              consistent naming. Developers who are new to working in systems sometimes 
+              experience this as constraint. Why does this have to go here? Why is this 
+              named that way? Why can't I just do it directly?
+            </p>
+
+            <p>
+              Because the structure is what makes the system legible to everyone who 
+              comes after you. It's the thing that lets the next developer move quickly 
+              — because they know where to look, they know what to expect, they know 
+              what a change in one place will and won't affect. Structure is a gift to 
+              your future colleagues. And to your future self, six months from now, 
+              when you've forgotten what you were thinking.
+            </p>
+
+            <h2>Know who you're writing for</h2>
+
+            <p>
+              Every piece of journalism is written for a specific audience. Not 
+              "everyone" — a specific person, with a specific level of familiarity 
+              with the subject, a specific set of things they already know, and a 
+              specific reason for reading. Good journalists hold that person in mind 
+              throughout. They don't over-explain to an expert. They don't under-explain 
+              to a newcomer. They pitch the language, the context, the assumed knowledge 
+              exactly right for who's reading.
+            </p>
+
+            <p>
+              Code has the same audience problem. Are you writing for a future you, 
+              working alone on a personal project? For a team of senior engineers who 
+              know the codebase inside out? For someone who will inherit this in two 
+              years and has never seen it before? The answer changes everything about 
+              how much you comment, how much you abstract, how explicitly you name 
+              things, how much context you build into the structure itself.
+            </p>
+
+            <p>
+              The failure mode I see most often in codebases is code written for no one 
+              in particular — where the author assumed a reader who had the same context 
+              they had at the moment of writing, and didn't account for the fact that 
+              context evaporates. The best code I've read was written by someone who 
+              knew exactly who would read it next, and wrote for them.
+            </p>
+
+            <h2>The craft is the same</h2>
+
+            <p>
+              I don't think it's a coincidence that the developers whose work I most 
+              admire tend to also be good writers — people who communicate clearly, 
+              who think carefully about structure, who care about the experience of 
+              reading their code the way a journalist cares about the experience of 
+              reading their prose.
+            </p>
+
+            <p>
+              The medium is different. The vocabulary is different. The tools are 
+              completely different. But the underlying discipline — the commitment to 
+              clarity, to structure, to respecting the reader's time, to earning every 
+              word — is the same craft. I just had to spend six years in a newsroom 
+              to realize it.
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+      <footer class="post-footer">
+        <div class="container-prose">
+          <div class="post-footer__inner">
+            <a href="/writing/" class="btn btn--ghost">← All posts</a>
+            <a href="/writing/building-with-claude/" class="btn btn--outline btn--arrow">Next post</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">Ryan Schill</a>
+        <p class="footer__tagline">Crafted code. Crafted prose. Crafted images.</p>
+        <p class="footer__credit">Built with AI-assisted development. <a href="/work/portfolio/">See how →</a></p>
+        <p class="footer__copy">&copy; <span id="footer-year"></span> Ryan Schill</p>
+      </div>
+      <nav aria-label="Footer navigation" class="footer__nav">
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Work</p>
+          <ul role="list">
+            <li><a href="/work/">Projects</a></li>
+            <li><a href="/resume/">Résumé</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Writing</p>
+          <ul role="list">
+            <li><a href="/writing/">Blog</a></li>
+            <li><a href="/writing/#journalism">Journalism</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <p class="footer__nav-label">Connect</p>
+          <ul role="list">
+            <li><a href="https://github.com/rpschill" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/rpschill" rel="noopener">LinkedIn</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  <script src="/js/main.js" defer></script>
+
+</body>
+</html>
