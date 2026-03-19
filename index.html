@@ -3,24 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The animation-timeline API lets you tie animations to scroll position with no JavaScript. Here's how to use it for scroll entrance effects — and when to reach for it.">
+  <meta name="description" content="Ryan Schill — Senior front-end engineer, author, and artist. Code, prose, and images — all made with craft.">
+  <meta name="author" content="Ryan Schill">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ryan Schill — Crafted code. Crafted prose. Crafted images.">
+  <meta property="og:description" content="Senior front-end engineer specializing in Angular and TypeScript. Award-winning journalist. Author. Visual artist.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ryanschill.co">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@rpschill">
+  <meta name="twitter:title" content="Ryan Schill — Front-End Engineer">
+
+  <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="canonical" href="https://ryanschill.co/writing/css-scroll-animations/">
-  <link rel="preload" href="/css/main.css" as="style">
+
+  <link rel="canonical" href="https://ryanschill.co/">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/post.css">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <title>CSS scroll-driven animations: a practical guide — Ryan Schill</title>
+
+  <title>Ryan Schill — Front-End Engineer</title>
 </head>
 <body>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- =====================================================
+       SITE HEADER
+       ===================================================== -->
   <header class="site-header" role="banner">
     <div class="container nav-inner">
+
       <a href="/" class="nav-logo" aria-label="Ryan Schill — Home">RS</a>
+
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="nav-links" role="list">
           <li><a href="/work/">Work</a></li>
@@ -29,286 +46,379 @@
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
+
       <div class="nav-actions">
-        <button class="theme-toggle" aria-label="Switch to dark mode" title="Toggle theme" onclick="window.toggleTheme()">
+        <button
+          class="theme-toggle"
+          aria-label="Switch to dark mode"
+          title="Toggle theme"
+          onclick="window.toggleTheme()"
+        >
           <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="2.93" x2="4.34" y2="4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="11.66" x2="13.07" y2="13.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2.93" y1="13.07" x2="4.34" y2="11.66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11.66" y1="4.34" x2="13.07" y2="2.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <!-- Sun icon -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="2.93" y1="2.93" x2="4.34" y2="4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="11.66" y1="11.66" x2="13.07" y2="13.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="2.93" y1="13.07" x2="4.34" y2="11.66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="11.66" y1="4.34" x2="13.07" y2="2.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
           </span>
           <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 10A6 6 0 0 1 6 2.5a6 6 0 1 0 7.5 7.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <!-- Moon icon -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.5 10A6 6 0 0 1 6 2.5a6 6 0 1 0 7.5 7.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </span>
         </button>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
-          <span></span><span></span><span></span>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          aria-label="Open menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
+
     </div>
   </header>
 
+
+  <!-- =====================================================
+       MAIN CONTENT
+       ===================================================== -->
   <main id="main-content" class="site-main" tabindex="-1">
 
-    <article class="post article-content">
 
-      <header class="post-header">
-        <div class="container-prose">
-          <nav class="post-breadcrumb" aria-label="Breadcrumb">
-            <a href="/writing/">← Writing</a>
-          </nav>
-          <div class="post-meta">
-            <time datetime="2025-01-15" class="post-date">January 2025</time>
-            <span class="post-cat tag tag--tech">Front-end</span>
+    <!-- ===================================================
+         HERO
+         =================================================== -->
+    <section class="hero section section--lg" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero__inner">
+
+          <div class="hero__content">
+            <span class="type-eyebrow">Front-end engineer · Author · Artist</span>
+
+            <h1 id="hero-heading" class="hero__headline">
+              Crafted
+              <span
+                class="hero__rotator"
+                id="hero-rotator"
+                aria-label="code, prose, and images"
+              >
+                <!-- JS renders the animated words -->
+                <!-- Fallback for no-JS / reduced-motion: static text -->
+                <span class="hero__rotator-fallback">code, prose &amp; images.</span>
+              </span>
+            </h1>
+
+            <p class="hero__sub">
+              Code, writing, and art — all made with the same
+              intention, the same eye, the same standard.
+            </p>
+
+            <div class="hero__actions">
+              <a href="/work/" class="btn btn--primary btn--arrow btn--lg">View my work</a>
+              <a href="/writing/" class="btn btn--outline btn--lg">Read my writing</a>
+            </div>
+
+            <div class="hero__meta">
+              <span class="tag tag--tech">Angular</span>
+              <span class="tag tag--tech">TypeScript</span>
+              <span class="tag tag--tech">AI-assisted dev</span>
+              <span class="tag tag--tech">10+ years</span>
+            </div>
           </div>
-          <h1 class="post-title">
-            CSS scroll-driven animations: a practical guide
-          </h1>
-          <p class="post-lead">
-            The <code>animation-timeline</code> API lets you tie animations directly 
-            to scroll position — no JavaScript required. Here's how to use it for 
-            scroll entrance effects, and when it actually makes sense to reach for it.
-          </p>
+
+          <div class="hero__photo" aria-hidden="true">
+            <div class="hero__photo-frame">
+              <img
+                src="/img/headshot.jpg"
+                alt="Ryan Schill"
+                width="480"
+                height="600"
+                loading="eager"
+                fetchpriority="high"
+              >
+            </div>
+            <div class="hero__photo-deco" aria-hidden="true"></div>
+          </div>
+
         </div>
-      </header>
+      </div>
+    </section>
 
-      <div class="post-body">
-        <div class="container-prose">
-          <div class="prose">
 
-            <p>
-              For a long time, scroll-triggered animations required JavaScript. You'd 
-              set up an <code>IntersectionObserver</code>, add a class when an element 
-              entered the viewport, and write CSS to animate from that class. It worked 
-              fine. It was also a fair amount of boilerplate for something that felt 
-              like it should be purely presentational — a CSS concern, not a JavaScript one.
+    <!-- ===================================================
+         FEATURED WORK
+         =================================================== -->
+    <section class="section section--tinted" aria-labelledby="work-heading">
+      <div class="container">
+
+        <header class="section-header">
+          <span class="type-label">Selected work</span>
+          <h2 id="work-heading">Things I've built.</h2>
+        </header>
+
+        <div class="grid-portfolio" role="list">
+
+          <!-- Card 1: AI-assisted project (featured / large) -->
+          <article class="card card-project card--featured card--lift reveal-up" role="listitem">
+            <div class="card-project__media">
+              <img
+                src="/img/project-portfolio.png"
+                alt="Screenshot of ryanschill.co redesign"
+                width="800"
+                height="450"
+                loading="lazy"
+              >
+              <span class="card-project__ai-badge">AI-assisted build</span>
+            </div>
+            <div class="card-project__body">
+              <p class="card-project__eyebrow">Personal project · 2025</p>
+              <h3 class="card-project__title">This website</h3>
+              <p class="card-project__desc">
+                A complete redesign and rebuild of my personal site — 
+                built in collaboration with Claude. Vanilla HTML, CSS, and JavaScript. 
+                No framework, no build step. The process is documented.
+              </p>
+              <div class="card-project__footer">
+                <div class="tags">
+                  <span class="tag tag--tech">HTML</span>
+                  <span class="tag tag--tech">CSS</span>
+                  <span class="tag tag--tech">JavaScript</span>
+                  <span class="tag tag--tech">Claude</span>
+                </div>
+                <a href="/work/portfolio/" class="btn btn--ghost btn--arrow btn--sm">Case study</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Personal/side project -->
+          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: 100ms">
+            <div class="card-project__media">
+              <img
+                src="/img/project-projectr.png"
+                alt="projectr — a task and project management app"
+                width="600"
+                height="338"
+                loading="lazy"
+              >
+            </div>
+            <div class="card-project__body">
+              <p class="card-project__eyebrow">Side project · 2016–2017</p>
+              <h3 class="card-project__title"><span style="text-transform: none;">projectr</span></h3>
+              <p class="card-project__desc">
+                A task and project management app built from scratch — 
+                folders, nested tasks, due dates, timers, and a detail sidebar. 
+                An exercise in designing and building a complex UI end-to-end.
+              </p>
+              <div class="card-project__footer">
+                <div class="tags">
+                  <span class="tag tag--tech">AngularJS</span>
+                  <span class="tag tag--tech">JavaScript</span>
+                </div>
+                <a href="/work/" class="btn btn--ghost btn--arrow btn--sm">View project</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Journalism / writing-adjacent -->
+          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: 200ms">
+            <div class="card-project__media">
+              <img
+                src="/img/project-jjie.png"
+                alt="Juvenile Justice Information Exchange website"
+                width="600"
+                height="338"
+                loading="lazy"
+              >
+            </div>
+            <div class="card-project__body">
+              <p class="card-project__eyebrow">Journalism · 2010–2016</p>
+              <h3 class="card-project__title">Center for Sustainable Journalism</h3>
+              <p class="card-project__desc">
+                Managing Editor of Digital News Operations. Award-winning 
+                coverage of juvenile justice and child welfare. Where I learned 
+                that every story — in code or prose — needs a strong structure.
+              </p>
+              <div class="card-project__footer">
+                <div class="tags">
+                  <span class="tag tag--writing">Journalism</span>
+                  <span class="tag tag--writing">Editing</span>
+                  <span class="tag tag--writing">Digital strategy</span>
+                </div>
+                <a href="/writing/" class="btn btn--ghost btn--arrow btn--sm">Read the work</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="section-footer">
+          <a href="/work/" class="btn btn--outline btn--arrow">All projects</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         WRITING TEASER
+         =================================================== -->
+    <section class="section" aria-labelledby="writing-heading">
+      <div class="container">
+
+        <header class="section-header section-header--split">
+          <div>
+            <span class="type-label">From the blog</span>
+            <h2 id="writing-heading">Recent writing.</h2>
+          </div>
+          <a href="/writing/" class="btn btn--ghost btn--arrow">All posts</a>
+        </header>
+
+        <div class="grid-writing">
+
+          <article class="card card-writing card--lift reveal-up">
+            <p class="card-writing__meta">
+              <time datetime="2025-03-01">March 2025</time>
+              <span class="card-writing__cat">AI &amp; Development</span>
             </p>
-
-            <p>
-              The scroll-driven animations API changes that. It lets you connect a CSS 
-              animation directly to the scroll position of the page or a scrolling 
-              container. The animation plays as you scroll, not when a timer fires or 
-              an observer triggers. And for a specific, common use case — elements 
-              fading or sliding in as they enter the viewport — it's remarkably clean.
+            <h3 class="card-writing__title">
+              <a href="/writing/building-with-claude/">Building a website with Claude: what I learned about AI-assisted development</a>
+            </h3>
+            <p class="card-writing__excerpt">
+              I rebuilt my personal site in collaboration with an AI. Here's what that process actually looked like — where the AI helped, where it fell short, and what it taught me about my own craft.
             </p>
+            <a href="/writing/building-with-claude/" class="card-writing__link">
+              Read <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-            <h2>The core idea</h2>
-
-            <p>
-              A normal CSS animation runs on a time-based timeline. You declare a 
-              duration, an easing, a delay, and the browser works through the keyframes 
-              over that time period. With scroll-driven animations, you swap the time-based 
-              timeline for a scroll-based one. Instead of "play this over 400ms," you're 
-              saying "play this as this element moves through a certain region of the 
-              viewport."
+          <article class="card card-writing card--lift reveal-up" style="--reveal-delay: 100ms">
+            <p class="card-writing__meta">
+              <time datetime="2025-01-15">January 2025</time>
+              <span class="card-writing__cat">Front-end</span>
             </p>
-
-            <p>
-              The property that makes this happen is <code>animation-timeline</code>. 
-              The value we care about for entrance effects is <code>view()</code>, which 
-              creates a timeline based on the element's own visibility in the viewport. 
-              As the element scrolls into view, the animation progresses. As it scrolls 
-              out, it reverses.
+            <h3 class="card-writing__title">
+              <a href="/writing/">CSS scroll-driven animations: a practical guide</a>
+            </h3>
+            <p class="card-writing__excerpt">
+              The new animation-timeline API lets you tie animations directly to scroll position — no JavaScript required. Here's how I used it on this site, and when it makes sense to reach for it.
             </p>
+            <a href="/writing/" class="card-writing__link">
+              Read <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-            <h2>Building a scroll entrance effect</h2>
-
-            <p>
-              Here's the full thing — a card that fades up as it enters the viewport:
+          <article class="card card-writing card--lift reveal-up" style="--reveal-delay: 200ms">
+            <p class="card-writing__meta">
+              <time datetime="2024-11-08">November 2024</time>
+              <span class="card-writing__cat">Craft</span>
             </p>
-
-            <pre><code>@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card {
-  animation: reveal-up linear both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 30%;
-}</code></pre>
-
-            <p>
-              That's it. No JavaScript. No <code>IntersectionObserver</code>. No class 
-              toggling. Let's break down the three properties doing the work.
+            <h3 class="card-writing__title">
+              <a href="/writing/">What journalism taught me about writing code</a>
+            </h3>
+            <p class="card-writing__excerpt">
+              An inverted pyramid. A story that earns every word. A reader who won't wait. Turns out the principles of good journalism map surprisingly well to the principles of good software.
             </p>
+            <a href="/writing/" class="card-writing__link">
+              Read <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-            <h3>animation-timeline: view()</h3>
+        </div>
 
-            <p>
-              This replaces the default time-based timeline with a view-based one. 
-              The <code>view()</code> function creates a timeline that tracks this 
-              specific element's visibility in its nearest scroll container — in most 
-              cases, the viewport. The timeline starts at 0% when the element's bottom 
-              edge first enters the viewport from below, and reaches 100% when the 
-              element's top edge exits the viewport at the top.
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         ABOUT STRIP
+         =================================================== -->
+    <section class="section section--inverse about-strip" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-strip__inner">
+
+          <div class="about-strip__photo">
+            <img
+              src="/img/about-editorial.jpg"
+              alt="Feet up on airport seats — somewhere between assignments"
+              width="480"
+              height="360"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="about-strip__content">
+            <span class="type-label" style="--mark-color: var(--ember-600)">About</span>
+            <h2 id="about-heading">I'm Ryan.</h2>
+            <p class="type-lead" style="color: var(--ink-700); margin-bottom: var(--space-6);">
+              Senior front-end engineer by day. Author and visual artist by night. Journalist by training.
             </p>
-
-            <h3>animation-range: entry 0% entry 30%</h3>
-
-            <p>
-              This controls which portion of the element's journey through the viewport 
-              drives the animation. <code>entry</code> is the phase when the element is 
-              entering the viewport from below. <code>entry 0%</code> is the moment it 
-              first appears. <code>entry 30%</code> is when 30% of the entry phase is 
-              complete — roughly when the top third of the element is visible.
+            <p style="color: var(--ink-700); margin-bottom: var(--space-8); line-height: 1.8; font-size: var(--scale-md);">
+              I've spent a decade building front-end applications at companies like IBM, ADP, Vanguard, and NBCUniversal. Before that, I spent years writing, reporting on juvenile justice, editing and managing a newsroom, publishing fiction, and creating visual art and comics journalism. The two careers look different. The craft is the same.
             </p>
+            <a href="/about/" class="btn btn--outline" style="--btn-outline-border: var(--ink-600); --btn-outline-text: var(--ink-900); --btn-outline-bg-hover: rgba(255,255,255,0.08);">
+              Full story →
+            </a>
+          </div>
 
-            <p>
-              In plain terms: the reveal animation plays during the first 30% of the 
-              element's entrance. By the time one-third of the card is visible, 
-              the animation has fully completed. This feels natural — the element 
-              finishes revealing itself while it's still clearly in motion, rather than 
-              popping into place after the user has already stopped scrolling.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         CONTACT CTA
+         =================================================== -->
+    <section class="section contact-cta" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-cta__inner">
+          <div class="contact-cta__deco" aria-hidden="true">&amp;</div>
+          <div class="contact-cta__content">
+            <span class="type-label">Get in touch</span>
+            <h2 id="contact-heading">Let's make something worth making.</h2>
+            <p style="color: var(--color-text-secondary); max-width: 44ch; margin-bottom: var(--space-8); font-size: var(--scale-md); line-height: 1.7;">
+              Open to full-time roles, freelance projects, and conversations about craft. Whether you need a senior front-end engineer or a developer with an eye for design or who can also write your documentation — I'm interested.
             </p>
-
-            <h3>animation: reveal-up linear both</h3>
-
-            <p>
-              The <code>linear</code> easing is intentional. With time-based animations, 
-              you'd use <code>ease-out</code> or a custom easing curve to make the motion 
-              feel natural. But with scroll-driven animations, the easing is already 
-              provided by the user's scrolling behavior — they slow down and speed up 
-              naturally. Adding another easing curve on top of that tends to make things 
-              feel over-engineered. <code>linear</code> lets the scroll position drive 
-              the feel of the animation directly.
-            </p>
-
-            <p>
-              The <code>both</code> fill mode keeps the animation's final state applied 
-              even after the animation finishes — so the element stays visible rather 
-              than snapping back to its initial hidden state.
-            </p>
-
-            <h2>Progressive enhancement</h2>
-
-            <p>
-              Browser support for scroll-driven animations is good but not universal. 
-              The right approach is to treat it as a progressive enhancement: elements 
-              should be fully visible and functional without it, and the animation is 
-              a layer on top for browsers that support it.
-            </p>
-
-            <p>
-              The cleanest way to handle this is with <code>@supports</code>:
-            </p>
-
-            <pre><code>/* Fallback: always visible */
-.card {
-  opacity: 1;
-  transform: none;
-}
-
-/* Enhancement: animate in for supporting browsers */
-@supports (animation-timeline: scroll()) {
-  .card {
-    animation: reveal-up linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 30%;
-  }
-}</code></pre>
-
-            <p>
-              Browsers that don't support the API will see the fallback — elements are 
-              visible from the start, no animation. Browsers that do will get the 
-              enhanced experience. Nobody gets a broken page.
-            </p>
-
-            <h2>Respecting motion preferences</h2>
-
-            <p>
-              Some users have <code>prefers-reduced-motion</code> set in their operating 
-              system, either because of vestibular disorders or personal preference. 
-              Scroll-driven animations that involve movement — anything with 
-              <code>transform</code> or position changes — should be disabled for these 
-              users. Fades are generally acceptable; slides and lifts are not.
-            </p>
-
-            <pre><code>@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .card {
-      animation: reveal-up linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 30%;
-    }
-  }
-}</code></pre>
-
-            <p>
-              Wrapping the whole thing in <code>prefers-reduced-motion: no-preference</code> 
-              means the animation only applies when the user has explicitly said they're 
-              fine with motion. It's a small addition that makes the feature genuinely 
-              accessible rather than just technically functional.
-            </p>
-
-            <h2>When to use it</h2>
-
-            <p>
-              Scroll-driven animations are well-suited to entrance effects — the specific 
-              case where you want something to reveal itself as it comes into view. Cards, 
-              list items, section headings, images. Things that exist on the page and 
-              benefit from a bit of visual arrival.
-            </p>
-
-            <p>
-              They're less well-suited to complex orchestrated sequences or anything that 
-              needs precise timing relative to other elements. For those cases, an 
-              <code>IntersectionObserver</code> with JavaScript still gives you more 
-              control over exactly when and how things trigger.
-            </p>
-
-            <p>
-              The other thing worth noting: scroll-driven animations only animate 
-              <em>as the user scrolls</em>. If someone loads the page and doesn't 
-              scroll, elements below the fold stay in their initial state. That's usually 
-              fine for entrance effects, but it's worth keeping in mind if you're using 
-              this for anything that needs to play on load rather than on scroll.
-            </p>
-
-            <h2>What I used it for on this site</h2>
-
-            <p>
-              Every card grid on this site — the project cards on the Work page, the 
-              journalism items on the Writing page, the skills groups on About — uses 
-              exactly this pattern. The same four lines of CSS, wrapped in 
-              <code>@supports</code> and <code>prefers-reduced-motion</code>. 
-              No JavaScript involved anywhere in the scroll reveal behavior.
-            </p>
-
-            <p>
-              The whole approach feels right for a site that's trying to demonstrate 
-              what modern CSS can do. Scroll entrance effects used to be a JavaScript 
-              problem. They don't have to be anymore.
-            </p>
-
+            <a href="/contact/" class="btn btn--primary btn--arrow btn--lg">Start a conversation</a>
           </div>
         </div>
       </div>
+    </section>
 
-      <footer class="post-footer">
-        <div class="container-prose">
-          <div class="post-footer__inner">
-            <a href="/writing/" class="btn btn--ghost">← All posts</a>
-            <a href="/writing/journalism-and-code/" class="btn btn--outline btn--arrow">Next post</a>
-          </div>
-        </div>
-      </footer>
-
-    </article>
 
   </main>
 
+
+  <!-- =====================================================
+       SITE FOOTER
+       ===================================================== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
+
       <div class="footer__brand">
         <a href="/" class="footer__logo">Ryan Schill</a>
         <p class="footer__tagline">Crafted code. Crafted prose. Crafted images.</p>
-        <p class="footer__credit">Built with AI-assisted development. <a href="/work/portfolio/">See how →</a></p>
-        <p class="footer__copy">&copy; <span id="footer-year"></span> Ryan Schill</p>
+        <p class="footer__credit">
+          Built with AI-assisted development.
+          <a href="/about/#process">See how →</a>
+        </p>
+        <p class="footer__copy">
+          &copy; <span id="footer-year"></span> Ryan Schill
+        </p>
       </div>
+
       <nav aria-label="Footer navigation" class="footer__nav">
         <div class="footer__nav-col">
           <p class="footer__nav-label">Work</p>
@@ -328,15 +438,19 @@
           <p class="footer__nav-label">Connect</p>
           <ul role="list">
             <li><a href="https://github.com/rpschill" rel="noopener">GitHub</a></li>
+            <li><a href="https://dev.to/rpschill" rel="noopener">DEV</a></li>
             <li><a href="https://linkedin.com/in/rpschill" rel="noopener">LinkedIn</a></li>
             <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
       </nav>
+
     </div>
   </footer>
 
-  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
   <script src="/js/main.js" defer></script>
 
 </body>
