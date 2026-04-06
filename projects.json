@@ -20,23 +20,23 @@
     "projectType": "Personal project"
   },
   {
-    "id": "projectr",
-    "title": "projectr",
+    "id": "projectr-v2",
+    "title": "projectr v2 beta",
     "titleNoTransform": true,
-    "description": "A task and project management app for individuals and freelancers — built with AngularJS and Firebase because I wanted to focus entirely on the front end. Built for myself, because I have ADHD.",
+    "description": "A task and project management app for individuals and freelancers — re-built with Angular v19 and Firebase because I wanted to focus entirely on the front end. Built for myself, because I have ADHD. Currently in private beta testing, but sign up if you want to try it out.",
     "thumbnail": "/img/project-projectr.png",
     "thumbnailAlt": "projectr task management app",
     "link": "/work/projectr/",
     "externalLink": false,
     "featured": false,
-    "ctaLabel": "Case study",
+    "ctaLabel": "Visit app",
     "badge": null,
     "tags": [
       { "label": "AngularJS", "type": "tech" },
       { "label": "JavaScript", "type": "tech" },
       { "label": "Firebase", "type": "tech" }
     ],
-    "year": "2016–2017",
+    "year": "2026",
     "projectType": "Side project"
   },
   {
@@ -97,6 +97,26 @@
       { "label": "TailwindCSS", "type": "tech" }
     ],
     "year": "2026",
+    "projectType": "Side project"
+  },
+  {
+    "id": "projectr",
+    "title": "projectr v1",
+    "titleNoTransform": true,
+    "description": "A task and project management app for individuals and freelancers — built with AngularJS and Firebase because I wanted to focus entirely on the front end. Built for myself, because I have ADHD.",
+    "thumbnail": "/img/project-projectr.png",
+    "thumbnailAlt": "projectr task management app",
+    "link": "/work/projectr/",
+    "externalLink": false,
+    "featured": false,
+    "ctaLabel": "Case study",
+    "badge": null,
+    "tags": [
+      { "label": "AngularJS", "type": "tech" },
+      { "label": "JavaScript", "type": "tech" },
+      { "label": "Firebase", "type": "tech" }
+    ],
+    "year": "2016–2017",
     "projectType": "Side project"
   }
 ]

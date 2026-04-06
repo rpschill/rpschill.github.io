@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Case study: projectr, a task management app built with AngularJS and Firebase — Ryan Schill">
+  <meta name="description" content="Case study: projectr, a task management app built with Angular v19 and Firebase — Ryan Schill">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="canonical" href="https://ryanschill.co/work/projectr/">
@@ -52,11 +52,11 @@
         </nav>
         <div class="case-header__inner">
           <div class="case-header__content">
-            <span class="type-eyebrow">Side project · 2016–2017</span>
+            <span class="type-eyebrow">Side project · 2016–2026</span>
             <h1 class="case-header__title" style="text-transform: none;">projectr</h1>
             <p class="case-header__lead">
-              A task management app built for one person — me. 
-              What happens when the developer and the user are the same person 
+              A task management app built for one person — me.
+              What happens when the developer and the user are the same person
               with ADHD and strong opinions about outlines.
             </p>
           </div>
@@ -67,7 +67,7 @@
             </div>
             <div class="case-meta__item">
               <dt>Stack</dt>
-              <dd>AngularJS, JavaScript, Firebase</dd>
+              <dd>Angular v19, TypeScript, Firebase Firestore, custom SCSS</dd>
             </div>
             <div class="case-meta__item">
               <dt>Hosted</dt>
@@ -75,7 +75,7 @@
             </div>
             <div class="case-meta__item">
               <dt>Status</dt>
-              <dd>Legacy — <a href="http://ryanschill.co/projectr" rel="noopener">live demo</a></dd>
+              <dd>Active — <a href="http://ryanschill.co/projectr-ai" rel="noopener">beta</a></dd>
             </div>
           </dl>
         </div>
@@ -86,7 +86,7 @@
     <div class="case-hero-image">
       <div class="container">
         <img
-          src="/img/project-projectr.png"
+          src="/img/project-projectr-v2.png"
           alt="projectr task management app interface"
           width="1200"
           height="675"
@@ -104,117 +104,137 @@
           <h2>I needed a task manager that thought the way I do.</h2>
           <div class="prose">
             <p>
-              I have ADHD, which means task management isn't optional — it's how 
-              I stay functional. I'd tried every app I could find, but none of them 
-              worked the way my brain works. They were either too simple, too complex, 
-              or organized around teams and collaboration when I just needed to manage 
+              I have ADHD, which means task management isn't optional — it's how
+              I stay functional. I'd tried every app I could find, but none of them
+              worked the way my brain works. They were either too simple, too complex,
+              or organized around teams and collaboration when I just needed to manage
               my own work as a freelancer.
             </p>
             <p>
-              I was also a big fan of Workflowy — a minimalist, keyboard-navigable 
-              outline tool — and I wanted that same interaction model applied to actual 
+              I was also a big fan of Workflowy — a minimalist, keyboard-navigable
+              outline tool — and I wanted that same interaction model applied to actual
               project management. So I built it myself.
             </p>
             <p>
-              I also had a practical need: my job at the time required tracking how 
-              much time I spent on individual tasks. I wanted that built into the same 
+              I also had a practical need: my job at the time required tracking how
+              much time I spent on individual tasks. I wanted that built into the same
               tool I was already using to manage my work, not as a separate app.
+            </p>
+            <p>
+              The original version launched in 2016. What exists today is a complete
+              rewrite, built in 2026 with a decade of additional perspective.
             </p>
           </div>
         </section>
 
         <section class="case-section">
           <span class="type-label">What it does</span>
-          <h2>Client → project → task → subtask.</h2>
+          <h2>Deeply nested, keyboard-first task management.</h2>
           <div class="prose">
             <p>
-              projectr organizes work in a strict four-level hierarchy: clients contain 
-              projects, projects contain tasks, tasks contain subtasks. This maps directly 
-              to how freelance work is actually structured and keeps everything navigable 
-              without getting overwhelming.
+              projectr organizes work in a flexible hierarchy — clients, projects, tasks,
+              and subtasks that can nest as deeply as the work requires. This maps to how
+              freelance and solo work is actually structured without imposing artificial
+              limits on how you think about it.
             </p>
             <p>
-              The task list itself is keyboard-navigable in the style of an outline editor — 
-              you can create, nest, reorder, and complete tasks without touching the mouse. 
-              Each task can have a due date, notes, and attached file references.
+              The task list is keyboard-navigable in the style of an outline editor —
+              you can create, nest, reorder, and complete tasks without touching the mouse.
+              Keeping your hands on the keyboard isn't just a power-user feature; it reduces
+              the constant small context shifts that interrupt focus.
             </p>
             <p>
-              The time tracking feature is built directly into individual tasks. Start a 
-              timer when you begin work, stop it when you're done. The elapsed time accumulates 
-              across sessions and rolls up to the project level so you can see where your 
-              hours are actually going.
+              Time tracking is built directly into individual tasks. Start a timer when you
+              begin work, stop it when you're done. Elapsed time accumulates across sessions
+              and rolls up so you can see where your hours are actually going.
+            </p>
+            <p>
+              The beta is actively in development. These core features are functional; more is being built.
             </p>
           </div>
         </section>
 
         <section class="case-section">
           <span class="type-label">Technical decisions</span>
-          <h2>Keeping it as simple as possible for one developer.</h2>
+          <h2>Then: get it working. Now: get it right.</h2>
           <div class="prose">
             <p>
-              Every technical choice I made was optimized for the same thing: let me 
-              focus on building features, not infrastructure. I was a solo developer 
-              building something for myself, and I wanted to spend my time on the 
-              parts that mattered.
+              The original projectr was built with AngularJS and plain JavaScript — the tools
+              I knew best in 2016. Angular Material provided the component library, and Firebase
+              Realtime Database handled the backend. It worked. It accomplished what I needed.
+              But the design was function over form in every sense: the Angular Material components
+              were essentially unstyled defaults, and it showed.
             </p>
             <p>
-              <strong>AngularJS</strong> was my primary framework at the time and I 
-              knew it well. It gave me routing, two-way data binding, and a service-based 
-              architecture for free. All of the business logic lives in AngularJS services, 
-              which kept the components lean and the data layer testable.
+              The rewrite started from scratch. <strong>Angular v19 and TypeScript</strong> replaced
+              the original stack — modern Angular's reactivity model handles the real-time data
+              streams from Firebase significantly more cleanly, and TypeScript gives the data layer
+              the structure it always needed. A <code>Task</code>, a <code>Project</code>, a
+              <code>Client</code> as first-class types rather than plain JavaScript objects.
             </p>
             <p>
-              <strong>Firebase Realtime Database</strong> meant I didn't have to write 
-              a backend. The data syncs in real time across sessions, user authentication 
-              is handled out of the box, and I didn't have to think about servers, 
-              deployments, or APIs. For a solo front-end developer, this was the right call.
+              <strong>Firebase Firestore</strong> replaced the Realtime Database. The document
+              model maps more naturally to the app's nested hierarchy than the original's JSON
+              tree structure.
             </p>
             <p>
-              <strong>GitHub Pages</strong> for hosting. Because Firebase handles the 
-              database, the entire app is static — just HTML, CSS, and JavaScript. 
-              Deploying meant committing code and pushing. That's it.
+              The styling approach changed completely. Custom SCSS — no component library —
+              because this time the visual design was the point, not an afterthought. projectr
+              is built as craft software: intentionally designed for individuals by a solo
+              developer, the software equivalent of something you'd find at a farmers market
+              rather than a SaaS catalog. The UI is meant to feel warm and considered. Colors
+              were chosen for what they do psychologically — promoting focus and calm without
+              draining energy. The hierarchy is visually obvious at a glance. The active focus
+              is always clear. Cognitive load was treated as a constraint, not an afterthought,
+              because the app is built for people like me.
             </p>
             <p>
-              The result was a stack where I could go from idea to shipped feature 
-              in an afternoon without touching anything outside of front-end code.
+              <strong>GitHub Pages</strong> still handles hosting. The move to Angular and
+              TypeScript introduced a build step via GitHub Actions, but the deployment model
+              is otherwise unchanged — the app is still a static front end backed by a cloud database.
             </p>
           </div>
         </section>
 
         <section class="case-section">
           <span class="type-label">Reflection</span>
-          <h2>What I'd do differently today.</h2>
+          <h2>Building it again, differently.</h2>
           <div class="prose">
             <p>
-              projectr was the first non-trivial application I'd ever built entirely 
-              on my own. That context matters: the choices I made were the right ones 
-              for where I was then. But I've spent nearly a decade building large-scale 
-              Angular applications since, and I'd approach it very differently now.
+              The original version of projectr was the first non-trivial application I'd built
+              entirely on my own. The choices I made then were right for where I was. The rewrite
+              gave me a chance to find out what I'd actually learned.
             </p>
             <p>
-              I'd use the current version of Angular rather than AngularJS. Modern Angular 
-              includes robust routing and reactivity out of the box, along with RxJS 
-              integration for handling the kind of complex, real-time data streams that 
-              a Firebase-backed app naturally produces. The reactive model would make the 
-              timer logic significantly cleaner.
+              Some things didn't surprise me. Modern Angular, TypeScript, a document database —
+              these were obvious improvements the moment I sat down to plan it. The architecture
+              I wanted in 2016 and the architecture I built in 2026 weren't that far apart in
+              concept. The difference was execution: I had the skills to do it properly this time.
             </p>
             <p>
-              I'd also reach for TypeScript from the start. The service layer in projectr 
-              would benefit enormously from typed interfaces — a <code>Task</code>, a 
-              <code>Project</code>, a <code>Client</code> as first-class types rather 
-              than plain JavaScript objects.
+              What surprised me was how much the design thinking changed. The original was a tool
+              I built to solve a problem. The rewrite became a statement about what software for
+              individuals could feel like — considered, warm, built by a person rather than
+              assembled from components. That wasn't in the plan when I started. It emerged.
             </p>
             <p>
-              What I wouldn't change is the fundamental architecture: a front-end-only 
-              stack backed by a real-time cloud database, deployed as a static site. 
-              For this kind of single-developer personal tool, that's still the right call.
+              The rewrite was also developed with AI assistance — Claude as a creative and
+              technical collaborator throughout. I drove every decision, but many of those
+              decisions were made after working through ideas with an AI partner. We established
+              a phased development plan together; for each phase I worked with Claude Code to
+              execute it, reviewed the output, tested manually, and iterated before moving on.
+              The AI didn't build projectr. It helped me build it faster and think through it
+              more clearly than I would have alone.
+            </p>
+            <p>
+              projectr is still in active development. The foundation is solid. The work continues.
             </p>
           </div>
         </section>
 
         <div class="case-links">
-          <a href="http://ryanschill.co/projectr" rel="noopener" class="btn btn--primary btn--arrow">
-            View legacy demo
+          <a href="http://ryanschill.co/projectr-ai" rel="noopener" class="btn btn--primary btn--arrow">
+            View beta
           </a>
           <a href="/work/" class="btn btn--ghost">
             ← All work
