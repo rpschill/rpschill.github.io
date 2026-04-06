@@ -322,6 +322,7 @@ const NavScroll = (() => {
 
   observer.observe(target);
 })();
+/* =============================================================
    Thin ember bar at top of viewport, only on article pages.
    ============================================================= */
 
