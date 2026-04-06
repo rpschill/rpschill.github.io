@@ -1,0 +1,82 @@
+[
+  {
+    "id": "portfolio",
+    "title": "This website",
+    "description": "A complete redesign built in collaboration with an AI — from the design system up. Vanilla HTML, CSS, and JavaScript. No framework, no build step. The process turned out to be something more interesting than I expected.",
+    "thumbnail": "/img/project-portfolio.png",
+    "thumbnailAlt": "Screenshot of ryanschill.co",
+    "link": "/work/portfolio/",
+    "externalLink": false,
+    "featured": true,
+    "ctaLabel": "Case study",
+    "badge": "AI-assisted build",
+    "tags": [
+      { "label": "HTML", "type": "tech" },
+      { "label": "CSS", "type": "tech" },
+      { "label": "JavaScript", "type": "tech" },
+      { "label": "Claude", "type": "tech" }
+    ],
+    "year": "2025",
+    "projectType": "Personal project"
+  },
+  {
+    "id": "projectr",
+    "title": "projectr",
+    "titleNoTransform": true,
+    "description": "A task and project management app for individuals and freelancers — built with AngularJS and Firebase because I wanted to focus entirely on the front end. Built for myself, because I have ADHD.",
+    "thumbnail": "/img/project-projectr.png",
+    "thumbnailAlt": "projectr task management app",
+    "link": "/work/projectr/",
+    "externalLink": false,
+    "featured": false,
+    "ctaLabel": "Case study",
+    "badge": null,
+    "tags": [
+      { "label": "AngularJS", "type": "tech" },
+      { "label": "JavaScript", "type": "tech" },
+      { "label": "Firebase", "type": "tech" }
+    ],
+    "year": "2016–2017",
+    "projectType": "Side project"
+  },
+  {
+    "id": "jjie",
+    "title": "Juvenile Justice Information Exchange",
+    "titleNoTransform": false,
+    "description": "From intern reporter to managing editor — six years covering juvenile justice and child welfare nationally. Where writing and building first converged for me.",
+    "thumbnail": "/img/project-jjie.png",
+    "thumbnailAlt": "Juvenile Justice Information Exchange website",
+    "link": "/work/jjie/",
+    "externalLink": false,
+    "featured": false,
+    "ctaLabel": "Read more",
+    "badge": null,
+    "tags": [
+      { "label": "Journalism", "type": "writing" },
+      { "label": "Editing", "type": "writing" },
+      { "label": "Digital strategy", "type": "writing" }
+    ],
+    "year": "2010–2016",
+    "projectType": "Journalism"
+  },
+  {
+    "id": "vanessa-schill",
+    "title": "Vanessa Schill",
+    "titleNoTransform": false,
+    "description": "Portfolio site for a senior instructional designer and ATD Master Trainer. Features a CSS marquee ticker for scrolling skills, fully responsive layout, and a clean typographic system built without a framework.",
+    "thumbnail": "/img/project-vanessa.png",
+    "thumbnailAlt": "Screenshot of vanessaschill.com",
+    "link": "http://vanessaschill.com",
+    "externalLink": true,
+    "featured": false,
+    "ctaLabel": "Visit site",
+    "badge": null,
+    "tags": [
+      { "label": "HTML", "type": "tech" },
+      { "label": "CSS", "type": "tech" },
+      { "label": "JavaScript", "type": "tech" }
+    ],
+    "year": "2025",
+    "projectType": "Client project"
+  }
+]

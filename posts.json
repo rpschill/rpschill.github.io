@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "building-with-claude",
+    "title": "Building a website with Claude: what I learned about AI-assisted development",
+    "date": "2025-03-01",
+    "dateDisplay": "March 2025",
+    "category": "AI &amp; Development",
+    "categoryType": "tech",
+    "excerpt": "I rebuilt my personal site in collaboration with an AI — from design system to deployed code. Here's what that process actually looked like: where the AI helped, where it fell short, and what it taught me about my own craft.",
+    "featured": true
+  },
+  {
+    "slug": "css-scroll-animations",
+    "title": "CSS scroll-driven animations: a practical guide",
+    "date": "2025-01-15",
+    "dateDisplay": "January 2025",
+    "category": "Front-end",
+    "categoryType": "tech",
+    "excerpt": "The <code>animation-timeline</code> API lets you tie animations directly to scroll position — no JavaScript required. Here's how I used it on this site, and when it makes sense to reach for it.",
+    "featured": false
+  },
+  {
+    "slug": "journalism-and-code",
+    "title": "What journalism taught me about writing code",
+    "date": "2024-11-08",
+    "dateDisplay": "November 2024",
+    "category": "Craft",
+    "categoryType": "writing",
+    "excerpt": "An inverted pyramid. A story that earns every word. A reader who won't wait. Turns out the principles of good journalism map surprisingly well to the principles of good software.",
+    "featured": false
+  }
+]
