@@ -56,7 +56,7 @@
       { "label": "Editing", "type": "writing" },
       { "label": "Digital strategy", "type": "writing" }
     ],
-    "year": "2010–2016",
+    "year": "2010–2014",
     "projectType": "Journalism"
   },
   {
@@ -76,7 +76,27 @@
       { "label": "CSS", "type": "tech" },
       { "label": "JavaScript", "type": "tech" }
     ],
-    "year": "2025",
+    "year": "2026",
     "projectType": "Client project"
+  },
+  {
+    "id": "phillies-dashboard",
+    "title": "Phillies Dashboard",
+    "titleNoTransform": false,
+    "description": "A real-time dashboard for tracking Philadelphia Phillies games, built with Angular and the MLB Stats API. Features live score updates and a responsive design for mobile devices.",
+    "thumbnail": "/img/project-phillies.png",
+    "thumbnailAlt": "Screenshot of Phillies Dashboard app",
+    "link": "https://ryanschill.co/phillies-dashboard",
+    "externalLink": true,
+    "featured": false,
+    "ctaLabel": "Visit app",
+    "badge": null,
+    "tags": [
+      { "label": "Angular", "type": "tech" },
+      { "label": "TypeScript", "type": "tech" },
+      { "label": "TailwindCSS", "type": "tech" }
+    ],
+    "year": "2026",
+    "projectType": "Side project"
   }
 ]
