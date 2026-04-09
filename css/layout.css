@@ -362,7 +362,8 @@
   align-items: end;
 }
 
-@media (max-width: 640px) {
+/* Footer stacks at 768px — same breakpoint used consistently across all pages */
+@media (max-width: 768px) {
   .footer-inner {
     grid-template-columns: 1fr;
     gap: var(--space-6);

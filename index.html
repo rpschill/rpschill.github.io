@@ -73,9 +73,12 @@
       <div class="container">
         <div class="hero__inner">
           <div class="hero__content">
-            <span class="type-eyebrow">Front-end engineer · Author · Artist</span>
+            <span class="type-eyebrow">
+              <span class="accent-mark" aria-hidden="true"></span>
+              Front-end engineer · Author · Artist
+            </span>
             <h1 id="hero-heading" class="hero__headline">
-              Crafted
+              <span class="hero__headline-static">Crafted</span>
               <span
                 class="hero__rotator"
                 id="hero-rotator"
@@ -91,20 +94,15 @@
               <a href="/work/" class="btn btn--primary btn--arrow btn--lg">View my work</a>
               <a href="/writing/" class="btn btn--outline btn--lg">Read my writing</a>
             </div>
-            <div class="hero__meta">
-              <span class="tag tag--tech">Angular</span>
-              <span class="tag tag--tech">TypeScript</span>
-              <span class="tag tag--tech">AI-assisted dev</span>
-              <span class="tag tag--tech">10+ years</span>
-            </div>
           </div>
           <div class="hero__photo" aria-hidden="true">
+            <span class="hero__rs-deco">RS</span>
             <div class="hero__photo-frame">
               <img
                 src="/img/headshot.jpg"
                 alt="Ryan Schill"
-                width="480"
-                height="600"
+                width="520"
+                height="650"
                 loading="eager"
                 fetchpriority="high"
               >
@@ -122,171 +120,145 @@
           <span class="type-label">Selected work</span>
           <h2 id="work-heading">Things I've built.</h2>
         </header>
-        <div class="grid-portfolio" role="list">
+        <div class="work-showcase">
           <!-- GENERATED:home-project-cards -->
-          <article class="card card-project card--featured card--lift reveal-up" role="listitem">
-            <div class="card-project__media">
-              <img
-                src="/img/project-portfolio.png"
-                alt="Screenshot of ryanschill.co"
-                width="800"
-                height="450"
-                loading="lazy"
-              >
-              <span class="card-project__ai-badge">AI-assisted build</span>
-            </div>
-            <div class="card-project__body">
-              <p class="card-project__eyebrow">Personal project · 2025</p>
-              <h3 class="card-project__title">This website</h3>
-              <p class="card-project__desc">
-                A complete redesign built in collaboration with an AI — from the design system up. Vanilla HTML, CSS, and JavaScript. No framework, no build step. The process turned out to be something more interesting than I expected.
-              </p>
-              <div class="card-project__footer">
-                <div class="tags">
-                  <span class="tag tag--tech">HTML</span>
-                  <span class="tag tag--tech">CSS</span>
-                  <span class="tag tag--tech">JavaScript</span>
-                  <span class="tag tag--tech">Claude</span>
+          <article class="work-hero reveal-up" aria-labelledby="hero-project-portfolio">
+            <a href="/work/portfolio/" tabindex="-1" aria-hidden="true">
+              <div class="work-hero__media">
+                <img
+                  src="/img/project-portfolio.png"
+                  alt="Screenshot of ryanschill.co"
+                  width="1200"
+                  height="525"
+                  loading="lazy"
+                >
+                <span class="work-hero__badge">AI-assisted build</span>
+              </div>
+            </a>
+            <div class="work-hero__body">
+              <span class="work-hero__num" aria-hidden="true">01</span>
+              <div class="work-hero__content">
+                <p class="work-hero__eyebrow">Personal project · 2025</p>
+                <h3 id="hero-project-portfolio" class="work-hero__title">
+                  <a href="/work/portfolio/">This website</a>
+                </h3>
+                <p class="work-hero__desc">A complete redesign built in collaboration with an AI — from the design system up. Vanilla HTML, CSS, and JavaScript. No framework, no build step. The process turned out to be something more interesting than I expected.</p>
+                <div class="work-hero__footer">
+                  <div class="tags">
+                    <span class="tag tag--tech">HTML</span>
+                    <span class="tag tag--tech">CSS</span>
+                    <span class="tag tag--tech">JavaScript</span>
+                    <span class="tag tag--tech">Claude</span>
+                  </div>
+                  <a href="/work/portfolio/" class="btn btn--primary btn--arrow">Case study</a>
                 </div>
-                <a href="/work/portfolio/" class="btn btn--ghost btn--arrow btn--sm">Case study</a>
               </div>
             </div>
           </article>
 
-          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: 100ms">
-            <div class="card-project__media">
-              <img
-                src="/img/project-projectr.png"
-                alt="projectr task management app"
-                width="600"
-                height="338"
-                loading="lazy"
-              >
-            </div>
-            <div class="card-project__body">
-              <p class="card-project__eyebrow">Side project · 2026</p>
-              <h3 class="card-project__title"><span style="text-transform: none;">projectr v2 beta</span></h3>
-              <p class="card-project__desc">
-                A task and project management app for individuals and freelancers — re-built with Angular v19 and Firebase because I wanted to focus entirely on the front end. Built for myself, because I have ADHD. Currently in private beta testing, but sign up if you want to try it out.
-              </p>
-              <div class="card-project__footer">
-                <div class="tags">
-                  <span class="tag tag--tech">AngularJS</span>
-                  <span class="tag tag--tech">JavaScript</span>
-                  <span class="tag tag--tech">Firebase</span>
+          <div class="work-pair">
+            <article class="work-pair__item work-pair__item--image-lead reveal-up" aria-labelledby="pair-project-projectr-v2">
+              <a href="/work/projectr/" tabindex="-1" aria-hidden="true">
+                <div class="work-pair__media">
+                  <img
+                    src="/img/project-projectr-v2.png"
+                    alt="projectr v2 task management app"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  >
                 </div>
-                <a href="/work/projectr/" class="btn btn--ghost btn--arrow btn--sm">Visit app</a>
+              </a>
+              <div class="work-pair__body">
+                <p class="work-pair__eyebrow">Side project · 2026</p>
+                <h3 id="pair-project-projectr-v2" class="work-pair__title">
+                  <a href="/work/projectr/"><span style="text-transform: none;">projectr v2 beta</span></a>
+                </h3>
+                <p class="work-pair__desc">A task and project management app for individuals and freelancers — re-built with Angular v19 and Firebase because I wanted to focus entirely on the front end. Built for myself, because I have ADHD. Currently in private beta testing, but sign up if you want to try it out.</p>
+                <div class="work-pair__footer">
+                  <div class="tags">
+                    <span class="tag tag--tech">Angular</span>
+                    <span class="tag tag--tech">TypeScript</span>
+                    <span class="tag tag--tech">Firebase</span>
+                  </div>
+                  <a href="/work/projectr/" class="btn btn--ghost btn--arrow btn--sm">Visit app</a>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: 200ms">
-            <div class="card-project__media">
-              <img
-                src="/img/project-jjie.png"
-                alt="Juvenile Justice Information Exchange website"
-                width="600"
-                height="338"
-                loading="lazy"
-              >
-            </div>
-            <div class="card-project__body">
-              <p class="card-project__eyebrow">Journalism · 2010–2014</p>
-              <h3 class="card-project__title">Juvenile Justice Information Exchange</h3>
-              <p class="card-project__desc">
-                From intern reporter to managing editor — six years covering juvenile justice and child welfare nationally. Where writing and building first converged for me.
-              </p>
-              <div class="card-project__footer">
-                <div class="tags">
-                  <span class="tag tag--writing">Journalism</span>
-                  <span class="tag tag--writing">Editing</span>
-                  <span class="tag tag--writing">Digital strategy</span>
+            <article class="work-pair__item work-pair__item--text-lead reveal-up" style="--reveal-delay: 150ms" aria-labelledby="pair-project-vanessa-schill">
+              <a href="http://vanessaschill.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                <div class="work-pair__media">
+                  <img
+                    src="/img/project-vanessa.png"
+                    alt="Screenshot of vanessaschill.com"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  >
                 </div>
-                <a href="/work/jjie/" class="btn btn--ghost btn--arrow btn--sm">Read more</a>
+              </a>
+              <div class="work-pair__body">
+                <p class="work-pair__eyebrow">Client project · 2026</p>
+                <h3 id="pair-project-vanessa-schill" class="work-pair__title">
+                  <a href="http://vanessaschill.com" target="_blank" rel="noopener">Vanessa Schill</a>
+                </h3>
+                <p class="work-pair__desc">Portfolio site for a senior instructional designer and ATD Master Trainer. Features a CSS marquee ticker for scrolling skills, fully responsive layout, and a clean typographic system built without a framework.</p>
+                <div class="work-pair__footer">
+                  <div class="tags">
+                    <span class="tag tag--tech">HTML</span>
+                    <span class="tag tag--tech">CSS</span>
+                    <span class="tag tag--tech">JavaScript</span>
+                  </div>
+                  <a href="http://vanessaschill.com" target="_blank" rel="noopener" class="btn btn--ghost btn--arrow btn--sm">Visit site</a>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
-          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: 300ms">
-            <div class="card-project__media">
-              <img
-                src="/img/project-vanessa.png"
-                alt="Screenshot of vanessaschill.com"
-                width="600"
-                height="338"
-                loading="lazy"
-              >
-            </div>
-            <div class="card-project__body">
-              <p class="card-project__eyebrow">Client project · 2026</p>
-              <h3 class="card-project__title">Vanessa Schill</h3>
-              <p class="card-project__desc">
-                Portfolio site for a senior instructional designer and ATD Master Trainer. Features a CSS marquee ticker for scrolling skills, fully responsive layout, and a clean typographic system built without a framework.
-              </p>
-              <div class="card-project__footer">
-                <div class="tags">
-                  <span class="tag tag--tech">HTML</span>
-                  <span class="tag tag--tech">CSS</span>
-                  <span class="tag tag--tech">JavaScript</span>
-                </div>
-                <a href="http://vanessaschill.com" target="_blank" rel="noopener" class="btn btn--ghost btn--arrow btn--sm">Visit site</a>
-              </div>
-            </div>
-          </article>
+          <div class="work-secondary" role="list" aria-label="More projects">
+            <a href="/work/jjie/" class="work-secondary__item reveal-up">
+              <span class="work-secondary__num" aria-hidden="true">04</span>
+              <span class="work-secondary__info">
+                <span class="work-secondary__title">Juvenile Justice Information Exchange</span>
+                <span class="work-secondary__type">Journalism · 2010–2014</span>
+              </span>
+              <span class="work-secondary__tags" aria-hidden="true">
+                <span class="tag tag--writing">Journalism</span>
+                <span class="tag tag--writing">Editing</span>
+                <span class="tag tag--writing">Digital strategy</span>
+              </span>
+              <span class="work-secondary__arrow" aria-hidden="true">→</span>
+            </a>
 
-          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: 400ms">
-            <div class="card-project__media">
-              <img
-                src="/img/project-phillies.png"
-                alt="Screenshot of Phillies Dashboard app"
-                width="600"
-                height="338"
-                loading="lazy"
-              >
-            </div>
-            <div class="card-project__body">
-              <p class="card-project__eyebrow">Side project · 2026</p>
-              <h3 class="card-project__title">Phillies Dashboard</h3>
-              <p class="card-project__desc">
-                A real-time dashboard for tracking Philadelphia Phillies games, built with Angular and the MLB Stats API. Features live score updates and a responsive design for mobile devices.
-              </p>
-              <div class="card-project__footer">
-                <div class="tags">
-                  <span class="tag tag--tech">Angular</span>
-                  <span class="tag tag--tech">TypeScript</span>
-                  <span class="tag tag--tech">TailwindCSS</span>
-                </div>
-                <a href="https://ryanschill.co/phillies-dashboard" target="_blank" rel="noopener" class="btn btn--ghost btn--arrow btn--sm">Visit app</a>
-              </div>
-            </div>
-          </article>
+            <a href="https://ryanschill.co/phillies-dashboard" target="_blank" rel="noopener" class="work-secondary__item reveal-up" style="--reveal-delay: 100ms">
+              <span class="work-secondary__num" aria-hidden="true">05</span>
+              <span class="work-secondary__info">
+                <span class="work-secondary__title">Phillies Dashboard</span>
+                <span class="work-secondary__type">Side project · 2026</span>
+              </span>
+              <span class="work-secondary__tags" aria-hidden="true">
+                <span class="tag tag--tech">Angular</span>
+                <span class="tag tag--tech">TypeScript</span>
+                <span class="tag tag--tech">TailwindCSS</span>
+              </span>
+              <span class="work-secondary__arrow" aria-hidden="true">→</span>
+            </a>
 
-          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: 500ms">
-            <div class="card-project__media">
-              <img
-                src="/img/project-projectr.png"
-                alt="projectr task management app"
-                width="600"
-                height="338"
-                loading="lazy"
-              >
-            </div>
-            <div class="card-project__body">
-              <p class="card-project__eyebrow">Side project · 2016–2017</p>
-              <h3 class="card-project__title"><span style="text-transform: none;">projectr v1</span></h3>
-              <p class="card-project__desc">
-                A task and project management app for individuals and freelancers — built with AngularJS and Firebase because I wanted to focus entirely on the front end. Built for myself, because I have ADHD.
-              </p>
-              <div class="card-project__footer">
-                <div class="tags">
-                  <span class="tag tag--tech">AngularJS</span>
-                  <span class="tag tag--tech">JavaScript</span>
-                  <span class="tag tag--tech">Firebase</span>
-                </div>
-                <a href="/work/projectr/" class="btn btn--ghost btn--arrow btn--sm">Case study</a>
-              </div>
-            </div>
-          </article>
+            <a href="/work/projectr/" class="work-secondary__item reveal-up" style="--reveal-delay: 200ms">
+              <span class="work-secondary__num" aria-hidden="true">06</span>
+              <span class="work-secondary__info">
+                <span class="work-secondary__title">projectr v1</span>
+                <span class="work-secondary__type">Side project · 2016–2017</span>
+              </span>
+              <span class="work-secondary__tags" aria-hidden="true">
+                <span class="tag tag--tech">AngularJS</span>
+                <span class="tag tag--tech">JavaScript</span>
+                <span class="tag tag--tech">Firebase</span>
+              </span>
+              <span class="work-secondary__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
           <!-- /GENERATED:home-project-cards -->
         </div>
         <div class="section-footer">
@@ -305,7 +277,7 @@
           </div>
           <a href="/writing/" class="btn btn--ghost btn--arrow">All posts</a>
         </header>
-        <div class="grid-writing">
+        <div class="grid-writing grid-writing--home">
           <!-- GENERATED:home-post-cards -->
           <article class="card card-writing card--lift reveal-up">
             <p class="card-writing__meta">
@@ -373,15 +345,15 @@
             >
           </div>
           <div class="about-strip__content">
-            <span class="type-label" style="--mark-color: var(--ember-600)">About</span>
+            <span class="type-label">About</span>
             <h2 id="about-heading">I'm Ryan.</h2>
-            <p class="type-lead" style="color: var(--ink-700); margin-bottom: var(--space-6);">
+            <p class="type-lead">
               Senior front-end engineer by day. Author and visual artist by night. Journalist by training.
             </p>
-            <p style="color: var(--ink-700); margin-bottom: var(--space-8); line-height: 1.8; font-size: var(--scale-md);">
+            <p>
               I've spent a decade building front-end applications at companies like IBM, ADP, Vanguard, and NBCUniversal. Before that, I spent years writing, reporting on juvenile justice, editing and managing a newsroom, publishing fiction, and creating visual art and comics journalism. The two careers look different. The craft is the same.
             </p>
-            <a href="/about/" class="btn btn--outline" style="--btn-outline-border: var(--ink-600); --btn-outline-text: var(--ink-900); --btn-outline-bg-hover: rgba(255,255,255,0.08);">
+            <a href="/about/" class="btn btn--outline">
               Full story →
             </a>
           </div>

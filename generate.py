@@ -192,87 +192,141 @@ def render_work_cards(projects: list) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Home page project card renderers
+# Home page work showcase renderers (hero / pair / secondary tiers)
 # ---------------------------------------------------------------------------
 
-def render_home_project_card_featured(p: dict) -> str:
-    badge = (
-        f'\n              <span class="card-project__ai-badge">{p["badge"]}</span>'
+def render_home_work_hero(p: dict) -> str:
+    """Full-width cinematic hero — the flagship project."""
+    ext = ' target="_blank" rel="noopener"' if p.get("externalLink") else ""
+    badge_html = (
+        f'\n                <span class="work-hero__badge">{p["badge"]}</span>'
         if p.get("badge") else ""
     )
-    ext = ' target="_blank" rel="noopener"' if p.get("externalLink") else ""
     title_style = ' style="text-transform: none;"' if p.get("titleNoTransform") else ""
     title_inner = f'<span{title_style}>{p["title"]}</span>' if p.get("titleNoTransform") else p["title"]
 
-    return f"""          <article class="card card-project card--featured card--lift reveal-up" role="listitem">
-            <div class="card-project__media">
-              <img
-                src="{p['thumbnail']}"
-                alt="{p['thumbnailAlt']}"
-                width="800"
-                height="450"
-                loading="lazy"
-              >{badge}
-            </div>
-            <div class="card-project__body">
-              <p class="card-project__eyebrow">{p['projectType']} · {p['year']}</p>
-              <h3 class="card-project__title">{title_inner}</h3>
-              <p class="card-project__desc">
-                {p['description']}
-              </p>
-              <div class="card-project__footer">
-                <div class="tags">
-{tags_html(p['tags'], indent=18)}
+    return f"""          <article class="work-hero reveal-up" aria-labelledby="hero-project-{p['id']}">
+            <a href="{p['link']}"{ext} tabindex="-1" aria-hidden="true">
+              <div class="work-hero__media">
+                <img
+                  src="{p['thumbnail']}"
+                  alt="{p['thumbnailAlt']}"
+                  width="1200"
+                  height="525"
+                  loading="lazy"
+                >{badge_html}
+              </div>
+            </a>
+            <div class="work-hero__body">
+              <span class="work-hero__num" aria-hidden="true">01</span>
+              <div class="work-hero__content">
+                <p class="work-hero__eyebrow">{p['projectType']} · {p['year']}</p>
+                <h3 id="hero-project-{p['id']}" class="work-hero__title">
+                  <a href="{p['link']}"{ext}>{title_inner}</a>
+                </h3>
+                <p class="work-hero__desc">{p['description']}</p>
+                <div class="work-hero__footer">
+                  <div class="tags">
+{tags_html(p['tags'], indent=20)}
+                  </div>
+                  <a href="{p['link']}"{ext} class="btn btn--primary btn--arrow">{p['ctaLabel']}</a>
                 </div>
-                <a href="{p['link']}"{ext} class="btn btn--ghost btn--arrow btn--sm">{p['ctaLabel']}</a>
               </div>
             </div>
           </article>"""
 
 
-def render_home_project_card_secondary(p: dict, delay_ms: int) -> str:
+def render_home_work_pair_item(p: dict, variant: str, delay_ms: int) -> str:
+    """One item in the side-by-side pair. variant: 'image-lead' or 'text-lead'."""
     ext = ' target="_blank" rel="noopener"' if p.get("externalLink") else ""
     title_style = ' style="text-transform: none;"' if p.get("titleNoTransform") else ""
     title_inner = f'<span{title_style}>{p["title"]}</span>' if p.get("titleNoTransform") else p["title"]
+    delay_attr = f' style="--reveal-delay: {delay_ms}ms"' if delay_ms else ""
 
-    return f"""          <article class="card card-project card--secondary card--lift reveal-up" role="listitem" style="--reveal-delay: {delay_ms}ms">
-            <div class="card-project__media">
-              <img
-                src="{p['thumbnail']}"
-                alt="{p['thumbnailAlt']}"
-                width="600"
-                height="338"
-                loading="lazy"
-              >
-            </div>
-            <div class="card-project__body">
-              <p class="card-project__eyebrow">{p['projectType']} · {p['year']}</p>
-              <h3 class="card-project__title">{title_inner}</h3>
-              <p class="card-project__desc">
-                {p['description']}
-              </p>
-              <div class="card-project__footer">
-                <div class="tags">
-{tags_html(p['tags'], indent=18)}
+    return f"""            <article class="work-pair__item work-pair__item--{variant} reveal-up"{delay_attr} aria-labelledby="pair-project-{p['id']}">
+              <a href="{p['link']}"{ext} tabindex="-1" aria-hidden="true">
+                <div class="work-pair__media">
+                  <img
+                    src="{p['thumbnail']}"
+                    alt="{p['thumbnailAlt']}"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  >
                 </div>
-                <a href="{p['link']}"{ext} class="btn btn--ghost btn--arrow btn--sm">{p['ctaLabel']}</a>
+              </a>
+              <div class="work-pair__body">
+                <p class="work-pair__eyebrow">{p['projectType']} · {p['year']}</p>
+                <h3 id="pair-project-{p['id']}" class="work-pair__title">
+                  <a href="{p['link']}"{ext}>{title_inner}</a>
+                </h3>
+                <p class="work-pair__desc">{p['description']}</p>
+                <div class="work-pair__footer">
+                  <div class="tags">
+{tags_html(p['tags'], indent=20)}
+                  </div>
+                  <a href="{p['link']}"{ext} class="btn btn--ghost btn--arrow btn--sm">{p['ctaLabel']}</a>
+                </div>
               </div>
-            </div>
-          </article>"""
+            </article>"""
+
+
+def render_home_work_pair(projects: list) -> str:
+    """Two featured projects side by side — first is image-lead, second is text-lead."""
+    variants = ["image-lead", "text-lead"]
+    delays = [0, 150]
+    items = [
+        render_home_work_pair_item(p, variants[i], delays[i])
+        for i, p in enumerate(projects[:2])
+    ]
+    return (
+        "          <div class=\"work-pair\">\n"
+        + "\n\n".join(items)
+        + "\n          </div>"
+    )
+
+
+def render_home_work_secondary(projects: list) -> str:
+    """Compact typographic list for remaining projects."""
+    items = []
+    for i, p in enumerate(projects):
+        ext = ' target="_blank" rel="noopener"' if p.get("externalLink") else ""
+        num = str(i + 4).zfill(2)
+        delay_attr = f' style="--reveal-delay: {i * 100}ms"' if i > 0 else ""
+
+        items.append(
+            f"""            <a href="{p['link']}"{ext} class="work-secondary__item reveal-up"{delay_attr}>
+              <span class="work-secondary__num" aria-hidden="true">{num}</span>
+              <span class="work-secondary__info">
+                <span class="work-secondary__title">{p['title']}</span>
+                <span class="work-secondary__type">{p['projectType']} · {p['year']}</span>
+              </span>
+              <span class="work-secondary__tags" aria-hidden="true">
+{tags_html(p['tags'], indent=16)}
+              </span>
+              <span class="work-secondary__arrow" aria-hidden="true">→</span>
+            </a>"""
+        )
+
+    return (
+        "          <div class=\"work-secondary\" role=\"list\" aria-label=\"More projects\">\n"
+        + "\n\n".join(items)
+        + "\n          </div>"
+    )
 
 
 def render_home_project_cards(projects: list) -> str:
-    featured = [p for p in projects if p.get("featured")]
-    secondary = [p for p in projects if not p.get("featured")]
+    hero = [p for p in projects if p.get("homeDisplay") == "hero"]
+    pair = [p for p in projects if p.get("homeDisplay") == "pair"]
+    secondary = [p for p in projects if p.get("homeDisplay") == "secondary"]
 
     parts = []
-    for p in featured:
-        parts.append(render_home_project_card_featured(p))
-
-    delay = 100
-    for p in secondary:
-        parts.append(render_home_project_card_secondary(p, delay))
-        delay += 100
+    if hero:
+        parts.append(render_home_work_hero(hero[0]))
+    if pair:
+        parts.append(render_home_work_pair(pair))
+    if secondary:
+        parts.append(render_home_work_secondary(secondary))
 
     return "\n\n".join(parts)
 

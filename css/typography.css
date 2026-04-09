@@ -95,7 +95,8 @@ h6 { font-size: var(--scale-md);  line-height: 1.5;  font-weight: 600; }
   display: block;
   width: 2rem;
   height: 1px;
-  background: var(--color-accent);
+  /* Allow per-instance override via --mark-color custom property */
+  background: var(--mark-color, var(--color-accent));
   flex-shrink: 0;
 }
 
