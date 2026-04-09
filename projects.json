@@ -8,6 +8,7 @@
     "link": "/work/portfolio/",
     "externalLink": false,
     "featured": true,
+    "homeDisplay": "hero",
     "ctaLabel": "Case study",
     "badge": "AI-assisted build",
     "tags": [
@@ -24,40 +25,21 @@
     "title": "projectr v2 beta",
     "titleNoTransform": true,
     "description": "A task and project management app for individuals and freelancers — re-built with Angular v19 and Firebase because I wanted to focus entirely on the front end. Built for myself, because I have ADHD. Currently in private beta testing, but sign up if you want to try it out.",
-    "thumbnail": "/img/project-projectr.png",
-    "thumbnailAlt": "projectr task management app",
+    "thumbnail": "/img/project-projectr-v2.png",
+    "thumbnailAlt": "projectr v2 task management app",
     "link": "/work/projectr/",
     "externalLink": false,
     "featured": false,
+    "homeDisplay": "pair",
     "ctaLabel": "Visit app",
     "badge": null,
     "tags": [
-      { "label": "AngularJS", "type": "tech" },
-      { "label": "JavaScript", "type": "tech" },
+      { "label": "Angular", "type": "tech" },
+      { "label": "TypeScript", "type": "tech" },
       { "label": "Firebase", "type": "tech" }
     ],
     "year": "2026",
     "projectType": "Side project"
-  },
-  {
-    "id": "jjie",
-    "title": "Juvenile Justice Information Exchange",
-    "titleNoTransform": false,
-    "description": "From intern reporter to managing editor — six years covering juvenile justice and child welfare nationally. Where writing and building first converged for me.",
-    "thumbnail": "/img/project-jjie.png",
-    "thumbnailAlt": "Juvenile Justice Information Exchange website",
-    "link": "/work/jjie/",
-    "externalLink": false,
-    "featured": false,
-    "ctaLabel": "Read more",
-    "badge": null,
-    "tags": [
-      { "label": "Journalism", "type": "writing" },
-      { "label": "Editing", "type": "writing" },
-      { "label": "Digital strategy", "type": "writing" }
-    ],
-    "year": "2010–2014",
-    "projectType": "Journalism"
   },
   {
     "id": "vanessa-schill",
@@ -69,6 +51,7 @@
     "link": "http://vanessaschill.com",
     "externalLink": true,
     "featured": false,
+    "homeDisplay": "pair",
     "ctaLabel": "Visit site",
     "badge": null,
     "tags": [
@@ -80,6 +63,27 @@
     "projectType": "Client project"
   },
   {
+    "id": "jjie",
+    "title": "Juvenile Justice Information Exchange",
+    "titleNoTransform": false,
+    "description": "From intern reporter to managing editor — six years covering juvenile justice and child welfare nationally. Where writing and building first converged for me.",
+    "thumbnail": "/img/project-jjie.png",
+    "thumbnailAlt": "Juvenile Justice Information Exchange website",
+    "link": "/work/jjie/",
+    "externalLink": false,
+    "featured": false,
+    "homeDisplay": "secondary",
+    "ctaLabel": "Read more",
+    "badge": null,
+    "tags": [
+      { "label": "Journalism", "type": "writing" },
+      { "label": "Editing", "type": "writing" },
+      { "label": "Digital strategy", "type": "writing" }
+    ],
+    "year": "2010–2014",
+    "projectType": "Journalism"
+  },
+  {
     "id": "phillies-dashboard",
     "title": "Phillies Dashboard",
     "titleNoTransform": false,
@@ -89,6 +93,7 @@
     "link": "https://ryanschill.co/phillies-dashboard",
     "externalLink": true,
     "featured": false,
+    "homeDisplay": "secondary",
     "ctaLabel": "Visit app",
     "badge": null,
     "tags": [
@@ -109,6 +114,7 @@
     "link": "/work/projectr/",
     "externalLink": false,
     "featured": false,
+    "homeDisplay": "secondary",
     "ctaLabel": "Case study",
     "badge": null,
     "tags": [

@@ -73,9 +73,12 @@
       <div class="container">
         <div class="hero__inner">
           <div class="hero__content">
-            <span class="type-eyebrow">Front-end engineer · Author · Artist</span>
+            <span class="type-eyebrow">
+              <span class="accent-mark" aria-hidden="true"></span>
+              Front-end engineer · Author · Artist
+            </span>
             <h1 id="hero-heading" class="hero__headline">
-              Crafted
+              <span class="hero__headline-static">Crafted</span>
               <span
                 class="hero__rotator"
                 id="hero-rotator"
@@ -91,20 +94,15 @@
               <a href="/work/" class="btn btn--primary btn--arrow btn--lg">View my work</a>
               <a href="/writing/" class="btn btn--outline btn--lg">Read my writing</a>
             </div>
-            <div class="hero__meta">
-              <span class="tag tag--tech">Angular</span>
-              <span class="tag tag--tech">TypeScript</span>
-              <span class="tag tag--tech">AI-assisted dev</span>
-              <span class="tag tag--tech">10+ years</span>
-            </div>
           </div>
           <div class="hero__photo" aria-hidden="true">
+            <span class="hero__rs-deco">RS</span>
             <div class="hero__photo-frame">
               <img
                 src="/img/headshot.jpg"
                 alt="Ryan Schill"
-                width="480"
-                height="600"
+                width="520"
+                height="650"
                 loading="eager"
                 fetchpriority="high"
               >
@@ -122,7 +120,7 @@
           <span class="type-label">Selected work</span>
           <h2 id="work-heading">Things I've built.</h2>
         </header>
-        <div class="grid-portfolio" role="list">
+        <div class="work-showcase">
           <!-- GENERATED:home-project-cards -->
           <!-- /GENERATED:home-project-cards -->
         </div>
@@ -142,7 +140,7 @@
           </div>
           <a href="/writing/" class="btn btn--ghost btn--arrow">All posts</a>
         </header>
-        <div class="grid-writing">
+        <div class="grid-writing grid-writing--home">
           <!-- GENERATED:home-post-cards -->
           <!-- /GENERATED:home-post-cards -->
         </div>
@@ -163,15 +161,15 @@
             >
           </div>
           <div class="about-strip__content">
-            <span class="type-label" style="--mark-color: var(--ember-600)">About</span>
+            <span class="type-label">About</span>
             <h2 id="about-heading">I'm Ryan.</h2>
-            <p class="type-lead" style="color: var(--ink-700); margin-bottom: var(--space-6);">
+            <p class="type-lead">
               Senior front-end engineer by day. Author and visual artist by night. Journalist by training.
             </p>
-            <p style="color: var(--ink-700); margin-bottom: var(--space-8); line-height: 1.8; font-size: var(--scale-md);">
+            <p>
               I've spent a decade building front-end applications at companies like IBM, ADP, Vanguard, and NBCUniversal. Before that, I spent years writing, reporting on juvenile justice, editing and managing a newsroom, publishing fiction, and creating visual art and comics journalism. The two careers look different. The craft is the same.
             </p>
-            <a href="/about/" class="btn btn--outline" style="--btn-outline-border: var(--ink-600); --btn-outline-text: var(--ink-900); --btn-outline-bg-hover: rgba(255,255,255,0.08);">
+            <a href="/about/" class="btn btn--outline">
               Full story →
             </a>
           </div>
