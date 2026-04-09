@@ -28,7 +28,7 @@
     background var(--duration-fast) var(--ease-out-expo),
     color var(--duration-fast) var(--ease-out-expo),
     border-color var(--duration-fast) var(--ease-out-expo),
-    transform var(--duration-fast) var(--ease-spring),
+    transform var(--duration-fast) var(--ease-out-expo),
     box-shadow var(--duration-fast) var(--ease-out-expo);
 }
 
@@ -461,12 +461,34 @@
       width var(--duration-fast) var(--ease-out-expo),
       height var(--duration-fast) var(--ease-out-expo),
       background var(--duration-fast) var(--ease-out-expo);
+    /* multiply: tints content in light mode; screen: visible in dark mode */
     mix-blend-mode: multiply;
+  }
+
+  /* Dark mode: multiply disappears on dark backgrounds; use screen instead */
+  [data-theme="dark"] .cursor {
+    mix-blend-mode: screen;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :not([data-theme="light"]) .cursor {
+      mix-blend-mode: screen;
+    }
   }
 
   .cursor--large {
     width: 40px;
     height: 40px;
-    background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+    background: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  }
+
+  [data-theme="dark"] .cursor--large {
+    background: color-mix(in srgb, var(--color-accent) 55%, transparent);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :not([data-theme="light"]) .cursor--large {
+      background: color-mix(in srgb, var(--color-accent) 55%, transparent);
+    }
   }
 }
