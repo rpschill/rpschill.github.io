@@ -1,0 +1,588 @@
+/* =============================================================
+   writing-portfolio.css — Technical Writing Portfolio Page
+   ryanschill.co
+
+   Supplements main.css with page-specific layout and components.
+   References Layer 2/3 tokens only — no hardcoded values.
+   ============================================================= */
+
+
+/* =============================================================
+   SHARED: NAV / THEME TOGGLE / FOOTER
+   (Mirrors about.css — required on standalone pages)
+   ============================================================= */
+
+.nav-actions { display: flex; align-items: center; gap: var(--space-3); }
+
+.theme-toggle {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-default);
+  background: transparent;
+  color: var(--color-text-secondary);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition:
+    color var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-fast) var(--ease-out-expo);
+}
+.theme-toggle:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+  background: var(--color-bg-subtle);
+}
+.theme-toggle__icon--light { display: none; }
+.theme-toggle__icon--dark  { display: flex; }
+[data-theme="dark"] .theme-toggle__icon--light { display: flex; }
+[data-theme="dark"] .theme-toggle__icon--dark  { display: none; }
+@media (prefers-color-scheme: dark) {
+  :not([data-theme="light"]) .theme-toggle__icon--light { display: flex; }
+  :not([data-theme="light"]) .theme-toggle__icon--dark  { display: none; }
+}
+
+.footer__brand { display: flex; flex-direction: column; gap: var(--space-3); }
+.footer__logo { font-family: var(--font-display); font-size: var(--scale-xl); font-weight: 700; color: var(--color-text-primary); transition: color var(--duration-fast) var(--ease-out-expo); }
+.footer__logo:hover { color: var(--color-accent); }
+.footer__tagline { font-family: var(--font-display); font-style: italic; font-size: var(--scale-sm); color: var(--color-text-secondary); }
+.footer__credit { font-family: var(--font-mono); font-size: var(--scale-xs); color: var(--color-text-muted); }
+.footer__credit a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+.footer__copy { font-family: var(--font-mono); font-size: var(--scale-2xs); color: var(--color-text-muted); letter-spacing: 0.05em; }
+.footer__nav { display: flex; gap: var(--space-12); }
+.footer__nav-col { display: flex; flex-direction: column; gap: var(--space-3); }
+.footer__nav-label { font-family: var(--font-mono); font-size: var(--scale-2xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-tertiary); }
+.footer__nav-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.footer__nav-col a { font-size: var(--scale-sm); color: var(--color-text-secondary); transition: color var(--duration-fast) var(--ease-out-expo); }
+.footer__nav-col a:hover { color: var(--color-text-primary); }
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer__nav { gap: var(--space-8); flex-wrap: wrap; }
+}
+
+
+/* =============================================================
+   HERO
+   ============================================================= */
+
+.wp-hero {
+  padding-bottom: var(--space-8);
+}
+
+.wp-hero__title {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-6);
+  max-width: 18ch;
+}
+
+.wp-hero__lead {
+  max-width: 56ch;
+  margin-bottom: var(--space-10);
+}
+
+.wp-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.wp-hero__credential {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.wp-hero__credential-label {
+  font-size: var(--scale-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.wp-hero__credential-sub {
+  font-family: var(--font-mono);
+  font-size: var(--scale-2xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}
+
+
+/* =============================================================
+   SHARED SECTION HEADER
+   ============================================================= */
+
+.wp-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.wp-section-header--solo {
+  flex-direction: column;
+  max-width: 56ch;
+}
+
+.wp-section-intro {
+  margin-top: var(--space-5);
+  color: var(--color-text-secondary);
+  font-size: var(--scale-md);
+  line-height: 1.7;
+  max-width: 52ch;
+}
+
+.wp-spec-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--scale-xs);
+  color: var(--color-text-muted);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  white-space: nowrap;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+
+/* =============================================================
+   EMCIEN PIECES GRID
+   ============================================================= */
+
+.wp-pieces {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.wp-piece {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.wp-piece__badge {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-subtle);
+}
+
+.wp-piece__format {
+  font-family: var(--font-mono);
+  font-size: var(--scale-2xs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-writing);
+}
+
+.wp-piece__body {
+  padding: var(--space-5) var(--space-6);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.wp-piece__title {
+  font-family: var(--font-display);
+  font-size: var(--scale-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.02em;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.wp-piece:hover .wp-piece__title {
+  color: var(--color-writing);
+}
+
+.wp-piece__desc {
+  font-size: var(--scale-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  flex: 1;
+  margin: 0;
+}
+
+.wp-piece__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.wp-piece__footer {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+@media (max-width: 900px) {
+  .wp-pieces {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =============================================================
+   TAGS
+   Supplement components.css tag styles
+   ============================================================= */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25em 0.75em;
+  font-family: var(--font-mono);
+  font-size: var(--scale-2xs);
+  letter-spacing: 0.06em;
+  border-radius: var(--radius-full);
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  border: 1px solid var(--tag-border);
+  white-space: nowrap;
+}
+
+.tag--tech {
+  background: var(--tag-tech-bg);
+  color: var(--tag-tech-color);
+  border-color: transparent;
+}
+
+.tag--writing {
+  background: var(--tag-writing-bg);
+  color: var(--tag-writing-color);
+  border-color: transparent;
+}
+
+
+/* =============================================================
+   COMICS JOURNALISM FEATURE
+   ============================================================= */
+
+.wp-feature {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.wp-feature__lead {
+  font-family: var(--font-display);
+  font-size: var(--scale-xl);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.wp-feature__prose {
+  margin-bottom: var(--space-6);
+}
+
+.wp-feature__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.wp-feature__actions {
+  display: flex;
+  gap: var(--space-4);
+}
+
+/* Aside */
+.wp-feature__aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-8));
+}
+
+.wp-feature__callout {
+  background: var(--color-bg-writing);
+  border-radius: var(--card-radius);
+  padding: var(--space-6);
+  border-left: 3px solid var(--color-writing);
+}
+
+.wp-feature__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--scale-md);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-4) 0;
+  letter-spacing: -0.01em;
+}
+
+.wp-feature__callout-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.wp-feature__callout-label {
+  font-family: var(--font-mono);
+  font-size: var(--scale-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-writing);
+}
+
+.wp-feature__meta-block {
+  background: var(--color-bg-subtle);
+  border-radius: var(--card-radius);
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.wp-feature__meta-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: var(--space-3);
+  align-items: baseline;
+}
+
+.wp-feature__meta-key {
+  font-family: var(--font-mono);
+  font-size: var(--scale-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.wp-feature__meta-val {
+  font-size: var(--scale-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .wp-feature {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .wp-feature__aside {
+    position: static;
+  }
+}
+
+
+/* =============================================================
+   VIDEO GRID
+   ============================================================= */
+
+.wp-videos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.wp-video {
+  padding: 0;
+  overflow: hidden;
+}
+
+.wp-video__embed-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--color-bg-inverse);
+  overflow: hidden;
+}
+
+.wp-video__embed-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.wp-video__body {
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.wp-video__title {
+  font-family: var(--font-body);
+  font-size: var(--scale-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.wp-video__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .wp-videos {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =============================================================
+   CASE STUDIES
+   ============================================================= */
+
+.wp-case-studies {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.wp-case {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.wp-case__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.wp-case__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--scale-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.wp-case__title {
+  font-family: var(--font-display);
+  font-size: var(--scale-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.025em;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.wp-case:hover .wp-case__title {
+  color: var(--color-accent);
+}
+
+.wp-case__badge {
+  flex-shrink: 0;
+}
+
+.wp-case__desc {
+  font-size: var(--scale-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  flex: 1;
+  margin: 0;
+}
+
+.wp-case__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.wp-case__footer {
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+@media (max-width: 768px) {
+  .wp-case-studies {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =============================================================
+   LECTURE STRIP
+   ============================================================= */
+
+.wp-lecture-section {
+  padding-block: clamp(var(--space-10), 6vw, var(--space-16));
+}
+
+.wp-lecture {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.wp-lecture__title {
+  font-family: var(--font-display);
+  font-size: var(--scale-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.025em;
+}
+
+.wp-lecture__desc {
+  font-size: var(--scale-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 48ch;
+  margin: 0;
+}
+
+.wp-lecture__action {
+  flex-shrink: 0;
+}
+
+
+/* =============================================================
+   CTA STRIP
+   (Reuses .about-cta from about.css — defined here for portability)
+   ============================================================= */
+
+.about-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.about-cta h2 {
+  margin-top: var(--space-3);
+  margin-bottom: 0;
+}
+
+.about-cta__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
