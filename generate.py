@@ -76,6 +76,29 @@ def tags_html(tags: list, indent: int = 0) -> str:
     return "\n".join(spans)
 
 
+def build_cta_pair(primary_href: str, primary_label: str, ext: str,
+                   primary_class: str, p: dict, secondary_class: str) -> str:
+    """
+    Returns a CTA string — either a single primary link, or a flex-wrapped
+    pair when the project has an appLink defined.
+    """
+    primary = (
+        f'<a href="{primary_href}"{ext} class="{primary_class}">'
+        f'{primary_label}</a>'
+    )
+    if not p.get("appLink"):
+        return primary
+    app_label = p.get("appLinkLabel", "Visit app")
+    secondary = (
+        f'<a href="{p["appLink"]}" target="_blank" rel="noopener" '
+        f'class="{secondary_class}">{app_label}</a>'
+    )
+    return (
+        f'<div style="display: flex; align-items: center; gap: var(--space-2);">'
+        f'\n              {primary}\n              {secondary}\n            </div>'
+    )
+
+
 # ---------------------------------------------------------------------------
 # Work page card renderers
 # ---------------------------------------------------------------------------
@@ -88,6 +111,15 @@ def render_work_card_featured(p: dict) -> str:
     ext = ' target="_blank" rel="noopener"' if p.get("externalLink") else ""
     title_style = ' style="text-transform: none;"' if p.get("titleNoTransform") else ""
     title_inner = f'<span{title_style}>{p["title"]}</span>' if p.get("titleNoTransform") else p["title"]
+
+    cta_html = build_cta_pair(
+        primary_href=p["link"],
+        primary_label=p["ctaLabel"],
+        ext=ext,
+        primary_class="work-card__cta btn btn--primary btn--arrow btn--sm",
+        p=p,
+        secondary_class="btn btn--ghost btn--arrow btn--sm",
+    )
 
     return f"""        <article class="work-card work-card--featured reveal-up">
           <a href="{p['link']}" class="work-card__link" aria-label="View case study: {p['title']}"{ext}>
@@ -116,9 +148,7 @@ def render_work_card_featured(p: dict) -> str:
               <div class="tags">
 {tags_html(p['tags'], indent=16)}
               </div>
-              <a href="{p['link']}"{ext} class="work-card__cta btn btn--primary btn--arrow btn--sm">
-                {p['ctaLabel']}
-              </a>
+              {cta_html}
             </div>
           </div>
         </article>"""
@@ -205,6 +235,17 @@ def render_home_work_hero(p: dict) -> str:
     title_style = ' style="text-transform: none;"' if p.get("titleNoTransform") else ""
     title_inner = f'<span{title_style}>{p["title"]}</span>' if p.get("titleNoTransform") else p["title"]
 
+    # work-hero__footer is gap-based flex; a second button flows naturally as a sibling
+    if p.get("appLink"):
+        app_label = p.get("appLinkLabel", "Visit app")
+        cta_html = (
+            f'<a href="{p["link"]}"{ext} class="btn btn--primary btn--arrow">{p["ctaLabel"]}</a>\n'
+            f'                  <a href="{p["appLink"]}" target="_blank" rel="noopener" '
+            f'class="btn btn--ghost btn--arrow">{app_label}</a>'
+        )
+    else:
+        cta_html = f'<a href="{p["link"]}"{ext} class="btn btn--primary btn--arrow">{p["ctaLabel"]}</a>'
+
     return f"""          <article class="work-hero reveal-up" aria-labelledby="hero-project-{p['id']}">
             <a href="{p['link']}"{ext} tabindex="-1" aria-hidden="true">
               <div class="work-hero__media">
@@ -229,7 +270,7 @@ def render_home_work_hero(p: dict) -> str:
                   <div class="tags">
 {tags_html(p['tags'], indent=20)}
                   </div>
-                  <a href="{p['link']}"{ext} class="btn btn--primary btn--arrow">{p['ctaLabel']}</a>
+                  {cta_html}
                 </div>
               </div>
             </div>

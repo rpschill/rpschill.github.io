@@ -1,5 +1,28 @@
 [
   {
+    "id": "tilled",
+    "title": "Tilled",
+    "description": "A task management app built for people whose brains work differently. What happens when a developer with ADHD spends a decade deciding the tools don't fit, then builds the one that does.",
+    "thumbnail": "/img/project-tilled.png",
+    "thumbnailAlt": "Tilled task management app interface",
+    "link": "/work/tilled/",
+    "externalLink": false,
+    "featured": true,
+    "homeDisplay": "hero",
+    "ctaLabel": "Case study",
+    "appLink": "https://tilled.earth",
+    "appLinkLabel": "Visit Tilled",
+    "badge": "AI-assisted build",
+    "tags": [
+      { "label": "Angular", "type": "tech" },
+      { "label": "TypeScript", "type": "tech" },
+      { "label": "Firebase", "type": "tech" },
+      { "label": "SCSS", "type": "tech" }
+    ],
+    "year": "2026",
+    "projectType": "Side project"
+  },
+  {
     "id": "portfolio",
     "title": "This website",
     "description": "A complete redesign built in collaboration with an AI — from the design system up. Vanilla HTML, CSS, and JavaScript. No framework, no build step. The process turned out to be something more interesting than I expected.",
@@ -7,8 +30,8 @@
     "thumbnailAlt": "Screenshot of ryanschill.co",
     "link": "/work/portfolio/",
     "externalLink": false,
-    "featured": true,
-    "homeDisplay": "hero",
+    "featured": false,
+    "homeDisplay": "pair",
     "ctaLabel": "Case study",
     "badge": "AI-assisted build",
     "tags": [
@@ -19,27 +42,6 @@
     ],
     "year": "2025",
     "projectType": "Personal project"
-  },
-  {
-    "id": "projectr-v2",
-    "title": "projectr v2 beta",
-    "titleNoTransform": true,
-    "description": "A task and project management app for individuals and freelancers — re-built with Angular v19 and Firebase because I wanted to focus entirely on the front end. Built for myself, because I have ADHD. Currently in private beta testing, but sign up if you want to try it out.",
-    "thumbnail": "/img/project-projectr-v2.png",
-    "thumbnailAlt": "projectr v2 task management app",
-    "link": "/work/projectr/",
-    "externalLink": false,
-    "featured": false,
-    "homeDisplay": "pair",
-    "ctaLabel": "Visit app",
-    "badge": null,
-    "tags": [
-      { "label": "Angular", "type": "tech" },
-      { "label": "TypeScript", "type": "tech" },
-      { "label": "Firebase", "type": "tech" }
-    ],
-    "year": "2026",
-    "projectType": "Side project"
   },
   {
     "id": "vanessa-schill",
@@ -114,7 +116,6 @@
     "link": "/work/projectr/",
     "externalLink": false,
     "featured": false,
-    "homeDisplay": "secondary",
     "ctaLabel": "Case study",
     "badge": null,
     "tags": [
